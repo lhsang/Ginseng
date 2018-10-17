@@ -23,7 +23,7 @@ public class RoleDaoImpl implements RoleDao {
 		Session session=sessionFactory.getCurrentSession();
 		String sql="from roles";
 		
-		return session.createQuery(sql).getResultList();
+		return session.createQuery(sql).list();
 	}
 	
 	public Role findOneById(int id) {

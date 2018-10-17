@@ -1,9 +1,9 @@
 package com.lhsang.dashboard.configuration;
-
+ 
 import java.util.Properties;
-
+ 
 import javax.sql.DataSource;
-
+ 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -22,9 +22,9 @@ import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-
-
+ 
+ 
+ 
 @Configuration
 @ComponentScan({ "com.lhsang.dashboard" })
 @EnableTransactionManagement
@@ -33,8 +33,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class HibernateConfiguration {
     @Autowired
     private Environment environment;
-
+ 
     @Bean
+    @Primary
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 	    LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
 	    entityManagerFactory.setDataSource(dataSource());
@@ -46,7 +47,6 @@ public class HibernateConfiguration {
     }
     
     @Bean
-    @Primary
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
@@ -58,10 +58,10 @@ public class HibernateConfiguration {
     @Bean
     public DataSource dataSource(){
 	    DriverManagerDataSource dataSource = new DriverManagerDataSource();
-	    dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-	    dataSource.setUrl("jdbc:mysql://localhost:3306/kgs_db?characterEncoding=UTF-8");
-	    dataSource.setUsername("root");
-	    dataSource.setPassword("1234");
+	    dataSource.setDriverClassName(environment.getProperty("jdbc.driverClassName"));
+	    dataSource.setUrl(environment.getProperty("jdbc.url.online"));
+	    dataSource.setUsername(environment.getProperty("jdbc.username.online"));
+	    dataSource.setPassword(environment.getProperty("jdbc.password.online"));
 	    return dataSource;
     }
     
@@ -89,5 +89,5 @@ public class HibernateConfiguration {
 	    txManager.setSessionFactory(sessionFactory);
 	    return txManager;
     }
-
+ 
 }
