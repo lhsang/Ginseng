@@ -8,12 +8,23 @@
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/WEB-INF/views/tiles/layouts/footer.jsp" />
 	</definition>
-
-	<definition name="login" extends="mainLayout">
+	
+	<definition name="blankLayout" template="/WEB-INF/views/tiles/layouts/main.jsp">
+		<put-attribute name="header" value="" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="" />
+	</definition>
+	
+	<definition name="hello" extends="mainLayout">
 		<put-attribute name="body" value="/WEB-INF/views/pages/index.jsp" />
 	</definition>
-
+	
+	<definition name="login" extends="blankLayout">
+		<put-attribute name="body" value="/WEB-INF/views/pages/login/login.jsp" />
+	</definition>
   
-
+	<definition name="home" extends="mainLayout">
+		<put-attribute name="body" value="/WEB-INF/views/pages/index.jsp" />
+	</definition>
 
 </tiles-definitions>

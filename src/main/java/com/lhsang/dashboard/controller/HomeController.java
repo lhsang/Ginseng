@@ -23,13 +23,12 @@ public class HomeController {
 	//@RequestMapping(value = "", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE })
 	//@JsonIgnore
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public ModelAndView hello() {
-		ModelAndView model = new ModelAndView();
+	public String hello() {
+		
 		List<Role>list= roleService.findAll();
 		for(Role x: list) {
 			System.out.println(x.getName());
 		}
-		model.setViewName("login");
-    	return model;
+		return "login";
 	}
 }
