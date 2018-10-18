@@ -33,7 +33,14 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class HibernateConfiguration {
     @Autowired
     private Environment environment;
- 
+    
+    //String db="online";
+	String db="offline";
+    
+    	/*    	
+    	 * Edit database infomation in src/main/resource/application.properties
+    	 * */
+    
     @Bean
     @Primary
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
@@ -59,9 +66,10 @@ public class HibernateConfiguration {
     public DataSource dataSource(){
 	    DriverManagerDataSource dataSource = new DriverManagerDataSource();
 	    dataSource.setDriverClassName(environment.getProperty("jdbc.driverClassName"));
-	    dataSource.setUrl(environment.getProperty("jdbc.url.online"));
-	    dataSource.setUsername(environment.getProperty("jdbc.username.online"));
-	    dataSource.setPassword(environment.getProperty("jdbc.password.online"));
+
+	    dataSource.setUrl(environment.getProperty("jdbc.url."+db));
+	    dataSource.setUsername(environment.getProperty("jdbc.username."+db));
+	    dataSource.setPassword(environment.getProperty("jdbc.password."+db));
 	    return dataSource;
     }
     
