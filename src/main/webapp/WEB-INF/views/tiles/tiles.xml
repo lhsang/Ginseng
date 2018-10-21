@@ -11,6 +11,7 @@
 	
 	<definition name="blankLayout" template="/WEB-INF/views/tiles/layouts/main.jsp">
 		<put-attribute name="header" value="" />
+		<put-attribute name="slide" value="" />
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="" />
 	</definition>
@@ -24,7 +25,8 @@
 	</definition>
   
 	<definition name="home" extends="mainLayout">
-		<put-attribute name="body" value="/WEB-INF/views/pages/index.jsp" />
+		<put-attribute name="slide" value="/WEB-INF/views/tiles/layouts/slide.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/pages/home/index.jsp" />
 	</definition>
 
 </tiles-definitions>

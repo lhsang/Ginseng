@@ -10,7 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
 @Entity(name="users")
@@ -18,7 +17,7 @@ public class User {
 	@Id
 	int id;
 	
-	@Column(name="username")
+	@Column(name="username",nullable = false, unique = true)
 	String userName;
 	
 	String password;
