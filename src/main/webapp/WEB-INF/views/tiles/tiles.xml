@@ -29,4 +29,21 @@
 		<put-attribute name="body" value="/WEB-INF/views/pages/home/index.jsp" />
 	</definition>
 
+	<definition name="admin" extends="blankLayout">
+		<put-attribute name="body" value="/WEB-INF/views/pages/admin/admin.jsp" />
+	</definition>
+	
+	<definition name="403" extends="blankLayout">
+		<put-attribute name="body" value="/WEB-INF/views/pages/error/403.jsp" />
+	</definition>
+	
+	<definition name="login_fail" extends="blankLayout">
+		<put-attribute name="body" value="/WEB-INF/views/pages/error/login_fail.jsp" />
+	</definition>
+	
+	
+	<definition name="add_user_form" extends="blankLayout">
+		<put-attribute name="body" value="/WEB-INF/views/pages/admin/add_user.jsp" />
+	</definition>
+	
 </tiles-definitions>

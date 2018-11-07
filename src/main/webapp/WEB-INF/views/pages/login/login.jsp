@@ -21,8 +21,8 @@
 				<div class="login100-pic js-tilt" data-tilt>
 					<img src="<c:url value='/static/images/img-01.png' />" alt="IMG">
 				</div>
-
-				<form class="login100-form validate-form" method="POST" action="/Ginseng/account/login">
+				
+				<form name='f' class="login100-form validate-form"   action="<c:url value="/j_spring_security_check"></c:url>" method="POST">
 					<span class="login100-form-title">
 						Member Login
 					</span>
