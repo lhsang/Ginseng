@@ -22,6 +22,7 @@
 					<img src="<c:url value='/static/images/img-01.png' />" alt="IMG">
 				</div>
 				
+				
 				<form name='f' class="login100-form validate-form"   action="<c:url value="/j_spring_security_check"></c:url>" method="POST">
 					<span class="login100-form-title">
 						Member Login
@@ -47,6 +48,12 @@
 						<input class="login100-form-btn" type="submit" value="Login">
 					</div>
 
+					<div class="card-text" style="background: #f2dede;color: #ff0000;margin-top:10px;">
+						<c:if test="${not empty error}">
+							<div class="error">${error}</div>
+						</c:if>			
+					</div>
+					
 					<div class="text-center p-t-12">
 						<span class="txt1">
 							Forgot
@@ -63,14 +70,10 @@
 						</a>
 					</div>
 				</form>
+				
 			</div>
 		</div>
 	</div>
 	
-	
-
-	
-
-
 </body>
 </html>

@@ -2,7 +2,8 @@
 <!DOCTYPE tiles-definitions PUBLIC  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">  
 
 <tiles-definitions>  
- 
+ 	
+	<!--  	Start template -->
 	<definition name="mainLayout" template="/WEB-INF/views/tiles/layouts/main.jsp">
 		<put-attribute name="header" value="/WEB-INF/views/tiles/layouts/header.jsp" />
 		<put-attribute name="body" value="" />
@@ -15,6 +16,8 @@
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="" />
 	</definition>
+	
+	<!--  	End template -->
 	
 	<definition name="hello" extends="mainLayout">
 		<put-attribute name="body" value="/WEB-INF/views/pages/index.jsp" />
@@ -33,17 +36,24 @@
 		<put-attribute name="body" value="/WEB-INF/views/pages/admin/admin.jsp" />
 	</definition>
 	
-	<definition name="403" extends="blankLayout">
-		<put-attribute name="body" value="/WEB-INF/views/pages/error/403.jsp" />
-	</definition>
-	
-	<definition name="login_fail" extends="blankLayout">
-		<put-attribute name="body" value="/WEB-INF/views/pages/error/login_fail.jsp" />
-	</definition>
-	
 	
 	<definition name="add_user_form" extends="blankLayout">
 		<put-attribute name="body" value="/WEB-INF/views/pages/admin/add_user.jsp" />
 	</definition>
 	
+	<!-- Start	Error notification -->
+	
+	<definition name="403" extends="blankLayout">
+		<put-attribute name="body" value="/WEB-INF/views/pages/error/403.jsp" />
+	</definition>
+	
+	<definition name="404" extends="blankLayout">
+		<put-attribute name="body" value="/WEB-INF/views/pages/error/404.jsp" />
+	</definition>
+	
+	<definition name="500" extends="blankLayout">
+		<put-attribute name="body" value="/WEB-INF/views/pages/error/500.jsp" />
+	</definition>
+	
+	<!-- End	Error notification -->
 </tiles-definitions>

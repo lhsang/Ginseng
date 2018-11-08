@@ -47,6 +47,13 @@
         </a>
       </li>
       
+      <li>
+        
+       
+       <button type="button" class="btn btn-success" onclick="logout()">Logout</button>
+       
+        
+      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -54,5 +61,9 @@
     </form>
   </div>
 </nav>
-
+<script>
+  function logout() {
+    location.href='<c:url value="/logout" />';
+  }
+</script>
 </div>

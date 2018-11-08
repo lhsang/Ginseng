@@ -9,4 +9,5 @@ import com.lhsang.dashboard.model.User;
 public interface UserService {
 	List<User> findAll();
 	User findOneByUsername(String username);
+	void save(User user);
 }

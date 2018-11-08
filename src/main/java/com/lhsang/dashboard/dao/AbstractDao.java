@@ -1,12 +1,12 @@
 package com.lhsang.dashboard.dao;
 
 import java.io.Serializable;
+
 import java.lang.reflect.ParameterizedType;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-
-import com.lhsang.dashboard.model.Role;
 
 public abstract class AbstractDao<PK extends Serializable, T> {
 	
@@ -23,6 +23,7 @@ public abstract class AbstractDao<PK extends Serializable, T> {
 		return sessionFactory.getCurrentSession();
 	}
 
+	@SuppressWarnings("unchecked")
 	public T getByKey(PK key) {
 		return (T) getSession().get(persistentClass, key);
 	}
@@ -34,15 +35,11 @@ public abstract class AbstractDao<PK extends Serializable, T> {
 	public void delete(T entity) {
 		getSession().delete(entity);
 	}
-	/*
+	
+
+	@SuppressWarnings("deprecation")
 	protected Criteria createEntityCriteria(){
 		return getSession().createCriteria(persistentClass);
-	}*/
-
-	public void save(Role role) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }
-

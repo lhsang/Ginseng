@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.lhsang.dashboard.dao.RoleDao;
 import com.lhsang.dashboard.model.Role;
+import com.lhsang.dashboard.model.User;
 
 
 @Transactional
@@ -25,5 +26,15 @@ public class RoleServiceImpl implements RoleService{
 	
 	public Role  findOneById(int id) {
 		return roleDao.findOneById(id);
+	}
+	
+	public void save(Role role) {
+		roleDao.save(role);
+	}
+
+	@Override
+	public void save(User user) {
+		// TODO Auto-generated method stub
+		
 	}
 }

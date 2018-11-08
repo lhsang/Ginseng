@@ -23,23 +23,29 @@ import com.lhsang.dashboard.service.RoleService;
 @Controller
 @RequestMapping("/")
 @Transactional
-public class HomeController {
+public class LoginController {
 	@Autowired
 	RoleService roleService;
 	
-	@RequestMapping(value = "/api", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE })
-	@ResponseBody
-	public Role api() {
-		
-		Role list= roleService.findOneById(1);
-		return list;
+	//@RequestMapping(value = "", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE })
+	//@JsonIgnore
+	@RequestMapping(value = "/login",method = RequestMethod.GET)
+	public ModelAndView hello( ModelAndView model,@RequestParam(value = "error", required = false) String error) {
+		if (error != null) {
+			model.addObject("error", "Username or password is incorrect !");
+		}
+		model.setViewName("login");
+		return model;
 	}
-	
-	@RequestMapping(value = "")
-	public String home() {
 
-       return "home";
+	@RequestMapping(value = "/403")
+	public String AccessDeniedException() {
+		return "403";
 	}
 	
+	@RequestMapping(value = "/logout")
+	public String logout() {
+		return "logout";
+	}
 	
 }
