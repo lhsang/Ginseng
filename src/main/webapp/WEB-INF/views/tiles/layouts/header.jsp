@@ -3,67 +3,257 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-    <link rel="stylesheet" type="text/css" href="<c:url value='/static/css/header.css' />">
-	<link href="<c:url value='https://fonts.googleapis.com/css?family=K2D" rel="stylesheet' />">
-	
-
-  
-
-        <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark" style="vertical-align: middle;	">
-<%--   <a class="navbar-brand" href="#"><img src="<c:url value='/static/images/logo.png' />" class="logo" alt="IMG" > </a> --%>
-<a class="navbar-brand" href="#">Nhân sâm hàn quốc </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent" >
-    <ul class="navbar-nav mr-auto" >
-    
-      <li class="nav-item active">
-        <a class="nav-link" href="#" >
-          <i class="fa fa-home" ></i>
-         	Trang chủ
-          <span class="sr-only">(current)</span>
-          </a>
-      </li>
-      <li class="nav-item" >
-    	<br>
-        <div class="dropdown">
-		<button class="btn btn-info dropdown-toggle" type="button" id="about-us" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		Nhân sâm</button>
-			<div class="dropdown-menu" aria-labelledby="about-us">
-				<a class="dropdown-item" href="#">Our Story</a>
-				<a class="dropdown-item" href="#">Our Team</a>
-				<a class="dropdown-item" href="#">Contact Us</a>
-			</div>
-		</div>
-
-      </li>
-      <li class="nav-item" style="float:right">
-        <a class="nav-link" href="#">
-          <i class="fa fa-shopping-cart">
-            <span class="badge badge-danger">11</span>
-          </i>
-          Giỏ hàng
-        </a>
-      </li>
-      
-      <li>
-        
-       
-       <button type="button" class="btn btn-success" onclick="logout()">Logout</button>
-       
-        
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
-<script>
-  function logout() {
-    location.href='<c:url value="/logout" />';
+<style>
+    .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
   }
-</script>
+
+  .sticky + .content {
+    padding-top: 102px;
+  }
+</style>
+<div class="header" id="myHeader">
+     <!-- HEADER DESKTOP-->
+   <header class="header-desktop3 d-none d-lg-block">
+      <div class="section__content section__content--p35">
+          <div class="header3-wrap">
+              <div class="header__logo">
+                  <a href="#">
+                      <img src="static/images/icon/logo-white.png" alt="CoolAdmin" />
+                  </a>
+              </div>
+              <div class="header__navbar">
+                  <ul class="list-unstyled">
+                      <li class="has-sub">
+                          <a href="#">
+                              <i class="fas fa-tachometer-alt"></i>Dashboard
+                              <span class="bot-line"></span>
+                          </a>
+                          <ul class="header3-sub-list list-unstyled">
+                              <li>
+                                  <a href="index.html">Dashboard 1</a>
+                              </li>
+                              <li>
+                                  <a href="index2.html">Dashboard 2</a>
+                              </li>
+                              <li>
+                                  <a href="index3.html">Dashboard 3</a>
+                              </li>
+                              <li>
+                                  <a href="index4.html">Dashboard 4</a>
+                              </li>
+                          </ul>
+                      </li>
+                      <li>
+                          <a href="#">
+                              <i class="fas fa-shopping-basket"></i>
+                              <span class="bot-line"></span>eCommerce</a>
+                      </li>
+                      <li>
+                          <a href="table.html">
+                              <i class="fas fa-trophy"></i>
+                              <span class="bot-line"></span>Features</a>
+                      </li>
+                      <li class="has-sub">
+                          <a href="#">
+                              <i class="fas fa-copy"></i>
+                              <span class="bot-line"></span>Pages</a>
+                          <ul class="header3-sub-list list-unstyled">
+                              <li>
+                                  <a href="login.html">Login</a>
+                              </li>
+                              <li>
+                                  <a href="register.html">Register</a>
+                              </li>
+                              <li>
+                                  <a href="forget-pass.html">Forget Password</a>
+                              </li>
+                          </ul>
+                      </li>
+                      <li class="has-sub">
+                          <a href="#">
+                              <i class="fas fa-desktop"></i>
+                              <span class="bot-line"></span>UI Elements</a>
+                          <ul class="header3-sub-list list-unstyled">
+                              <li>
+                                  <a href="button.html">Button</a>
+                              </li>
+                              <li>
+                                  <a href="badge.html">Badges</a>
+                              </li>
+                              <li>
+                                  <a href="tab.html">Tabs</a>
+                              </li>
+                              <li>
+                                  <a href="card.html">Cards</a>
+                              </li>
+                              <li>
+                                  <a href="alert.html">Alerts</a>
+                              </li>
+                              <li>
+                                  <a href="progress-bar.html">Progress Bars</a>
+                              </li>
+                              <li>
+                                  <a href="modal.html">Modals</a>
+                              </li>
+                              <li>
+                                  <a href="switch.html">Switchs</a>
+                              </li>
+                              <li>
+                                  <a href="grid.html">Grids</a>
+                              </li>
+                              <li>
+                                  <a href="fontawesome.html">FontAwesome</a>
+                              </li>
+                              <li>
+                                  <a href="typo.html">Typography</a>
+                              </li>
+                          </ul>
+                      </li>
+                  </ul>
+              </div>
+              <div class="header__tool">
+                  <div class="header-button-item has-noti js-item-menu">
+                      <i class="zmdi zmdi-notifications"></i>
+                      <div class="notifi-dropdown notifi-dropdown--no-bor js-dropdown">
+                          <div class="notifi__title">
+                              <p>You have 3 Notifications</p>
+                          </div>
+                          <div class="notifi__item">
+                              <div class="bg-c1 img-cir img-40">
+                                  <i class="zmdi zmdi-email-open"></i>
+                              </div>
+                              <div class="content">
+                                  <p>You got a email notification</p>
+                                  <span class="date">April 12, 2018 06:50</span>
+                              </div>
+                          </div>
+                          <div class="notifi__item">
+                              <div class="bg-c2 img-cir img-40">
+                                  <i class="zmdi zmdi-account-box"></i>
+                              </div>
+                              <div class="content">
+                                  <p>Your account has been blocked</p>
+                                  <span class="date">April 12, 2018 06:50</span>
+                              </div>
+                          </div>
+                          <div class="notifi__item">
+                              <div class="bg-c3 img-cir img-40">
+                                  <i class="zmdi zmdi-file-text"></i>
+                              </div>
+                              <div class="content">
+                                  <p>You got a new file</p>
+                                  <span class="date">April 12, 2018 06:50</span>
+                              </div>
+                          </div>
+                          <div class="notifi__footer">
+                              <a href="#">All notifications</a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="header-button-item js-item-menu">
+                      <i class="zmdi zmdi-settings"></i>
+                      <div class="setting-dropdown js-dropdown">
+                          <div class="account-dropdown__body">
+                              <div class="account-dropdown__item">
+                                  <a href="#">
+                                      <i class="zmdi zmdi-account"></i>Account</a>
+                              </div>
+                              <div class="account-dropdown__item">
+                                  <a href="#">
+                                      <i class="zmdi zmdi-settings"></i>Setting</a>
+                              </div>
+                              <div class="account-dropdown__item">
+                                  <a href="#">
+                                      <i class="zmdi zmdi-money-box"></i>Billing</a>
+                              </div>
+                          </div>
+                          <div class="account-dropdown__body">
+                              <div class="account-dropdown__item">
+                                  <a href="#">
+                                      <i class="zmdi zmdi-globe"></i>Language</a>
+                              </div>
+                              <div class="account-dropdown__item">
+                                  <a href="#">
+                                      <i class="zmdi zmdi-pin"></i>Location</a>
+                              </div>
+                              <div class="account-dropdown__item">
+                                  <a href="#">
+                                      <i class="zmdi zmdi-email"></i>Email</a>
+                              </div>
+                              <div class="account-dropdown__item">
+                                  <a href="#">
+                                      <i class="zmdi zmdi-notifications"></i>Notifications</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="account-wrap">
+                      <div class="account-item account-item--style2 clearfix js-item-menu">
+                          <div class="image">
+                              <img src="static/images/icon/avatar-01.jpg" alt="John Doe" />
+                          </div>
+                          <div class="content">
+                              <a class="js-acc-btn" href="#">john doe</a>
+                          </div>
+                          <div class="account-dropdown js-dropdown">
+                              <div class="info clearfix">
+                                  <div class="image">
+                                      <a href="#">
+                                          <img src="static/images/icon/avatar-01.jpg" alt="John Doe" />
+                                      </a>
+                                  </div>
+                                  <div class="content">
+                                      <h5 class="name">
+                                          <a href="#">john doe</a>
+                                      </h5>
+                                      <span class="email">johndoe@example.com</span>
+                                  </div>
+                              </div>
+                              <div class="account-dropdown__body">
+                                  <div class="account-dropdown__item">
+                                      <a href="#">
+                                          <i class="zmdi zmdi-account"></i>Account</a>
+                                  </div>
+                                  <div class="account-dropdown__item">
+                                      <a href="#">
+                                          <i class="zmdi zmdi-settings"></i>Setting</a>
+                                  </div>
+                                  <div class="account-dropdown__item">
+                                      <a href="#">
+                                          <i class="zmdi zmdi-money-box"></i>Billing</a>
+                                  </div>
+                              </div>
+                              <div class="account-dropdown__footer">
+                                  <a href="#">
+                                      <i class="zmdi zmdi-power"></i>Logout</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </header>
+  <!-- END HEADER DESKTOP-->
+
+  </div>
 </div>
+<script>
+    window.onscroll = function() {myFunction()};
+    
+    var header = document.getElementById("myHeader");
+    var sticky = header.offsetTop;
+    
+    function myFunction() {
+      if (window.pageYOffset > sticky) {
+        header.classList.add("sticky");
+      } else {
+        header.classList.remove("sticky");
+      }
+    }
+    </script>
+  

@@ -6,42 +6,50 @@
 	<!--  	Start template -->
 	<definition name="mainLayout" template="/WEB-INF/views/tiles/layouts/main.jsp">
 		<put-attribute name="header" value="/WEB-INF/views/tiles/layouts/header.jsp" />
+		<put-attribute name="navbar-left" value="" />
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/WEB-INF/views/tiles/layouts/footer.jsp" />
 	</definition>
 	
 	<definition name="blankLayout" template="/WEB-INF/views/tiles/layouts/main.jsp">
 		<put-attribute name="header" value="" />
-		<put-attribute name="slide" value="" />
+		<put-attribute name="navbar-left" value="" />
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="" />
 	</definition>
 	
+	<definition name="admin_dashboard" template="/WEB-INF/views/tiles/layouts/admin_main.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/tiles/layouts/admin_header.jsp"  />
+		<put-attribute name="navbar-left" value="/WEB-INF/views/tiles/layouts/admin_navbar.jsp" />
+		<put-attribute name="body" value="" />
+	</definition>
 	<!--  	End template -->
 	
-	<definition name="hello" extends="mainLayout">
-		<put-attribute name="body" value="/WEB-INF/views/pages/index.jsp" />
-	</definition>
 	
-	<definition name="login" extends="blankLayout">
-		<put-attribute name="body" value="/WEB-INF/views/pages/login/login.jsp" />
-	</definition>
-  
+	
 	<definition name="home" extends="mainLayout">
-		<put-attribute name="slide" value="/WEB-INF/views/tiles/layouts/slide.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/pages/home/index.jsp" />
 	</definition>
-
-	<definition name="admin" extends="blankLayout">
-		<put-attribute name="body" value="/WEB-INF/views/pages/admin/admin.jsp" />
-	</definition>
 	
+
+	<!-- Start admin -->
 	
 	<definition name="add_user_form" extends="blankLayout">
 		<put-attribute name="body" value="/WEB-INF/views/pages/admin/add_user.jsp" />
 	</definition>
 	
+	<definition name="dashboard" extends="admin_dashboard">
+		<put-attribute name="body" value="/WEB-INF/views/pages/admin/dashboard.jsp" />
+	</definition>
+	
+	<!-- End admin -->
+	
+	
 	<!-- Start	Error notification -->
+	
+	<definition name="login" extends="blankLayout">
+		<put-attribute name="body" value="/WEB-INF/views/pages/login/login.jsp" />
+	</definition>
 	
 	<definition name="403" extends="blankLayout">
 		<put-attribute name="body" value="/WEB-INF/views/pages/error/403.jsp" />

@@ -32,15 +32,8 @@ public class AdminController {
 	UserService userService;
 	
 	@RequestMapping(value = "")
-    public String adminPage(Model model, Principal principal) {
-         
-        return "admin";
-    }
-	
-	@RequestMapping(value = "/dashboard")
-	@ResponseBody
-    public String dashboard() {
-        return "haha";
+    public String adminPage() {
+        return "dashboard";
     }
 	
 	@RequestMapping(value = "/add-user")

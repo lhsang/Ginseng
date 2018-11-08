@@ -11,51 +11,63 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-<!--=======================================Login========================================================-->
-<link rel="icon" type="image/png" href="<c:url value='/static/images/icons/favicon.ico' />"/>
-<!--===============================================================================================-->
+	
+ 	<!-- Fontfaces CSS-->
+    <link href="static/css/font-face.css" rel="stylesheet" media="all">
+    <link href="static/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="static/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="static/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
-	<link rel="stylesheet" type="text/css" href="<c:url value='/static/vendor/bootstrap/css/bootstrap.min.css' />">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="<c:url value='/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css' />">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="<c:url value='/static/vendor/animate/animate.css' />">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="<c:url value='/static/vendor/css-hamburgers/hamburgers.min.css' />">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="<c:url value='/static/vendor/select2/select2.min.css' />">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="<c:url value='/static/css/util.css' />">
-	<link rel="stylesheet" type="text/css" href="<c:url value='/static/css/main.css' />">
-<!--===============================================================================================-->
-	   
+    <!-- Bootstrap CSS-->
+    <link href="static/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="static/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="static/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="static/vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="static/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="static/vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="static/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="static/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="static/css/theme.css" rel="stylesheet" media="all">  
+    
 </head>
 <body>
 	
 	<div>
 		<tiles:insertAttribute name="header" />
-		<tiles:insertAttribute name="slide" />
+		<tiles:insertAttribute name="navbar-left" />
 		<tiles:insertAttribute name="body" />
 		<tiles:insertAttribute name="footer" />
 	</div>
 	
-		<!--===============================================================================================-->	
-	<script src="<c:url value='/static/vendor/jquery/jquery-3.2.1.min.js' />"></script>
-<!--===============================================================================================-->
-	<script src="<c:url value='/static/vendor/bootstrap/js/popper.js' />"></script>
-	<script src="<c:url value='/static/vendor/bootstrap/js/bootstrap.min.js' />"></script>
-<!--===============================================================================================-->
-	<script src="<c:url value='/static/vendor/select2/select2.min.js' />"></script>
-<!--===============================================================================================-->
-	<script src="<c:url value='/static/vendor/tilt/tilt.jquery.min.js' />"></script>
 
-	<script >
-		$('.js-tilt').tilt({
-			scale: 1.1
-		})
-	</script>
-<!--===============================================================================================-->
-	<script src="<c:url value='/static/js/main.js' />"></script>
+
+    <!-- Jquery JS-->
+    <script src="static/vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="static/vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="static/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="static/vendor/slick/slick.min.js">
+    </script>
+    <script src="static/vendor/wow/wow.min.js"></script>
+    <script src="static/vendor/animsition/animsition.min.js"></script>
+    <script src="static/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    </script>
+    <script src="static/vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="static/vendor/counter-up/jquery.counterup.min.js">
+    </script>
+    <script src="static/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="static/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="static/vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="static/vendor/select2/select2.min.js">
+    </script>
+
+    <!-- Main JS-->
+    <script src="static/js/main.js"></script>
 </body>
 
 </html>

@@ -10,70 +10,65 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--===============================================================================================-->	
-	
 <!--===============================================================================================-->
 </head>
-<body>
-	
-	<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100">
-				<div class="login100-pic js-tilt" data-tilt>
-					<img src="<c:url value='/static/images/img-01.png' />" alt="IMG">
-				</div>
-				
-				
-				<form name='f' class="login100-form validate-form"   action="<c:url value="/j_spring_security_check"></c:url>" method="POST">
-					<span class="login100-form-title">
-						Member Login
-					</span>
+<body class="animsition">
+    <div class="page-wrapper">
+        <div class="page-content--bge5">
+            <div class="container">
+                <div class="login-wrap">
+                    <div class="login-content">
+                        <div class="login-logo">
+                            <a href="#">
+                                <img src="static/images/icon/logo.png" alt="CoolAdmin">
+                            </a>
+						</div>
+						<div class="card-text" style="background: #f2dede;color: #ff0000;margin-top:10px;text-align: center;margin-bottom:10px;">
+							<c:if test="${not empty error}">
+								<div class="error">${error}</div>
+							</c:if>			
+						</div>
+                        <div class="login-form">
+                            <form  action="<c:url value="/j_spring_security_check"></c:url>" method="post">
+                                <div class="form-group">
+                                    <label style="color:black">Username</label>
+                                    <input class="au-input au-input--full" type="text" name="username" placeholder="username" required>
+                                </div>
+                                <div class="form-group">
+                                    <label style="color:black">Password</label>
+                                    <input class="au-input au-input--full" type="password" name="password" placeholder="Password" required>
+								</div>
+								
+                                <div class="login-checkbox">
+                                    <label>
+                                        <input type="checkbox" name="remember">Remember Me
+                                    </label>
+                                    <label>
+                                        <a href="#">Forgotten Password?</a>
+                                    </label>
+                                </div>
+								<button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign in</button>
+								
+                                <!-- <div class="social-login-content">
+                                    <div class="social-button">
+                                        <button class="au-btn au-btn--block au-btn--blue m-b-20">sign in with facebook</button>
+                                        <button class="au-btn au-btn--block au-btn--blue2">sign in with twitter</button>
+                                    </div>
+                                </div> -->
+                            </form>
+                            <div class="register-link">
+                                <p>
+                                    Don't you have account?
+                                    <a href="#">Sign Up Here</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Username is required">
-						<input class="input100" type="text" name="username" placeholder="Username">
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-						</span>
-					</div>
+    </div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="password" placeholder="Password">
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-lock" aria-hidden="true"></i>
-						</span>
-					</div>
-					
-					<div class="container-login100-form-btn" >
-						<input class="login100-form-btn" type="submit" value="Login">
-					</div>
-
-					<div class="card-text" style="background: #f2dede;color: #ff0000;margin-top:10px;">
-						<c:if test="${not empty error}">
-							<div class="error">${error}</div>
-						</c:if>			
-					</div>
-					
-					<div class="text-center p-t-12">
-						<span class="txt1">
-							Forgot
-						</span>
-						<a class="txt2" href="#">
-							Username / Password?
-						</a>
-					</div>
-
-					<div class="text-center p-t-136">
-						<a class="txt2" href="#">
-							Create your Account
-							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-						</a>
-					</div>
-				</form>
-				
-			</div>
-		</div>
-	</div>
-	
 </body>
 </html>

@@ -30,7 +30,7 @@
 		   </div>
 		   <br>
 		   <div class="col-xs-10 col-sm-10 col-md-10 col-lg-12 text-center" style="color:#ffffff">
-				<h3>OPPSSS!!!! Sorry...</h3>
+				<h3 style="color:#ffffff">OPPSSS!!!! Sorry...</h3>
 				<p style="color:#ffffff">Sorry, your access is refused due to security reasons of our server and also our sensitive data.<br/>Please go back to the previous page to continue browsing.</p>
 				<br>
 				<a class="btn btn-danger" href="javascript:history.back()">Go Back</a>
