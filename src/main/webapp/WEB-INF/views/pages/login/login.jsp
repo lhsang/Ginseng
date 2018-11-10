@@ -20,7 +20,7 @@
                     <div class="login-content">
                         <div class="login-logo">
                             <a href="#">
-                                <img src="static/images/icon/logo.png" alt="CoolAdmin">
+                                <img src="<c:url value='/static/custom/img/logo-1.png' /> "  alt="Ginseng">
                             </a>
 						</div>
 						<div class="card-text" style="background: #f2dede;color: #ff0000;margin-top:10px;text-align: center;margin-bottom:10px;">

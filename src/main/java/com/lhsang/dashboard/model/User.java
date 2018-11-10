@@ -17,6 +17,8 @@ public class User {
 	@Id
 	int id;
 	
+	String email;
+	
 	@Column(name="username",nullable = false, unique = true)
 	String userName;
 	
@@ -24,6 +26,7 @@ public class User {
 	
 	String cmnd;
 	
+	String avatar;
 	
 	@ManyToOne
 	@JoinColumn(name="role_id")
@@ -41,6 +44,7 @@ public class User {
 	@Column(name="created_at")
 	Date createdAt;
 
+	
 	public int getId() {
 		return id;
 	}
@@ -49,6 +53,14 @@ public class User {
 		this.id = id;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
 	public String getUserName() {
 		return userName;
 	}
@@ -114,5 +126,14 @@ public class User {
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
+
+	public String getAvatar() {
+		return avatar;
+	}
+
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
+	}
+	
 	
 }

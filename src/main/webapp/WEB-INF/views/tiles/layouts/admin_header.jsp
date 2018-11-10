@@ -27,7 +27,7 @@
                                     </div>
                                     <div class="mess__item">
                                         <div class="image img-cir img-40">
-                                            <img src="images/icon/avatar-06.jpg" alt="Michelle Moreno" />
+                                            <img src="<c:url value='/static/admin/images/icon/avatar-06.jpg'  />" alt="Michelle Moreno" />
                                         </div>
                                         <div class="content">
                                             <h6>Michelle Moreno</h6>
@@ -37,7 +37,7 @@
                                     </div>
                                     <div class="mess__item">
                                         <div class="image img-cir img-40">
-                                            <img src="images/icon/avatar-04.jpg" alt="Diane Myers" />
+                                            <img src="<c:url value='/static/admin/images/icon/avatar-04.jpg'  />" alt="Diane Myers" />
                                         </div>
                                         <div class="content">
                                             <h6>Diane Myers</h6>
@@ -59,7 +59,7 @@
                                     </div>
                                     <div class="email__item">
                                         <div class="image img-cir img-40">
-                                            <img src="images/icon/avatar-06.jpg" alt="Cynthia Harvey" />
+                                            <img src="<c:url value='/static/admin/images/icon/avatar-06.jpg'  />" alt="Cynthia Harvey" />
                                         </div>
                                         <div class="content">
                                             <p>Meeting about new dashboard...</p>
@@ -68,7 +68,7 @@
                                     </div>
                                     <div class="email__item">
                                         <div class="image img-cir img-40">
-                                            <img src="images/icon/avatar-05.jpg" alt="Cynthia Harvey" />
+                                            <img src="<c:url value='/static/admin/images/icon/avatar-05.jpg'  />" alt="Cynthia Harvey" />
                                         </div>
                                         <div class="content">
                                             <p>Meeting about new dashboard...</p>
@@ -77,7 +77,7 @@
                                     </div>
                                     <div class="email__item">
                                         <div class="image img-cir img-40">
-                                            <img src="images/icon/avatar-04.jpg" alt="Cynthia Harvey" />
+                                            <img src="<c:url value='/static/admin/images/icon/avatar-04.jpg'  />" alt="Cynthia Harvey" />
                                         </div>
                                         <div class="content">
                                             <p>Meeting about new dashboard...</p>
@@ -132,23 +132,23 @@
                         <div class="account-wrap">
                             <div class="account-item clearfix js-item-menu">
                                 <div class="image">
-                                    <img src="static/images/icon/avatar-01.jpg" alt="John Doe" />
+                                    <img src="<c:url value='https://scontent.fsgn6-2.fna.fbcdn.net/v/t1.0-9/45567729_1174220442727267_756317940957052928_n.jpg?_nc_cat=111&_nc_ht=scontent.fsgn6-2.fna&oh=72f37cabdf7a40dfcba8b5be22304ad2&oe=5C72B254'  />" alt="John Doe" />
                                 </div>
                                 <div class="content">
-                                    <a class="js-acc-btn" href="#">john doe</a>
+                                    <a class="js-acc-btn" href="#">Le Hoang Sang</a>
                                 </div>
                                 <div class="account-dropdown js-dropdown">
                                     <div class="info clearfix">
                                         <div class="image">
                                             <a href="#">
-                                                <img src="static/images/icon/avatar-01.jpg" alt="John Doe" />
+                                                <img src="<c:url value='https://scontent.fsgn6-2.fna.fbcdn.net/v/t1.0-9/45567729_1174220442727267_756317940957052928_n.jpg?_nc_cat=111&_nc_ht=scontent.fsgn6-2.fna&oh=72f37cabdf7a40dfcba8b5be22304ad2&oe=5C72B254'  />" alt="John Doe" />
                                             </a>
                                         </div>
                                         <div class="content">
                                             <h5 class="name">
-                                                <a href="#">john doe</a>
+                                                <a href="#">Le Hoang Sang</a>
                                             </h5>
-                                            <span class="email">johndoe@example.com</span>
+                                            <span class="email">lhsang@gmail.com</span>
                                         </div>
                                     </div>
                                     <div class="account-dropdown__body">

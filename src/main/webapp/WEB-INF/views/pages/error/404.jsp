@@ -1,5 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
     <!DOCTYPE html>
     <html lang="en">
     
@@ -12,7 +15,7 @@
     
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
     
-        <link rel="stylesheet" type="text/css" href="static/css/404.css">
+        <link rel="stylesheet" type="text/css" href="<c:url value='/static/custom/css/404.css' />" >
     
     
     </head>

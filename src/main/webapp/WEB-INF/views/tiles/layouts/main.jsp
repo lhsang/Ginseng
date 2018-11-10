@@ -12,62 +12,45 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
 	
- 	<!-- Fontfaces CSS-->
-    <link href="static/css/font-face.css" rel="stylesheet" media="all">
-    <link href="static/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="static/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link href="static/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+ 		<!-- Google font -->
+ 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
-    <!-- Bootstrap CSS-->
-    <link href="static/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+ 		<!-- Bootstrap -->
+ 		<link type="text/css" rel="stylesheet" href="<c:url value='/static/client/css/bootstrap.min.css' /> "/>
 
-    <!-- Vendor CSS-->
-    <link href="static/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-    <link href="static/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-    <link href="static/vendor/wow/animate.css" rel="stylesheet" media="all">
-    <link href="static/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-    <link href="static/vendor/slick/slick.css" rel="stylesheet" media="all">
-    <link href="static/vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="static/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+ 		<!-- Slick -->
+ 		<link type="text/css" rel="stylesheet" href="<c:url value='/static/client/css/slick.css' />"/>
+ 		<link type="text/css" rel="stylesheet" href="<c:url value='/static/client/css/slick-theme.css' />"/>
 
-    <!-- Main CSS-->
-    <link href="static/css/theme.css" rel="stylesheet" media="all">  
-    
+ 		<!-- nouislider -->
+ 		<link type="text/css" rel="stylesheet" href="<c:url value='/static/client/css/nouislider.min.css' />"/>
+
+ 		<!-- Font Awesome Icon -->
+ 		<link rel="stylesheet" href="<c:url value='/static/client/css/font-awesome.min.css' />">
+
+ 		<!-- Custom stlylesheet -->
+ 		<link type="text/css" rel="stylesheet" href="<c:url value='/static/client/css/style.css' />"/>
+
+		 <link rel="icon" href="<c:url value='/static/custom/img/logo.png' />">
 </head>
 <body>
 	
-	<div>
 		<tiles:insertAttribute name="header" />
-		<tiles:insertAttribute name="navbar-left" />
+		<div id="nav"></div>
 		<tiles:insertAttribute name="body" />
+		<tiles:insertAttribute name="news" />
 		<tiles:insertAttribute name="footer" />
-	</div>
 	
 
 
-    <!-- Jquery JS-->
-    <script src="static/vendor/jquery-3.2.1.min.js"></script>
-    <!-- Bootstrap JS-->
-    <script src="static/vendor/bootstrap-4.1/popper.min.js"></script>
-    <script src="static/vendor/bootstrap-4.1/bootstrap.min.js"></script>
-    <!-- Vendor JS       -->
-    <script src="static/vendor/slick/slick.min.js">
-    </script>
-    <script src="static/vendor/wow/wow.min.js"></script>
-    <script src="static/vendor/animsition/animsition.min.js"></script>
-    <script src="static/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
-    </script>
-    <script src="static/vendor/counter-up/jquery.waypoints.min.js"></script>
-    <script src="static/vendor/counter-up/jquery.counterup.min.js">
-    </script>
-    <script src="static/vendor/circle-progress/circle-progress.min.js"></script>
-    <script src="static/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="static/vendor/chartjs/Chart.bundle.min.js"></script>
-    <script src="static/vendor/select2/select2.min.js">
-    </script>
-
-    <!-- Main JS-->
-    <script src="static/js/main.js"></script>
+    
+		<!-- jQuery Plugins -->
+		<script src="<c:url value='/static/client/js/jquery.min.js' />"></script>
+		<script src="<c:url value='/static/client/js/bootstrap.min.js' />"></script>
+		<script src="<c:url value='/static/client/js/slick.min.js' />"></script>
+		<script src="<c:url value='/static/client/js/nouislider.min.js' />"></script>
+		<script src="<c:url value='/static/client/js/jquery.zoom.min.js' />"></script>
+		<script src="<c:url value='/static/client/js/main.js' />"></script>
 </body>
 
 </html>

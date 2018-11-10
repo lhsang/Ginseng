@@ -540,3 +540,8 @@
                 </div>
             </div>
             <!-- END MAIN CONTENT-->
+<script>
+    $(document).ready(function () {
+            $('.li-dashboard').addClass('active');
+        });
+</script>
