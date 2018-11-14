@@ -1,7 +1,5 @@
 package com.lhsang.dashboard.service;
 
-
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.lhsang.dashboard.dao.RoleDao;
 import com.lhsang.dashboard.model.Role;
-import com.lhsang.dashboard.model.User;
 
 
 @Transactional
@@ -32,9 +29,4 @@ public class RoleServiceImpl implements RoleService{
 		roleDao.save(role);
 	}
 
-	@Override
-	public void save(User user) {
-		// TODO Auto-generated method stub
-		
-	}
 }

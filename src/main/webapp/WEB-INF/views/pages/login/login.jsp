@@ -22,12 +22,14 @@
                             <a href="#">
                                 <img src="<c:url value='/static/custom/img/logo-1.png' /> "  alt="Ginseng">
                             </a>
-						</div>
-						<div class="card-text" style="background: #f2dede;color: #ff0000;margin-top:10px;text-align: center;margin-bottom:10px;">
-							<c:if test="${not empty error}">
-								<div class="error">${error}</div>
-							</c:if>			
-						</div>
+                        </div>
+
+                        <div class="alert alert-danger" role="alert" style="padding:0px;border: 0px solid #ffffff">
+                            <c:if test="${not empty error}">
+								<div class="error" >${error}</div>
+							</c:if>	
+                        </div>
+						
                         <div class="login-form">
                             <form  action="<c:url value="/j_spring_security_check"></c:url>" method="post">
                                 <div class="form-group">

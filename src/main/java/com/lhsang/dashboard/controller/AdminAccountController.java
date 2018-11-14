@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -53,8 +54,8 @@ public class AdminAccountController {
         model.addAttribute("users", users);
         return "userManagement";
     }
-	@RequestMapping(value = { "/user-management-filter" }, method = RequestMethod.POST, produces = { MediaType.APPLICATION_JSON_VALUE} )
-    public ModelAndView userManagementFilter(Model model,int role_id) {
+	@RequestMapping(value = { "/user-management-filter{id}" }, method = RequestMethod.POST, produces = { MediaType.APPLICATION_JSON_VALUE} )
+    public ModelAndView userManagementFilter(Model model,int role_id,@PathVariable("id") String id) {
 		List<User> users=new ArrayList<>();
 		if(role_id==0)
 			 users=userService.findAll();
@@ -63,6 +64,9 @@ public class AdminAccountController {
 	        users=role.getUser();
 		}
         model.addAttribute("users", users);
+        for(int i=0;i<100;i++)
+        	System.out.println("id laf"+id);
+        
         return new ModelAndView("user/_userByRole");
     }
 	
