@@ -1,5 +1,7 @@
 package com.lhsang.dashboard.model;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,12 +11,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity(name="products")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Product {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -48,6 +53,18 @@ public class Product {
 	@JsonBackReference
 	private Category category;
 	
+	@OneToMany(mappedBy="product")
+	@JsonManagedReference
+	private List<OrderDetail> orderDetails;
+	
+	public List<OrderDetail> getOrderDetails() {
+		return orderDetails;
+	}
+
+	public void setOrderDetails(List<OrderDetail> orderDetails) {
+		this.orderDetails = orderDetails;
+	}
+
 	public Category getCategory() {
 		return category;
 	}

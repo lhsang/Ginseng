@@ -37,7 +37,7 @@
 								<!-- product -->
 								<div class="product">
 									<div class="product-img">
-										<img src="<c:url value='/static/client/img/product01.png' />" alt="">
+										<img src="<c:url value='http://www.saponin.vn/Upload/Store/Default/2017/7/20/anhnenruousam-min.jpg' />" alt="">
 										<div class="product-label">
 											<span class="sale">-30%</span>
 											<span class="new">NEW</span>
@@ -69,7 +69,7 @@
 								<!-- product -->
 								<div class="product">
 									<div class="product-img">
-										<img src="<c:url value='/static/client/img/product01.png' />"  alt="">
+										<img src="<c:url value='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlU4APZtLIeNTqGw0GlgDaoWcAFF_Rej7K8NuwajhkREB0-0IF' />"  alt="">
 										<div class="product-label">
 											<span class="new">NEW</span>
 										</div>
@@ -100,7 +100,7 @@
 								<!-- product -->
 								<div class="product">
 									<div class="product-img">
-										<img src="<c:url value='/static/client/img/product01.png' />"  alt="">
+										<img src="<c:url value='http://dantricdn.com/Uploaded/2010/01/21/18fsam-210110.jpg' />"  alt="">
 										<div class="product-label">
 											<span class="sale">-30%</span>
 										</div>
@@ -126,7 +126,7 @@
 								<!-- product -->
 								<div class="product">
 									<div class="product-img">
-										<img src="<c:url value='/static/client/img/product01.png' />"  alt="">
+										<img src="<c:url value='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz2FRYkVjLjZkeW6nviFS5nn8Z0YMd4SB0D9G5RU-oPz5Fw6Yn' />"  alt="">
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
@@ -154,7 +154,7 @@
 								<!-- product -->
 								<div class="product">
 									<div class="product-img">
-										<img src="<c:url value='/static/client/img/product01.png' />"  alt="">
+										<img src="<c:url value='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPlPCUYhVA-RXsJgwgVy2M5kdXf6ZErv8Ub5ljymX5btfz93AH0g' />"  alt="">
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>

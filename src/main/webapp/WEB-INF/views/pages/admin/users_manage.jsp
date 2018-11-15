@@ -210,11 +210,10 @@
     
     function filter() {
         var role_id =$(".selectRole").val();
-        var id="121";
         var urlFromData="admin/user-management-filter";
         $.ajax({
             type: "POST",
-            url: "<c:url value='/' />"+urlFromData+id,
+            url: "<c:url value='/' />"+urlFromData,
             data:{
                 role_id : role_id
             },

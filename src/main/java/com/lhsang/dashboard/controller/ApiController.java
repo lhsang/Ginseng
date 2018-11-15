@@ -29,14 +29,41 @@ import com.lhsang.dashboard.service.RoleService;
 import com.lhsang.dashboard.service.UserService;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/api")
 @Transactional
-public class HomeController {
-
-	@RequestMapping(value = "")
-	public String home() {
-       return "home";
-	}
+public class ApiController {
+	@Autowired
+	RoleService roleService;
 	
+	@Autowired
+	CompanyService companyService;
+	
+	@Autowired
+	ProductService productService;
+	
+	@Autowired
+	ProductManageSevice productManageService;
+	
+	@Autowired
+	CategoryService categoryService;
+	
+	@Autowired
+	OrderService orderService;
+	
+	@Autowired
+	UserService userService;
+	
+	@Autowired
+	OrderDetailService orderDetailService;
+	
+	
+	@RequestMapping(value = "", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE })
+	@ResponseBody
+	public Order api() {
+		
+		List<OrderDetail> products =orderDetailService.findAll();
+		return products.get(0).getOrder();
+	}
+
 	
 }

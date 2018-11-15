@@ -2,17 +2,24 @@ package com.lhsang.dashboard.model;
 
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
 @Entity(name="users")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class User {
 	@Id
 	int id;
@@ -44,7 +51,18 @@ public class User {
 	@Column(name="created_at")
 	Date createdAt;
 
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+	@JsonManagedReference
+	List<Order> order;
 	
+	public List<Order> getOrder() {
+		return order;
+	}
+
+	public void setOrder(List<Order> order) {
+		this.order = order;
+	}
+
 	public int getId() {
 		return id;
 	}
