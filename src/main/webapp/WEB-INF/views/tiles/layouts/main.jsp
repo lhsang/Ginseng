@@ -11,32 +11,44 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-	
- 		<!-- Google font -->
- 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+			<link rel="icon" href="<c:url value='/static/custom/img/logo.png' />">
+		  <!-- Fontawesome css -->
+		  <link rel="stylesheet" href="<c:url value='/static/client/css/font-awesome.min.css' />">
+		  <!-- Ionicons css -->
+		  <link rel="stylesheet" href="<c:url value='/static/client/css/ionicons.min.css' />">
+		  <!-- linearicons css -->
+		  <link rel="stylesheet" href="<c:url value='/static/client/css/linearicons.css' />">
+		  <!-- Nice select css -->
+		  <link rel="stylesheet" href="<c:url value='/static/client/css/nice-select.css' />">
+		  <!-- Jquery fancybox css -->
+		  <link rel="stylesheet" href="<c:url value='/static/client/css/jquery.fancybox.css' />">
+		  <!-- Jquery ui price slider css -->
+		  <link rel="stylesheet" href="<c:url value='/static/client/css/jquery-ui.min.css' />">
+		  <!-- Meanmenu css -->
+		  <link rel="stylesheet" href="<c:url value='/static/client/css/meanmenu.min.css' />">
+		  <!-- Nivo slider css -->
+		  <link rel="stylesheet" href="<c:url value='/static/client/css/nivo-slider.css' />">
+		  <!-- Owl carousel css -->
+		  <link rel="stylesheet" href="<c:url value='/static/client/css/owl.carousel.min.css' />">
+		  <!-- Bootstrap css -->
+		  <link rel="stylesheet" href="<c:url value='/static/client/css/bootstrap.min.css' />">
+		  <!-- Custom css -->
+		  <link rel="stylesheet" href="<c:url value='/static/client/css/default.css' />">
+		  <!-- Main css -->
+		  <link rel="stylesheet" href="<c:url value='/static/client/css/style.css' />">
+		  <!-- Responsive css -->
+		  <link rel="stylesheet" href="<c:url value='/static/client/css/responsive.css' />">
+	  		
+	  		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		  <!-- Modernizer js -->
+		  <script src="<c:url value='/static/client/js/vendor/modernizr-3.5.0.min.js' />"></script>
 
- 		<!-- Bootstrap -->
- 		<link type="text/css" rel="stylesheet" href="<c:url value='/static/client/css/bootstrap.min.css' /> "/>
-
- 		<!-- Slick -->
- 		<link type="text/css" rel="stylesheet" href="<c:url value='/static/client/css/slick.css' />"/>
- 		<link type="text/css" rel="stylesheet" href="<c:url value='/static/client/css/slick-theme.css' />"/>
-
- 		<!-- nouislider -->
- 		<link type="text/css" rel="stylesheet" href="<c:url value='/static/client/css/nouislider.min.css' />"/>
-
- 		<!-- Font Awesome Icon -->
- 		<link rel="stylesheet" href="<c:url value='/static/client/css/font-awesome.min.css' />">
-
- 		<!-- Custom stlylesheet -->
- 		<link type="text/css" rel="stylesheet" href="<c:url value='/static/client/css/style.css' />"/>
-
-		 <link rel="icon" href="<c:url value='/static/custom/img/logo.png' />">
+		 
 </head>
 <body>
 	
 		<tiles:insertAttribute name="header" />
-		<div id="nav"></div>
+		<tiles:insertAttribute name="cateAndSlide" />
 		<tiles:insertAttribute name="body" />
 		<tiles:insertAttribute name="news" />
 		<tiles:insertAttribute name="footer" />
@@ -44,13 +56,34 @@
 
 
     
-		<!-- jQuery Plugins -->
-		<script src="<c:url value='/static/client/js/jquery.min.js' />"></script>
-		<script src="<c:url value='/static/client/js/bootstrap.min.js' />"></script>
-		<script src="<c:url value='/static/client/js/slick.min.js' />"></script>
-		<script src="<c:url value='/static/client/js/nouislider.min.js' />"></script>
-		<script src="<c:url value='/static/client/js/jquery.zoom.min.js' />"></script>
-		<script src="<c:url value='/static/client/js/main.js' />"></script>
+		<!-- Main Wrapper End Here -->
+
+    <!-- jquery 3.2.1 -->
+    <script src="<c:url value='/static/client/js/vendor/jquery-3.2.1.min.js' />"></script>
+    <!-- Countdown js -->
+    <script src="<c:url value='/static/client/js/jquery.countdown.min.js' />"></script>
+    <!-- Mobile menu js -->
+    <script src="<c:url value='/static/client/js/jquery.meanmenu.min.js' />"></script>
+    <!-- ScrollUp js -->
+    <script src="<c:url value='/static/client/js/jquery.scrollUp.js' />"></script>
+    <!-- Nivo slider js -->
+    <script src="<c:url value='/static/client/js/jquery.nivo.slider.js' />"></script>
+    <!-- Fancybox js -->
+    <script src="<c:url value='/static/client/js/jquery.fancybox.min.js' />"></script>
+    <!-- Jquery nice select js -->
+    <script src="<c:url value='/static/client/js/jquery.nice-select.min.js' />"></script>
+    <!-- Jquery ui price slider js -->
+    <script src="<c:url value='/static/client/js/jquery-ui.min.js' />"></script>
+    <!-- Owl carousel -->
+    <script src="<c:url value='/static/client/js/owl.carousel.min.js' />"></script>
+    <!-- Bootstrap popper js -->
+    <script src="<c:url value='/static/client/js/popper.min.js' />"></script>
+    <!-- Bootstrap js -->
+    <script src="<c:url value='/static/client/js/bootstrap.min.js' />"></script>
+    <!-- Plugin js -->
+    <script src="<c:url value='/static/client/js/plugins.js' />"></script>
+    <!-- Main activaion js -->
+    <script src="<c:url value='/static/client/js/main.js' />"></script>
 </body>
 
 </html>

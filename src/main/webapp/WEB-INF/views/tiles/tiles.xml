@@ -6,7 +6,7 @@
 	<!--  	Start template -->
 	<definition name="mainLayout" template="/WEB-INF/views/tiles/layouts/main.jsp">
 		<put-attribute name="header" value="/WEB-INF/views/tiles/layouts/header.jsp" />
-		<put-attribute name="nav" value="/WEB-INF/views/tiles/layouts/navigation.jsp"/>
+		<put-attribute name="cateAndSlide" value=""/>
 		<put-attribute name="body" value="" />
 		<put-attribute name="news" value="/WEB-INF/views/tiles/layouts/newsletter.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/tiles/layouts/footer.jsp" />
@@ -14,7 +14,7 @@
 	
 	<definition name="blankLayout" template="/WEB-INF/views/tiles/layouts/main.jsp">
 		<put-attribute name="header" value="" />
-		<put-attribute name="nav" value=""/>
+		<put-attribute name="cateAndSlide" value=""/>
 		<put-attribute name="body" value="" />
 		<put-attribute name="news" value="" />
 		<put-attribute name="footer" value="" />
@@ -29,19 +29,22 @@
 	</definition>
 	<definition name="admin_dashboard" template="/WEB-INF/views/tiles/layouts/admin_main.jsp">
 		<put-attribute name="more" value=""  />
-		<put-attribute name="header" value="/WEB-INF/views/tiles/layouts/admin_header.jsp"  />
 		<put-attribute name="navbar-left" value="/WEB-INF/views/tiles/layouts/admin_navbar.jsp" />
+		<put-attribute name="header" value="/WEB-INF/views/tiles/layouts/admin_header.jsp"  />
 		<put-attribute name="body" value="" />
 	</definition>
 	<!--  	End template -->
 	
 	
+	<!-- Start client -->
 	
 	<definition name="home" extends="mainLayout">
+		<put-attribute name="cateAndSlide" value="/WEB-INF/views/tiles/layouts/cateAndSlide.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/pages/customer/home.jsp" />
 	</definition>
 	
-
+	<!-- end client -->
+	
 	<!-- Start admin -->
 	
 	<definition name="add_user_form" extends="blankLayout">
@@ -55,6 +58,11 @@
 	<definition name="userManagement" extends="admin_dashboard">
 		<put-attribute name="body" value="/WEB-INF/views/pages/admin/users_manage.jsp" />
 	</definition>
+	
+	<definition name="productManage" extends="admin_dashboard">
+		<put-attribute name="body" value="/WEB-INF/views/pages/admin/products_manage.jsp" />
+	</definition>
+	
 	
 	<!-- End admin -->
 	

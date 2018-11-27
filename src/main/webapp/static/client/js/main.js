@@ -1,168 +1,577 @@
-(function($) {
-	"use strict"
+/*--------------------------------------------------
+Template Name: Truemart;
+Description: Responsive Html5 Ecommerce Template;
+Template URI:;
+Author Name: HasTech;
+Author URI:;
+Version: 1.0;
 
-	// Mobile Nav toggle
-	$('.menu-toggle > a').on('click', function (e) {
-		e.preventDefault();
-		$('#responsive-nav').toggleClass('active');
-	})
+NOTE: main.js, All custom script and plugin activation script in this file. 
+-----------------------------------------------------
 
-	// Fix cart dropdown from closing
-	$('.cart-dropdown').on('click', function (e) {
-		e.stopPropagation();
-	});
+    JS INDEX
+    ================================================
+    1. Newsletter Popup
+    2. Mobile Menu Activation
+    3. Tooltip Activation
+    4.1 Vertical-Menu Activation
+    4.2 Category menu Activation
+    4.3 Checkout Page Activation
+    5. NivoSlider Activation
+    6. Hot Deal Product Activation
+    7. Brand Banner Activation
+    8. Electronics Product Activation
+    9. Best Seller Product Activation
+    10. Like Product Activation
+    11. Second Hot Deal Product Activation
+    12. Side Product Activation
+    13. Thumbnail Product activation
+    14. Countdown Js Activation
+    15. ScrollUp Activation
+    16. Sticky-Menu Activation
+    17. Nice Select Activation
+    18. Price Slider Activation
+    
+================================================*/
 
-	/////////////////////////////////////////
+(function ($) {
+    "use Strict";
+    /*--------------------------
+    1. Newsletter Popup
+    ---------------------------*/
+    setTimeout(function () {
+        $('.popup_wrapper').css({
+            "opacity": "1",
+            "visibility": "visible"
+        });
+        $('.popup_off').on('click', function () {
+            $(".popup_wrapper").fadeOut(500);
+        })
+    },700000);
 
-	// Products Slick
-	$('.products-slick').each(function() {
-		var $this = $(this),
-				$nav = $this.attr('data-nav');
+    /*----------------------------
+    2. Mobile Menu Activation
+    -----------------------------*/
+    jQuery('.mobile-menu nav').meanmenu({
+        meanScreenWidth: "991",
+    });
 
-		$this.slick({
-			slidesToShow: 4,
-			slidesToScroll: 1,
-			autoplay: true,
-			infinite: true,
-			speed: 300,
-			dots: false,
-			arrows: true,
-			appendArrows: $nav ? $nav : false,
-			responsive: [{
-	        breakpoint: 991,
-	        settings: {
-	          slidesToShow: 2,
-	          slidesToScroll: 1,
-	        }
-	      },
-	      {
-	        breakpoint: 480,
-	        settings: {
-	          slidesToShow: 1,
-	          slidesToScroll: 1,
-	        }
-	      },
-	    ]
-		});
-	});
+    /*----------------------------
+    3. Tooltip Activation
+    ------------------------------ */
+    $('.pro-actions a,.quick_view').tooltip({
+        animated: 'fade',
+        placement: 'top',
+        container: 'body'
+    });
 
-	// Products Widget Slick
-	$('.products-widget-slick').each(function() {
-		var $this = $(this),
-				$nav = $this.attr('data-nav');
+    /*----------------------------
+    4.1 Vertical-Menu Activation
+    -----------------------------*/
+    $('.categorie-title,.mobile-categorei-menu').on('click', function () {
+        $('.vertical-menu-list,.mobile-categorei-menu-list').slideToggle();
+    });
 
-		$this.slick({
-			infinite: true,
-			autoplay: true,
-			speed: 300,
-			dots: false,
-			arrows: true,
-			appendArrows: $nav ? $nav : false,
-		});
-	});
-
-	/////////////////////////////////////////
-
-	// Product Main img Slick
-	$('#product-main-img').slick({
-    infinite: true,
-    speed: 300,
-    dots: false,
-    arrows: true,
-    fade: true,
-    asNavFor: '#product-imgs',
-  });
-
-	// Product imgs Slick
-  $('#product-imgs').slick({
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    arrows: true,
-    centerMode: true,
-    focusOnSelect: true,
-		centerPadding: 0,
-		vertical: true,
-    asNavFor: '#product-main-img',
-		responsive: [{
-        breakpoint: 991,
-        settings: {
-					vertical: false,
-					arrows: false,
-					dots: true,
+    /*------------------------------
+     4.2 Category menu Activation
+    ------------------------------*/
+    $('#cate-toggle li.has-sub>a,#cate-mobile-toggle li.has-sub>a,#shop-cate-toggle li.has-sub>a').on('click', function () {
+        $(this).removeAttr('href');
+        var element = $(this).parent('li');
+        if (element.hasClass('open')) {
+            element.removeClass('open');
+            element.find('li').removeClass('open');
+            element.find('ul').slideUp();
+        } else {
+            element.addClass('open');
+            element.children('ul').slideDown();
+            element.siblings('li').children('ul').slideUp();
+            element.siblings('li').removeClass('open');
+            element.siblings('li').find('li').removeClass('open');
+            element.siblings('li').find('ul').slideUp();
         }
-      },
-    ]
-  });
+    });
+    $('#cate-toggle>ul>li.has-sub>a').append('<span class="holder"></span>');
 
-	// Product img zoom
-	var zoomMainProduct = document.getElementById('product-main-img');
-	if (zoomMainProduct) {
-		$('#product-main-img .product-preview').zoom();
-	}
+    /*----------------------------
+    4.3 Checkout Page Activation
+    -----------------------------*/
+    $('#showlogin').on('click', function () {
+        $('#checkout-login').slideToggle();
+    });
+    $('#showcoupon').on('click', function () {
+        $('#checkout_coupon').slideToggle();
+    });
+    $('#cbox').on('click', function () {
+        $('#cbox_info').slideToggle();
+    });
+    $('#ship-box').on('click', function () {
+        $('#ship-box-info').slideToggle();
+    });
 
-	/////////////////////////////////////////
+    /*----------------------------
+    5. NivoSlider Activation
+    -----------------------------*/
+    $('#slider').nivoSlider({
+        effect: 'random',
+        animSpeed: 300,
+        pauseTime: 5000,
+        directionNav: true,
+        manualAdvance: true,
+        controlNavThumbs: false,
+        pauseOnHover: true,
+        controlNav: false,
+        prevText: "<i class='lnr lnr-arrow-left'></i>",
+        nextText: "<i class='lnr lnr-arrow-right'></i>"
+    });
 
-	// Input number
-	$('.input-number').each(function() {
-		var $this = $(this),
-		$input = $this.find('input[type="number"]'),
-		up = $this.find('.qty-up'),
-		down = $this.find('.qty-down');
+    /*----------------------------------------------------
+    6. Hot Deal Product Activation
+    -----------------------------------------------------*/
+    $('.hot-deal-active').owlCarousel({
+        loop: false,
+        nav: true,
+        dots: false,
+        smartSpeed: 1500,
+        navText: ["<i class='lnr lnr-arrow-left'></i>", "<i class='lnr lnr-arrow-right'></i>"],
+        margin: 10,
+        responsive: {
+            0: {
+                items: 1,
+                autoplay: true,
+                smartSpeed: 500
+            },
+            480: {
+                items: 2
+            },
+            768: {
+                items: 2
+            },
+            992: {
+                items: 3
+            },
+            1200: {
+                items: 5
+            }
+        }
+    })
+    $('.hot-deal-active3').owlCarousel({
+        loop: false,
+        nav: true,
+        dots: false,
+        smartSpeed: 1500,
+        navText: ["<i class='lnr lnr-arrow-left'></i>", "<i class='lnr lnr-arrow-right'></i>"],
+        margin: 10,
+        responsive: {
+            0: {
+                items: 1,
+                autoplay: true,
+                smartSpeed: 500
+            },
+            480: {
+                items: 1
+            },
+            768: {
+                items: 1
+            },
+            992: {
+                items: 1
+            },
+            1200: {
+                items: 1
+            }
+        }
+    })
 
-		down.on('click', function () {
-			var value = parseInt($input.val()) - 1;
-			value = value < 1 ? 1 : value;
-			$input.val(value);
-			$input.change();
-			updatePriceSlider($this , value)
-		})
+    /*----------------------------------------------------
+    7. Brand Banner Activation
+    -----------------------------------------------------*/
+    $('.brand-banner').owlCarousel({
+        loop: true,
+        nav: true,
+        autoplay: true,
+        dots: false,
+        navText: ["<i class='lnr lnr-arrow-left'></i>", "<i class='lnr lnr-arrow-right'></i>"],
+        smartSpeed: 1200,
+        margin: 0,
+        responsive: {
+            0: {
+                items: 1,
+                autoplay: true,
+                smartSpeed: 500
+            },
+            380: {
+                items: 2
+            },
+            768: {
+                items: 3
+            },
+            1000: {
+                items: 3
+            }
+        }
+    })
+    $('.brand-banner-sidebar').owlCarousel({
+        loop: true,
+        nav: false,
+        autoplay: true,
+        dots: false,
+        navText: ["<i class='lnr lnr-arrow-left'></i>", "<i class='lnr lnr-arrow-right'></i>"],
+        smartSpeed: 1200,
+        margin: 0,
+        responsive: {
+            0: {
+                items: 1,
+                autoplay: true,
+                smartSpeed: 500
+            },
+            380: {
+                items: 2
+            },
+            768: {
+                items: 2
+            },
+            1000: {
+                items: 2
+            }
+        }
+    })
+    
+    /*----------------------------------------------------
+    8. Electronics Product Activation
+    -----------------------------------------------------*/
+    $('.electronics-pro-active')
+        .on('changed.owl.carousel initialized.owl.carousel', function (event) {
+            $(event.target)
+                .find('.owl-item').removeClass('last')
+                .eq(event.item.index + event.page.size - 1).addClass('last');
+        }).owlCarousel({
+            loop: false,
+            nav: true,
+            dots: false,
+            smartSpeed: 1000,
+            navText: ["<i class='lnr lnr-arrow-left'></i>", "<i class='lnr lnr-arrow-right'></i>"],
+            margin: 10,
+            responsive: {
+                0: {
+                    items: 1,
+                    autoplay: true,
+                    smartSpeed: 500
+                },
+                768: {
+                    items: 2
+                },
+                992: {
+                    items: 3
+                },
+                1200: {
+                    items: 3
+                }
+            }
+        })
 
-		up.on('click', function () {
-			var value = parseInt($input.val()) + 1;
-			$input.val(value);
-			$input.change();
-			updatePriceSlider($this , value)
-		})
-	});
+    $('.electronics-pro-active2')
+        .on('changed.owl.carousel initialized.owl.carousel', function (event) {
+            $(event.target)
+                .find('.owl-item').removeClass('last')
+                .eq(event.item.index + event.page.size - 1).addClass('last');
+        }).owlCarousel({
+            loop: false,
+            nav: true,
+            dots: false,
+            smartSpeed: 1000,
+            navText: ["<i class='lnr lnr-arrow-left'></i>", "<i class='lnr lnr-arrow-right'></i>"],
+            margin: 10,
+            responsive: {
+                0: {
+                    items: 1,
+                    autoplay: true,
+                    smartSpeed: 500
+                },
+                768: {
+                    items: 2
+                },
+                992: {
+                    items: 2
+                },
+                1200: {
+                    items: 3
+                }
+            }
+        })
+    
+    /*----------------------------------------------------
+    9. Best Seller Product Activation
+    -----------------------------------------------------*/
+    $('.best-seller-pro-active').owlCarousel({
+        loop: false,
+        nav: true,
+        dots: false,
+        smartSpeed: 1500,
+        navText: ["<i class='lnr lnr-arrow-left'></i>", "<i class='lnr lnr-arrow-right'></i>"],
+        margin: 10,
+        responsive: {
+            0: {
+                items: 1,
+                autoplay: true,
+                smartSpeed: 500
+            },
+            450: {
+                items: 2
+            },
+            768: {
+                items: 3
+            },
+            992: {
+                items: 4
+            },
+            1200: {
+                items: 5
+            }
+        }
+    })
+    $('.trending-pro-active').owlCarousel({
+        loop: false,
+        nav: false,
+        dots: true,
+        smartSpeed: 1500,
+        navText: ["<i class='lnr lnr-arrow-left'></i>", "<i class='lnr lnr-arrow-right'></i>"],
+        margin: 10,
+        responsive: {
+            0: {
+                items: 1,
+                autoplay: true,
+                smartSpeed: 500
+            },
+            450: {
+                items: 2
+            },
+            768: {
+                items: 3
+            },
+            992: {
+                items: 4
+            },
+            1200: {
+                items: 5
+            }
+        }
+    })
+    
+    /*----------------------------------------------------
+    10. Like Product Activation
+    -----------------------------------------------------*/
+    $('.like-pro-active').owlCarousel({
+        loop: false,
+        nav: false,
+        dots: true,
+        smartSpeed: 1500,
+        navText: ["<i class='lnr lnr-arrow-left'></i>", "<i class='lnr lnr-arrow-right'></i>"],
+        margin: 10,
+        responsive: {
+            0: {
+                items: 1,
+                autoplay: true,
+                smartSpeed: 500
+            },
+            450: {
+                items: 2
+            },
+            768: {
+                items: 3
+            },
+            992: {
+                items: 4
+            },
+            1200: {
+                items: 5
+            }
+        }
+    })
 
-	var priceInputMax = document.getElementById('price-max'),
-			priceInputMin = document.getElementById('price-min');
+    /*----------------------------------------------------
+    11. Second Hot Deal Product Activation
+    -----------------------------------------------------*/
+    $('.second-hot-deal-active').on('changed.owl.carousel initialized.owl.carousel', function (event) {
+        $(event.target)
+            .find('.owl-item').removeClass('last')
+            .eq(event.item.index + event.page.size - 1).addClass('last');
+    }).owlCarousel({
+        loop: false,
+        nav: true,
+        dots: false,
+        smartSpeed: 1500,
+        navText: ["<i class='lnr lnr-arrow-left'></i>", "<i class='lnr lnr-arrow-right'></i>"],
+        margin: 0,
+        responsive: {
+            0: {
+                items: 1,
+                autoplay: true,
+                smartSpeed: 500
+            },
+            768: {
+                items: 1
+            },
+            992: {
+                items: 2
+            },
+            1200: {
+                items: 2
+            }
+        }
+    })
 
-	priceInputMax.addEventListener('change', function(){
-		updatePriceSlider($(this).parent() , this.value)
-	});
+    /*----------------------------------------------------
+    12. Side Product Activation
+    -----------------------------------------------------*/
+    $('.side-product-active').owlCarousel({
+        loop: false,
+        nav: false,
+        dots: false,
+        smartSpeed: 1500,
+        navText: ["<i class='lnr lnr-arrow-left'></i>", "<i class='lnr lnr-arrow-right'></i>"],
+        margin: 0,
+        responsive: {
+            0: {
+                items: 1,
+                autoplay: true,
+                smartSpeed: 500
+            },
+            450: {
+                items: 1
+            },
+            768: {
+                items: 1
+            },
+            1200: {
+                items: 1
+            }
+        }
+    })
+        
+    /*----------------------------------------------------
+    12. New Product Tow For Home-2 Activation
+    -----------------------------------------------------*/
+    $('.latest-blog-active').owlCarousel({
+        loop: false,
+        nav: false,
+        dots: true,
+        smartSpeed: 1500,
+        navText: ["<i class='lnr lnr-arrow-left'></i>", "<i class='lnr lnr-arrow-right'></i>"],
+        margin: 20,
+        responsive: {
+            0: {
+                items: 1,
+                autoplay: true,
+                smartSpeed: 500
+            },
+            450: {
+                items: 1
+            },
+            768: {
+                items: 1
+            },
+            992: {
+                items: 2
+            },
+            1200: {
+                items: 2
+            }
+        }
+    })
 
-	priceInputMin.addEventListener('change', function(){
-		updatePriceSlider($(this).parent() , this.value)
-	});
+    /*-------------------------------------
+    13. Thumbnail Product activation
+    --------------------------------------*/
+    $('.thumb-menu').owlCarousel({
+        loop: false,
+        navText: ["<i class='lnr lnr-arrow-left'></i>", "<i class='lnr lnr-arrow-right'></i>"],
+        margin: 15,
+        smartSpeed: 1000,
+        nav: true,
+        dots: false,
+        responsive: {
+            0: {
+                items: 3,
+                autoplay: true,
+                smartSpeed: 500
+            },
+            768: {
+                items: 3
+            },
+            1000: {
+                items: 3
+            }
+        }
+    })
+    $('.thumb-menu a').on('click', function () {
+        $('.thumb-menu a').removeClass('active');
+    })
+    
+    /*----------------------------
+    14. Countdown Js Activation
+    -----------------------------*/
+    $('[data-countdown]').each(function () {
+        var $this = $(this),
+            finalDate = $(this).data('countdown');
+        $this.countdown(finalDate, function (event) {
+            $this.html(event.strftime('<div class="count"><p>%D</p> <span>Days</span></div><div class="count"><p>%H</p> <span>Hours</span></div><div class="count"><p>%M</p> <span>Mins</span></div><div class="count"> <p>%S</p> <span>Secs</span></div>'));
+        });
+    });
 
-	function updatePriceSlider(elem , value) {
-		if ( elem.hasClass('price-min') ) {
-			console.log('min')
-			priceSlider.noUiSlider.set([value, null]);
-		} else if ( elem.hasClass('price-max')) {
-			console.log('max')
-			priceSlider.noUiSlider.set([null, value]);
-		}
-	}
+    /*----------------------------
+    15. ScrollUp Activation
+    -----------------------------*/
+    $.scrollUp({
+        scrollName: 'scrollUp', // Element ID
+        topDistance: '550', // Distance from top before showing element (px)
+        topSpeed: 1000, // Speed back to top (ms)
+        animation: 'fade', // Fade, slide, none
+        scrollSpeed: 900,
+        animationInSpeed: 1000, // Animation in speed (ms)
+        animationOutSpeed: 1000, // Animation out speed (ms)
+        scrollText: '<i class="fa fa-angle-double-up" aria-hidden="true"></i>', // Text for element
+        activeOverlay: false // Set CSS color to display scrollUp active point, e.g '#00FFFF'
+    });
 
-	// Price Slider
-	var priceSlider = document.getElementById('price-slider');
-	if (priceSlider) {
-		noUiSlider.create(priceSlider, {
-			start: [1, 999],
-			connect: true,
-			step: 1,
-			range: {
-				'min': 1,
-				'max': 999
-			}
-		});
+    /*----------------------------
+    16. Sticky-Menu Activation
+    ------------------------------ */
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 300) {
+            $('.header-sticky').addClass("sticky");
+        } else {
+            $('.header-sticky').removeClass("sticky");
+        }
+    });
+    
+    /*----------------------------
+    17. Nice Select Activation
+    ------------------------------ */
+    $('select').niceSelect();
+    
+    /*----------------------------
+    18. Price Slider Activation
+    -----------------------------*/
+    $("#slider-range").slider({
+        range: true,
+        min: 0,
+        max: 100,
+        values: [0, 85],
+    slide: function( event, ui ) {
+        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      }
+    });
+    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
 
-		priceSlider.noUiSlider.on('update', function( values, handle ) {
-			var value = values[handle];
-			handle ? priceInputMax.value = value : priceInputMin.value = value
-		});
-	}
+
+
+    /*--------------------------
+         banner colse Popup
+    ---------------------------*/
+        $('.popup_off_banner').on('click', function () {
+            $(".popup_banner").fadeOut(500);
+        })
 
 })(jQuery);

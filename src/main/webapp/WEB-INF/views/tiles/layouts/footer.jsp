@@ -3,100 +3,74 @@
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<!-- FOOTER -->
-<footer id="footer">
-	<!-- top footer -->
-	<div class="section">
-		<!-- container -->
+<!-- Footer Area Start Here -->
+<footer class="off-white-bg2 pt-95 bdr-top pt-sm-55">
+	<!-- Footer Top Start -->
+	<div class="footer-top">
 		<div class="container">
-			<!-- row -->
+			<!-- Signup Newsletter Start -->
+			<div class="row mb-60">
+				 <div class="col-xl-7 col-lg-7 ml-auto mr-auto col-md-8">
+					<div class="news-desc text-center mb-30">
+						 <h3 style="font-family: 'Roboto', sans-serif;">Đăng ký nhận tin khi có sản phẩm mới - khuyến mãi</h3>
+						 <p>Đăng ký ngay !</p>
+					 </div>
+					 <div class="newsletter-box">
+						 <form action="#">
+							  <input class="subscribe" placeholder="your email address" name="email" id="subscribe" type="text">
+							  <button type="submit" class="submit">Xác nhận!</button>
+						 </form>
+					 </div>
+				 </div>
+			</div> 
+			<!-- Signup-Newsletter End -->                   
 			<div class="row">
-				<div class="col-md-3 col-xs-6">
-					<div class="footer">
-						<h3 class="footer-title">About Us</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
-						<ul class="footer-links">
-							<li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
-							<li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
-							<li><a href="#"><i class="fa fa-envelope-o"></i>email@email.com</a></li>
-						</ul>
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+							<i class="lnr lnr-map-marker"></i> <b>Địa chỉ:</b> 606 Cộng Hòa, Phường 15, Tân Bình, Hồ Chí Minh.
 					</div>
-				</div>
-
-				<div class="col-md-3 col-xs-6">
-					<div class="footer">
-						<h3 class="footer-title">Categories</h3>
-						<ul class="footer-links">
-							<li><a href="#">Hot deals</a></li>
-							<li><a href="#">Laptops</a></li>
-							<li><a href="#">Smartphones</a></li>
-							<li><a href="#">Cameras</a></li>
-							<li><a href="#">Accessories</a></li>
-						</ul>
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+							<i class="lnr lnr-envelope"></i><b> Email: </b><a href="mailto:lhsang@gmail.com">lhsang@gmail.com </a>
 					</div>
-				</div>
-
-				<div class="clearfix visible-xs"></div>
-
-				<div class="col-md-3 col-xs-6">
-					<div class="footer">
-						<h3 class="footer-title">Information</h3>
-						<ul class="footer-links">
-							<li><a href="#">About Us</a></li>
-							<li><a href="#">Contact Us</a></li>
-							<li><a href="#">Privacy Policy</a></li>
-							<li><a href="#">Orders and Returns</a></li>
-							<li><a href="#">Terms & Conditions</a></li>
-						</ul>
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+							<i class="lnr lnr-phone-handset"></i><b> Điện thoại:</b>  076 914 9547
 					</div>
-				</div>
-
-				<div class="col-md-3 col-xs-6">
-					<div class="footer">
-						<h3 class="footer-title">Service</h3>
-						<ul class="footer-links">
-							<li><a href="#">My Account</a></li>
-							<li><a href="#">View Cart</a></li>
-							<li><a href="#">Wishlist</a></li>
-							<li><a href="#">Track My Order</a></li>
-							<li><a href="#">Help</a></li>
-						</ul>
+					<br><br>
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+							<a href="#"><img class="img" src="<c:url value='/static/client/img/payment/1.png' />" alt="payment-image"></a>
 					</div>
-				</div>
 			</div>
-			<!-- /row -->
+			<!-- Row End -->
 		</div>
-		<!-- /container -->
+		<!-- Container End -->
 	</div>
-	<!-- /top footer -->
-
-	<!-- bottom footer -->
-	<div id="bottom-footer" class="section">
+	<!-- Footer Top End -->
+	<!-- Footer Middle Start -->
+	<div class="footer-middle text-center">
 		<div class="container">
-			<!-- row -->
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<ul class="footer-payments">
-						<li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
-						<li><a href="#"><i class="fa fa-credit-card"></i></a></li>
-						<li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
-						<li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
-						<li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
-						<li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
+			<div class="footer-middle-content pt-20 pb-30">
+					<ul class="social-footer">
+						<li><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="https://plus.google.com/"><i class="fa fa-google-plus"></i></a></li>
+						<li><a href="https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
+						<li><a href="#"><img src="<c:url value='/static/client/img/icon/social-img1.png' />" alt="google play"></a></li>
+						<li><a href="#"><img src="<c:url value='/static/client/img/icon/social-img2.png' />" alt="app store"></a></li>
 					</ul>
-					<span class="copyright">
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						Copyright &copy;<script>document.write(new Date().getFullYear());</script>Le Hoang Sang, All rights reserved </a>
-					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-					</span>
-
-
-				</div>
 			</div>
-				<!-- /row -->
 		</div>
-		<!-- /container -->
+		<!-- Container End -->
 	</div>
-	<!-- /bottom footer -->
+	<!-- Footer Middle End -->
+	<!-- Footer Bottom Start -->
+	<div class="footer-bottom pb-30">
+		<div class="container">
+
+			 <div class="copyright-text text-center">                    
+				<p>Copyright © 2018 <a target="_blank" href="#">Le Hoang Sang. </a> All Rights Reserved.</p>
+			 </div>
+		</div>
+		<!-- Container End -->
+	</div>
+	<!-- Footer Bottom End -->
 </footer>
-<!-- /FOOTER -->
+<!-- Footer Area End Here -->
