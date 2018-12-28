@@ -3,179 +3,73 @@
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<!-- PAGE CONTAINER-->
-<div class="page-container">
-    <!-- HEADER DESKTOP-->
-    <header class="header-desktop">
-        <div class="section__content section__content--p30">
-            <div class="container-fluid">
-                <div class="header-wrap">
-                    <form class="form-header" action="" method="POST">
-                        <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
-                        <button class="au-btn--submit" type="submit">
-                            <i class="zmdi zmdi-search"></i>
-                        </button>
-                    </form>
-                    <div class="header-button">
-                        <div class="noti-wrap">
-                            <div class="noti__item js-item-menu">
-                                <i class="zmdi zmdi-comment-more"></i>
-                                <span class="quantity">1</span>
-                                <div class="mess-dropdown js-dropdown">
-                                    <div class="mess__title">
-                                        <p>You have 2 news message</p>
-                                    </div>
-                                    <div class="mess__item">
-                                        <div class="image img-cir img-40">
-                                            <img src="<c:url value='/static/admin/images/icon/avatar-06.jpg'  />" alt="Michelle Moreno" />
-                                        </div>
-                                        <div class="content">
-                                            <h6>Michelle Moreno</h6>
-                                            <p>Have sent a photo</p>
-                                            <span class="time">3 min ago</span>
-                                        </div>
-                                    </div>
-                                    <div class="mess__item">
-                                        <div class="image img-cir img-40">
-                                            <img src="<c:url value='/static/admin/images/icon/avatar-04.jpg'  />" alt="Diane Myers" />
-                                        </div>
-                                        <div class="content">
-                                            <h6>Diane Myers</h6>
-                                            <p>You are now connected on message</p>
-                                            <span class="time">Yesterday</span>
-                                        </div>
-                                    </div>
-                                    <div class="mess__footer">
-                                        <a href="#">View all messages</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="noti__item js-item-menu">
-                                <i class="zmdi zmdi-email"></i>
-                                <span class="quantity">1</span>
-                                <div class="email-dropdown js-dropdown">
-                                    <div class="email__title">
-                                        <p>You have 3 New Emails</p>
-                                    </div>
-                                    <div class="email__item">
-                                        <div class="image img-cir img-40">
-                                            <img src="<c:url value='/static/admin/images/icon/avatar-06.jpg'  />" alt="Cynthia Harvey" />
-                                        </div>
-                                        <div class="content">
-                                            <p>Meeting about new dashboard...</p>
-                                            <span>Cynthia Harvey, 3 min ago</span>
-                                        </div>
-                                    </div>
-                                    <div class="email__item">
-                                        <div class="image img-cir img-40">
-                                            <img src="<c:url value='/static/admin/images/icon/avatar-05.jpg'  />" alt="Cynthia Harvey" />
-                                        </div>
-                                        <div class="content">
-                                            <p>Meeting about new dashboard...</p>
-                                            <span>Cynthia Harvey, Yesterday</span>
-                                        </div>
-                                    </div>
-                                    <div class="email__item">
-                                        <div class="image img-cir img-40">
-                                            <img src="<c:url value='/static/admin/images/icon/avatar-04.jpg'  />" alt="Cynthia Harvey" />
-                                        </div>
-                                        <div class="content">
-                                            <p>Meeting about new dashboard...</p>
-                                            <span>Cynthia Harvey, April 12,,2018</span>
-                                        </div>
-                                    </div>
-                                    <div class="email__footer">
-                                        <a href="#">See all emails</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="noti__item js-item-menu">
-                                <i class="zmdi zmdi-notifications"></i>
-                                <span class="quantity">3</span>
-                                <div class="notifi-dropdown js-dropdown">
-                                    <div class="notifi__title">
-                                        <p>You have 3 Notifications</p>
-                                    </div>
-                                    <div class="notifi__item">
-                                        <div class="bg-c1 img-cir img-40">
-                                            <i class="zmdi zmdi-email-open"></i>
-                                        </div>
-                                        <div class="content">
-                                            <p>You got a email notification</p>
-                                            <span class="date">April 12, 2018 06:50</span>
-                                        </div>
-                                    </div>
-                                    <div class="notifi__item">
-                                        <div class="bg-c2 img-cir img-40">
-                                            <i class="zmdi zmdi-account-box"></i>
-                                        </div>
-                                        <div class="content">
-                                            <p>Your account has been blocked</p>
-                                            <span class="date">April 12, 2018 06:50</span>
-                                        </div>
-                                    </div>
-                                    <div class="notifi__item">
-                                        <div class="bg-c3 img-cir img-40">
-                                            <i class="zmdi zmdi-file-text"></i>
-                                        </div>
-                                        <div class="content">
-                                            <p>You got a new file</p>
-                                            <span class="date">April 12, 2018 06:50</span>
-                                        </div>
-                                    </div>
-                                    <div class="notifi__footer">
-                                        <a href="#">All notifications</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="account-wrap">
-                            <div class="account-item clearfix js-item-menu">
-                                <div class="image">
-                                    <img src="<c:url value='https://scontent.fsgn6-2.fna.fbcdn.net/v/t1.0-9/45567729_1174220442727267_756317940957052928_n.jpg?_nc_cat=111&_nc_ht=scontent.fsgn6-2.fna&oh=72f37cabdf7a40dfcba8b5be22304ad2&oe=5C72B254'  />" alt="John Doe" />
-                                </div>
-                                <div class="content">
-                                    <a class="js-acc-btn" href="#">Le Hoang Sang</a>
-                                </div>
-                                <div class="account-dropdown js-dropdown">
-                                    <div class="info clearfix">
-                                        <div class="image">
-                                            <a href="#">
-                                                <img src="<c:url value='https://scontent.fsgn6-2.fna.fbcdn.net/v/t1.0-9/45567729_1174220442727267_756317940957052928_n.jpg?_nc_cat=111&_nc_ht=scontent.fsgn6-2.fna&oh=72f37cabdf7a40dfcba8b5be22304ad2&oe=5C72B254'  />" alt="John Doe" />
-                                            </a>
-                                        </div>
-                                        <div class="content">
-                                            <h5 class="name">
-                                                <a href="#">Le Hoang Sang</a>
-                                            </h5>
-                                            <span class="email">lhsang@gmail.com</span>
-                                        </div>
-                                    </div>
-                                    <div class="account-dropdown__body">
-                                        <div class="account-dropdown__item">
-                                            <a href="#">
-                                                <i class="zmdi zmdi-account"></i>Account</a>
-                                        </div>
-                                        <div class="account-dropdown__item">
-                                            <a href="#">
-                                                <i class="zmdi zmdi-settings"></i>Setting</a>
-                                        </div>
-                                        <div class="account-dropdown__item">
-                                            <a href="#">
-                                                <i class="zmdi zmdi-money-box"></i>Billing</a>
-                                        </div>
-                                    </div>
-                                    <div class="account-dropdown__footer">
-                                        <a href='<c:url value="/logout" />'>
-                                            <i class="zmdi zmdi-power" ></i>Logout</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+  <!-- navbar-fixed-top-->
+    <nav class="header-navbar navbar navbar-with-menu navbar-fixed-top navbar-semi-dark navbar-shadow">
+      <div class="navbar-wrapper">
+        <div class="navbar-header">
+          <ul class="nav navbar-nav">
+            <li class="nav-item mobile-menu hidden-md-up float-xs-left"><a href="#" class="nav-link nav-menu-main menu-toggle hidden-xs"><i class="ft-menu font-large-1"></i></a></li>
+            <li class="nav-item"><a href="<c:url value='/admin'/>" class="navbar-brand"><img src="<c:url value='/static/custom/img/logo30.png'/>" class="brand-logo">
+                <h2 class="brand-text">Ginseng</h2></a></li>
+            <li class="nav-item hidden-md-up float-xs-right"><a data-toggle="collapse" data-target="#navbar-mobile" class="nav-link open-navbar-container"><i class="fa fa-ellipsis-v"></i></a></li>
+          </ul>
         </div>
-    </header>
-    <!-- HEADER DESKTOP-->
-</div>
+        <div class="navbar-container content container-fluid">  
+          <div id="navbar-mobile" class="collapse navbar-toggleable-sm">
+            <ul class="nav navbar-nav">
+              <li class="nav-item hidden-sm-down"><a href="#" class="nav-link nav-menu-main menu-toggle hidden-xs"><i class="ft-menu"></i></a></li>
+              <li class="nav-item hidden-sm-down"><a href="#" class="nav-link nav-link-expand"><i class="ficon ft-maximize"></i></a></li>
+              <li class="nav-item nav-search"><a href="#" class="nav-link nav-link-search"><i class="ficon ft-search"></i></a>
+                <div class="search-input">
+                  <input type="text" placeholder="Explore Stack..." class="input">
+                </div>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav float-xs-right">
+              <li class="dropdown dropdown-notification nav-item"><a href="#" data-toggle="dropdown" class="nav-link nav-link-label"><i class="ficon ft-bell"></i><span class="tag tag-pill tag-default tag-danger tag-default tag-up">1</span></a>
+                <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
+                  <li class="dropdown-menu-header">
+                    <h6 class="dropdown-header m-0"><span class="grey darken-2">Notifications</span><span class="notification-tag tag tag-default tag-danger float-xs-right m-0">1 New</span></h6>
+                  </li>
+                  <li class="list-group scrollable-container"><a href="javascript:void(0)" class="list-group-item">
+                      <div class="media">
+                        <div class="media-left valign-middle"><i class="ft-plus-square icon-bg-circle bg-cyan"></i></div>
+                        <div class="media-body">
+                          <h6 class="media-heading">You have new order!</h6>
+                          <p class="notification-text font-small-3 text-muted">Lorem ipsum dolor sit amet, consectetuer elit.</p><small>
+                            <time datetime="2015-06-11T18:29:20+08:00" class="media-meta text-muted">30 minutes ago</time></small>
+                        </div>
+                      </div></a>
+                      
+                  <li class="dropdown-menu-footer"><a href="javascript:void(0)" class="dropdown-item text-muted text-xs-center">Read all notifications</a></li>
+                </ul>
+              </li>
+              <li class="dropdown dropdown-notification nav-item"><a href="#" data-toggle="dropdown" class="nav-link nav-link-label"><i class="ficon ft-mail"></i><span class="tag tag-pill tag-default tag-warning tag-default tag-up">3</span></a>
+                <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
+                  <li class="dropdown-menu-header">
+                    <h6 class="dropdown-header m-0"><span class="grey darken-2">Messages</span><span class="notification-tag tag tag-default tag-warning float-xs-right m-0">4 New</span></h6>
+                  </li>
+                  <li class="list-group scrollable-container"><a href="javascript:void(0)" class="list-group-item">
+                      <div class="media">
+                        <div class="media-left"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-1.png" alt="avatar"><i></i></span></div>
+                        <div class="media-body">
+                          <h6 class="media-heading">Margaret Govan</h6>
+                          <p class="notification-text font-small-3 text-muted">I like your portfolio, let's start the project.</p><small>
+                            <time datetime="2015-06-11T18:29:20+08:00" class="media-meta text-muted">Today</time></small>
+                        </div>
+                      </div></a>
+                      
+                  <li class="dropdown-menu-footer"><a href="javascript:void(0)" class="dropdown-item text-muted text-xs-center">Read all messages</a></li>
+                </ul>
+              </li>
+              <li class="dropdown dropdown-user nav-item"><a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link dropdown-user-link"><span class="avatar avatar-online"><img src="https://scontent.fsgn6-1.fna.fbcdn.net/v/t1.0-9/48239718_1199132170236094_8392805578912563200_n.jpg?_nc_cat=109&_nc_eui2=AeFScVx-fGql93H6OWkTJ6YCbOe3z1txUh5bZ2BJkngdg6KSjGIleuyudF0X9kSOuEjMPhY7wH5zb6S4Ynq3WhSJihCjZ0VFAql-ERnIKhFWPw&_nc_ht=scontent.fsgn6-1.fna&oh=7810cf5bff8e6d898d03cd70d50b5355&oe=5C9C465F" alt="avatar"><i></i></span><span class="user-name">Le Hoang Sang</span></a>
+                <div class="dropdown-menu dropdown-menu-right"><a href="#" class="dropdown-item"><i class="ft-user"></i> Edit Profile</a><a href="#" class="dropdown-item"><i class="ft-mail"></i> My Inbox</a><a href="#" class="dropdown-item"><i class="ft-check-square"></i> Task</a><a href="#" class="dropdown-item"><i class="ft-message-square"></i> Chats</a>
+                  <div class="dropdown-divider"></div><a href="#" class="dropdown-item"><i class="ft-power"></i> Logout</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>

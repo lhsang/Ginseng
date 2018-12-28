@@ -5,87 +5,86 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
 <!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-	
- 	<!-- Fontfaces CSS-->
-    <link href="<c:url value='/static/admin/css/font-face.css' />" rel="stylesheet" media="all">
-    <link href="<c:url value='/static/admin/vendor/font-awesome-4.7/css/font-awesome.min.css' />" rel="stylesheet" media="all">
-    <link href="<c:url value='/static/admin/vendor/font-awesome-5/css/fontawesome-all.min.css' />" rel="stylesheet" media="all">
-    <link href="<c:url value='/static/admin/vendor/mdi-font/css/material-design-iconic-font.min.css' />" rel="stylesheet" media="all">
+<html lang="en" data-textdirection="ltr" class="loading">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="Stack admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, stack admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="PIXINVENT">
+    <title>Ginseng dashboard</title>
+    <link rel="apple-touch-icon" href="<c:url value='/static/admin/images/ico/apple-icon-120.png' />">
+    <link rel="shortcut icon" type="image/x-icon" href="<c:url value='/static/admin/images/ico/favicon.ico' />">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+    <!-- BEGIN VENDOR CSS-->
+    <link rel="stylesheet" type="text/css" href="<c:url value='/static/admin/css/bootstrap.css' />">
+    <link rel="stylesheet" type="text/css" href="<c:url value='/static/admin/fonts/feather/style.min.css' />">
+    <link rel="stylesheet" type="text/css" href="<c:url value='/static/admin/fonts/font-awesome/css/font-awesome.min.css' />">
+    <link rel="stylesheet" type="text/css" href="<c:url value='/static/admin/fonts/flag-icon-css/css/flag-icon.min.css' />">
+    <link rel="stylesheet" type="text/css" href="<c:url value='/static/admin/vendors/css/extensions/pace.css' />">
+    <link rel="stylesheet" type="text/css" href="<c:url value='/static/admin/vendors/css/charts/jquery-jvectormap-2.0.3.css' />">
+    <link rel="stylesheet" type="text/css" href="<c:url value='/static/admin/vendors/css/charts/morris.css' />">
+    <link rel="stylesheet" type="text/css" href="<c:url value='/static/admin/vendors/css/extensions/unslider.css' />">
+    <link rel="stylesheet" type="text/css" href="<c:url value='/static/admin/vendors/css/weather-icons/climacons.min.css' />">
+    <!-- END VENDOR CSS-->
+    <!-- BEGIN STACK CSS-->
+    <link rel="stylesheet" type="text/css" href="<c:url value='/static/admin/css/bootstrap-extended.css' />">
+    <link rel="stylesheet" type="text/css" href="<c:url value='/static/admin/css/app.css' />">
+    <link rel="stylesheet" type="text/css" href="<c:url value='/static/admin/css/colors.css' />">
+    <!-- END STACK CSS-->
+    <!-- BEGIN Page Level CSS-->
+    <link rel="stylesheet" type="text/css" href="<c:url value='/static/admin/css/core/menu/menu-types/vertical-menu.css' />">
+    <link rel="stylesheet" type="text/css" href="<c:url value='/static/admin/css/core/menu/menu-types/vertical-overlay-menu.css' />">
 
-    <!-- Bootstrap CSS-->
-    <link href="<c:url value='/static/admin/vendor/bootstrap-4.1/bootstrap.min.css' />" rel="stylesheet" media="all">
+    <tiles:insertAttribute name="header" />
 
-    <!-- Vendor CSS-->
-    <link href="<c:url value='/static/admin/vendor/animsition/animsition.min.css' />" rel="stylesheet" media="all">
-    <link href="<c:url value='/static/admin/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css' />" rel="stylesheet" media="all">
-    <link href="<c:url value='/static/admin/vendor/wow/animate.css' />" rel="stylesheet" media="all">
-    <link href="<c:url value='/static/admin/vendor/css-hamburgers/hamburgers.min.css' />" rel="stylesheet" media="all">
-    <link href="<c:url value='/static/admin/vendor/slick/slick.css' />" rel="stylesheet" media="all">
-    <link href="<c:url value='/static/admin/vendor/select2/select2.min.css' />" rel="stylesheet" media="all">
-    <link href="<c:url value='/static/admin/vendor/perfect-scrollbar/perfect-scrollbar.css' />" rel="stylesheet" media="all">
+  </head>
+  <body data-open="click" data-menu="vertical-menu" data-col="2-columns" class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar">
 
-    <!-- Main CSS-->
-    <link href="<c:url value='/static/admin/css/theme.css' />" rel="stylesheet" media="all">  
+    <tiles:insertAttribute name="navbar-left" />
+    <tiles:insertAttribute name="more" />
+    <div class="app-content content container-fluid">
+        <div class="content-wrapper">
+          <div class="content-header row">
+            <tiles:insertAttribute name="header-body" />
+          </div>
+          <div class="content-body">
+            <tiles:insertAttribute name="body" />
+          </div>  
+        </div>   
+    </div>
+        
+    <footer class="footer footer-static footer-light navbar-border" style="text-align: center">
+        <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2">Copyright  &copy; 2018 Le Hoang Sang. All rights reserved. </p>
+    </footer>
 
-    <link rel="icon" href="<c:url value='/static/custom/img/logo.png' />">
-    <title>Ginseng</title>
-    
-</head>
-<body class="animsition">
-        <tiles:insertAttribute name="more" />
-        <div class="page-wrapper">
-            <div>
-                <tiles:insertAttribute name="navbar-left" />
-                <!-- PAGE CONTAINER-->
-                <div class="page-container">
-                    <tiles:insertAttribute name="header" />
-                    <tiles:insertAttribute name="body" />
-                    
-                    <div class="row">
-                            <div class="col-md-12">
-                                <div class="copyright">
-                                    <p>Copyright © 2018 Le Hoang Sang. All rights reserved</p>
-                                </div>
-                            </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-	
-
-
-    <!-- Jquery JS-->
-    <script src="<c:url value='/static/admin/vendor/jquery-3.2.1.min.js' />"></script>
-    <!-- Bootstrap JS-->
-    <script src="<c:url value='/static/admin/vendor/bootstrap-4.1/popper.min.js' />"></script>
-    <script src="<c:url value='/static/admin/vendor/bootstrap-4.1/bootstrap.min.js' />"></script>
-    <!-- Vendor JS       -->
-    <script src="<c:url value='/static/admin/vendor/slick/slick.min.js' />">
-    </script>
-    <script src="<c:url value='/static/admin/vendor/wow/wow.min.js' />"></script>
-    <script src="<c:url value='/static/admin/vendor/animsition/animsition.min.js' />"></script>
-    <script src="<c:url value='/static/admin/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js' />">
-    </script>
-    <script src="<c:url value='/static/admin/vendor/counter-up/jquery.waypoints.min.js' />"></script>
-    <script src="<c:url value='/static/admin/vendor/counter-up/jquery.counterup.min.js' />">
-    </script>
-    <script src="<c:url value='/static/admin/vendor/circle-progress/circle-progress.min.js' />"></script>
-    <script src="<c:url value='/static/admin/vendor/perfect-scrollbar/perfect-scrollbar.js' />"></script>
-    <script src="<c:url value='/static/admin/vendor/chartjs/Chart.bundle.min.js' />"></script>
-    <script src="<c:url value='/static/admin/vendor/select2/select2.min.js' />">
-    </script>
-
-    <!-- Main JS-->
-    <script src="<c:url value='/static/admin/js/main.js' />"></script>
-
-    <script src="<c:url value='/static/custom/js/export.js' />"></script>
-</body>
-
+    <!-- BEGIN VENDOR JS-->
+    <script src="<c:url value='/static/admin/vendors/js/vendors.min.js' />" type="text/javascript"></script>
+    <!-- BEGIN VENDOR JS-->
+    <!-- BEGIN PAGE VENDOR JS-->
+    <script src="<c:url value='/static/admin/vendors/js/extensions/jquery.knob.min.js' />" type="text/javascript"></script>
+    <script src="<c:url value='/static/admin/js/scripts/extensions/knob.js' />" type="text/javascript"></script>
+    <script src="<c:url value='/static/admin/vendors/js/charts/raphael-min.js' />" type="text/javascript"></script>
+    <script src="<c:url value='/static/admin/vendors/js/charts/morris.min.js' />" type="text/javascript"></script>
+    <script src="<c:url value='/static/admin/vendors/js/charts/jvector/jquery-jvectormap-2.0.3.min.js' />" type="text/javascript"></script>
+    <script src="<c:url value='/static/admin/vendors/js/charts/jvector/jquery-jvectormap-world-mill.js' />" type="text/javascript"></script>
+    <script src="<c:url value='/static/admin/data/jvector/visitor-data.js' />" type="text/javascript"></script>
+    <script src="<c:url value='/static/admin/vendors/js/charts/chart.min.js' />" type="text/javascript"></script>
+    <script src="<c:url value='/static/admin/vendors/js/charts/jquery.sparkline.min.js' />" type="text/javascript"></script>
+    <script src="<c:url value='/static/admin/vendors/js/extensions/unslider-min.js' />" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="<c:url value='/static/admin/css/core/colors/palette-climacon.css' />">
+    <link rel="stylesheet" type="text/css" href="<c:url value='/static/admin/fonts/simple-line-icons/style.min.css' />">
+    <!-- END PAGE VENDOR JS-->
+    <!-- BEGIN STACK JS-->
+    <script src="<c:url value='/static/admin/js/core/app-menu.js' />" type="text/javascript"></script>
+    <script src="<c:url value='/static/admin/js/core/app.js' />" type="text/javascript"></script>
+    <!-- END STACK JS-->
+    <!-- BEGIN PAGE LEVEL JS-->
+    <script src="<c:url value='/static/admin/js/scripts/pages/dashboard-analytics.js' />" type="text/javascript"></script>
+    <!-- END PAGE LEVEL JS-->
+  </body>
 </html>
+
+
+

@@ -4,4 +4,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
- <h1>Hello world !</h1>
+<c:if test="${not empty currentUser}">
+    <h1>${currentUser.getUserName()}</h1>
+</c:if>
+ 

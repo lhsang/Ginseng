@@ -64,6 +64,12 @@ public class ApiController {
 		List<OrderDetail> products =orderDetailService.findAll();
 		return products.get(0).getOrder();
 	}
-
+	
+	@RequestMapping(value = "/get-user", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE })
+	@ResponseBody
+	public User getAllUser() {
+		
+		return userService.findOneByUsername("lhsang");
+	}
 	
 }

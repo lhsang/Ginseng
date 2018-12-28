@@ -47,21 +47,17 @@ public class AdminAccountController {
 	
 	@RequestMapping(value = "/user-management")
     public String userManagement(Model model) {
-        List<User> users=userService.findAll();
-        List<Role> roles=roleService.findAll();
-        
-        model.addAttribute("roles", roles);
-        model.addAttribute("users", users);
         return "userManagement";
     }
-	@RequestMapping(value = { "/user-management-filter" }, method = RequestMethod.POST, produces = { MediaType.APPLICATION_JSON_VALUE} )
-    public ModelAndView userManagementFilter(Model model,int role_id) {
+	@RequestMapping(value = { "/user-management-filter/{id}" }, method = RequestMethod.POST, produces = { MediaType.APPLICATION_JSON_VALUE} )
+    public ModelAndView userManagementFilter(Model model,@PathVariable("id") int role_id) {
 		List<User> users=new ArrayList<>();
-		if(role_id==0)
-			 users=userService.findAll();
-		else {
+		if(role_id==1||role_id==2||role_id==3) {
 			Role role=roleService.findOneById(role_id);
 	        users=role.getUser();
+		}
+		else {
+			users=userService.findAll();
 		}
         model.addAttribute("users", users);
        
@@ -106,6 +102,11 @@ public class AdminAccountController {
         return "redirect:/admin";
     }
 	
-	
+	@RequestMapping(value = "/profile/{username}")
+    public String profile(Model model,@PathVariable("username") String username) {
+		User user =userService.findOneByUsername(username);
+		model.addAttribute("user", user);
+        return "profile";
+    }
 }
 
