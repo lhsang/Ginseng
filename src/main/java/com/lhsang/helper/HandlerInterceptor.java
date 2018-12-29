@@ -9,14 +9,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import com.lhsang.dashboard.model.CustomUserDetail;
 import com.lhsang.dashboard.service.UserService;
+
 
 public class HandlerInterceptor extends HandlerInterceptorAdapter{
 
+	@Autowired
+	UserService userService;
 	
+	protected final String defaultPage = "DEFAULT";
 	
 	private static final Logger logger = LoggerFactory
 			.getLogger(HandlerInterceptor.class);
@@ -24,10 +30,6 @@ public class HandlerInterceptor extends HandlerInterceptorAdapter{
 	@Override
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
-		long startTime = System.currentTimeMillis();
-		logger.info("Request URL::" + request.getRequestURL().toString()
-				+ ":: Start Time=" + System.currentTimeMillis());
-		request.setAttribute("startTime", startTime);
 		return true;
 	}
 
@@ -39,35 +41,33 @@ public class HandlerInterceptor extends HandlerInterceptorAdapter{
 	  ModelAndView modelAndView) throws Exception {
 		com.lhsang.dashboard.model.User currentUser=currentUser();
 		
-	    modelAndView.addObject("currentUser", currentUser);
+	    //modelAndView.addObject("currentUser", currentUser);
 	}
 
 	@Override
 	public void afterCompletion(HttpServletRequest request,
 			HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
-//		long startTime = (Long) request.getAttribute("startTime");
-//		logger.info("Request URL::" + request.getRequestURL().toString()
-//				+ ":: End Time=" + System.currentTimeMillis());
-//		logger.info("Request URL::" + request.getRequestURL().toString()
-//				+ ":: Time Taken=" + (System.currentTimeMillis() - startTime));
 	}
 	
-	@Autowired
-	UserService userService;
-	
-	protected final String defaultPage = "DEFAULT";
 	
 	public com.lhsang.dashboard.model.User currentUser() {
-//		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//		Object user = auth.getPrincipal();
-//		com.lhsang.dashboard.model.User btemp =new com.lhsang.dashboard.model.User();
-//		if(!user.equals("anonymousUser")) {
-//			User result=(User)user;
-//			String u=result.getUsername();
-//			btemp = userService.findOneByUsername(u);
-//		}
-		
-		return null;
+		//if(SecurityContextHolder.getContext().getAuthentication().getPrincipal().equals("anonymousUser"))
+		//	return null;
+		//CustomUserDetail myUserDetails = (CustomUserDetail) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		/*Object user = auth.getPrincipal();
+		com.lhsang.dashboard.model.User btemp =new com.lhsang.dashboard.model.User();
+		if(!user.equals("anonymousUser")) {
+			User result=(User)user;
+			String u=result.getUsername();
+			System.out.println("\n\n\n\n\n\n\n\n\n\n"+u);
+			btemp = userService.findOneByUsername(u);
+			if(btemp==null)
+				System.out.println("\n\n\n\n\n\n\n\n\n\n  null");
+			else
+				System.out.println("\n\n\n\n\n\n\n\n\n\n"+btemp.getFullName());
+		}*/
+		//System.out.println("\n\n\n\n\n\n\n\n\n\n"+myUserDetails.getUser().getFullName());
+		return new com.lhsang.dashboard.model.User();
 	}
 }

@@ -21,6 +21,13 @@
         </div>
         <h3 class="content-header-title mb-0">Product management</h3>
       </div>
+
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-4"> </div>
+        
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-2">
+          <button type="button" class="btn btn-success"  id="btnAdd"><i class="fa fa-plus"></i> Add a product</button>
+        </div>
+        
 </div>
 
 

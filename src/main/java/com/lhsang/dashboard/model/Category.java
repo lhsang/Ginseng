@@ -21,6 +21,8 @@ public class Category {
 	
 	String name;
 	
+	String group;
+	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
 	@JsonManagedReference
 	List<Product> products;
@@ -47,6 +49,14 @@ public class Category {
 
 	public void setProducts(List<Product> products) {
 		this.products = products;
+	}
+
+	public String getGroup() {
+		return group;
+	}
+
+	public void setGroup(String group) {
+		this.group = group;
 	}
 	
 	

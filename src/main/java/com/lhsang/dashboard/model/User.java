@@ -35,6 +35,8 @@ public class User {
 	
 	String avatar;
 	
+	int status;
+	
 	@ManyToOne
 	@JoinColumn(name="role_id")
 	@JsonBackReference
@@ -151,6 +153,14 @@ public class User {
 
 	public void setAvatar(String avatar) {
 		this.avatar = avatar;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
 	}
 	
 	
