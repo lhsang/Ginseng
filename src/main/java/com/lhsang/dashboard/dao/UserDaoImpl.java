@@ -19,9 +19,10 @@ public class UserDaoImpl  extends AbstractDao<Integer, User>  implements UserDao
 	SessionFactory sessionFactory;
 	
 	@SuppressWarnings("unchecked")
-	public List<User> findAll(){
+	public List<User> findAll(int offset, int maxResults){
 		@SuppressWarnings("deprecation")
-		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(User.class);
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(User.class).setFirstResult(offset)
+                .setMaxResults(maxResults);
 		return criteria.list();
 	}
 	

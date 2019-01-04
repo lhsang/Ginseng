@@ -51,17 +51,30 @@ public class AdminAccountController {
     }
 	@RequestMapping(value = { "/user-management-filter/{id}" }, method = RequestMethod.POST, produces = { MediaType.APPLICATION_JSON_VALUE} )
     public ModelAndView userManagementFilter(Model model,@PathVariable("id") int role_id) {
+		Integer offset=0,maxResults=100;
+		
 		List<User> users=new ArrayList<>();
 		if(role_id==1||role_id==2||role_id==3) {
 			Role role=roleService.findOneById(role_id);
 	        users=role.getUser();
 		}
 		else {
-			users=userService.findAll();
+			users=userService.findAll(offset,maxResults);
 		}
+		model.addAttribute("count", 2);
+        model.addAttribute("offset", offset);
         model.addAttribute("users", users);
        
         return new ModelAndView("user/_userByRole");
+    }
+	
+	@RequestMapping(value = { "/render-header/{username}" }, method = RequestMethod.POST)
+    public ModelAndView renderHeader(Model model,@PathVariable("username") String username) {
+		
+		User user =userService.findOneByUsername(username);
+		model.addAttribute("user", user);
+       
+        return new ModelAndView("user/_header");
     }
 	
 	@RequestMapping(value = { "/check-username" }, method = RequestMethod.POST, produces = { MediaType.APPLICATION_JSON_VALUE} )

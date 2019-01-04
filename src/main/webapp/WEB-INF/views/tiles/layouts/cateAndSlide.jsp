@@ -12,7 +12,7 @@
 				<div class="vertical-menu mb-all-30">
 					<nav>
 						<ul class="vertical-menu-list">
-							<li class=""><a href="shop.html"><span><img src="<c:url value='/static/client/img/vertical-menu/1.png' />" alt="menu-icon"></span>Automotive & Motorcycle<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+							<li class=""><a href="shop.html"><span><img src="<c:url value='/static/client/img/vertical-menu/1.png' />" alt="menu-icon"></span>Nhân sâm<i class="fa fa-angle-right" aria-hidden="true"></i></a>
 
 								<ul class="ht-dropdown mega-child">
 									<li><a href="shop.html">Office chair <i class="fa fa-angle-right"></i></a>
@@ -40,56 +40,10 @@
 								</ul>
 								<!-- category submenu end-->
 							</li>
-							<li><a href="shop.html"><span><img src="<c:url value='/static/client/img/vertical-menu/3.png' />" alt="menu-icon"></span>Sports & Outdoors<i class="fa fa-angle-right" aria-hidden="true"></i></a>
-								<!-- Vertical Mega-Menu Start -->
-								<ul class="ht-dropdown megamenu first-megamenu">
-									<!-- Single Column Start -->
-									<li class="single-megamenu">
-										<ul>
-											<li class="menu-tile">Cameras</li>
-											<li><a href="shop.html">Cords and Cables</a></li>
-											<li><a href="shop.html">gps accessories</a></li>
-											<li><a href="shop.html">Microphones</a></li>
-											<li><a href="shop.html">Wireless Transmitters</a></li>
-										</ul>
-										<ul>
-											<li class="menu-tile">GamePad</li>
-											<li><a href="shop.html">real game hd</a></li>
-											<li><a href="shop.html">fighting game</a></li>
-											<li><a href="shop.html">racing pad</a></li>
-											<li><a href="shop.html">puzzle pad</a></li>
-										</ul>
-									</li>
-									<!-- Single Column End -->
-									<!-- Single Column Start -->
-									<li class="single-megamenu">
-										<ul>
-											<li class="menu-tile">Digital Cameras</li>
-											<li><a href="shop.html">Camera one</a></li>
-											<li><a href="shop.html">Camera two</a></li>
-											<li><a href="shop.html">Camera three</a></li>
-											<li><a href="shop.html">Camera four</a></li>
-										</ul>
-										<ul>
-											<li class="menu-tile">Virtual Reality</li>
-											<li><a href="shop.html">Reality one</a></li>
-											<li><a href="shop.html">Reality two</a></li>
-											<li><a href="shop.html">Reality three</a></li>
-											<li><a href="shop.html">Reality four</a></li>
-										</ul>
-									</li>
-									<!-- Single Column End -->
-									<!-- Single Megamenu Image Start -->
-									<li class="megamenu-img">
-										<a href="shop.html"><img src="<c:url value='/static/client/img/vertical-menu/sub-img1.jpg' />" alt="menu-image"></a>
-										<a href="shop.html"><img src="<c:url value='/static/client/img/vertical-menu/sub-img2.jpg' />" alt="menu-image"></a>
-										<a href="shop.html"><img src="<c:url value='/static/client/img/vertical-menu/sub-img3.jpg' />" alt="menu-image"></a>
-									</li>
-									<!-- Single Megamenu Image End -->
-								</ul>
-								<!-- Vertical Mega-Menu End -->
+							<li><a href="shop.html"><span><img src="<c:url value='/static/client/img/vertical-menu/3.png' />" alt="menu-icon"></span>Linh chi Hàn Quốc<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+
 							</li>
-							<li><a href="shop.html"><span><img src="<c:url value='/static/client/img/vertical-menu/6.png' />" alt="menu-icon"></span>Fashion<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+							<li><a href="shop.html"><span><img src="<c:url value='/static/client/img/vertical-menu/6.png' />" alt="menu-icon"></span>Đông trùng hạ thảo<i class="fa fa-angle-right" aria-hidden="true"></i></a>
 								<!-- Vertical Mega-Menu Start -->
 								<ul class="ht-dropdown megamenu megamenu-two">
 									<!-- Single Column Start -->
@@ -117,7 +71,7 @@
 								</ul>
 								<!-- Vertical Mega-Menu End -->
 							</li>
-							<li><a href="shop.html"><span><img src="<c:url value='/static/client/img/vertical-menu/7.png' />" alt="menu-icon"></span>Home & Kitchen<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+							<li><a href="shop.html"><span><img src="<c:url value='/static/client/img/vertical-menu/7.png' />" alt="menu-icon"></span>Nước hồng sâm<i class="fa fa-angle-right" aria-hidden="true"></i></a>
 								<!-- Vertical Mega-Menu Start -->
 								<ul class="ht-dropdown megamenu megamenu-two">
 									<!-- Single Column Start -->
@@ -145,7 +99,7 @@
 								</ul>
 								<!-- Vertical Mega-Menu End --> 
 							</li>
-							<li><a href="shop.html"><span><img src="<c:url value='/static/client/img/vertical-menu/4.png' />" alt="menu-icon"></span>Phones & Tablets<i class="fa fa-angle-right" aria-hidden="true"></i>
+							<li><a href="shop.html"><span><img src="<c:url value='/static/client/img/vertical-menu/4.png' />" alt="menu-icon"></span>Trà hồng sâm<i class="fa fa-angle-right" aria-hidden="true"></i>
 							</a>
 								<!-- Vertical Mega-Menu Start -->
 								<ul class="ht-dropdown megamenu megamenu-two">
@@ -174,7 +128,7 @@
 								</ul>
 								<!-- Vertical Mega-Menu End -->
 							</li>
-							<li><a href="shop.html"><span><img src="<c:url value='/static/client/img/vertical-menu/6.png' />" alt="menu-icon"></span>TV & Video<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+							<li><a href="shop.html"><span><img src="<c:url value='/static/client/img/vertical-menu/6.png' />" alt="menu-icon"></span>Kẹo sâm<i class="fa fa-angle-right" aria-hidden="true"></i></a>
 								<!-- Vertical Mega-Menu Start -->
 								<ul class="ht-dropdown megamenu megamenu-two">
 									<!-- Single Column Start -->
@@ -202,15 +156,16 @@
 								</ul>
 								<!-- Vertical Mega-Menu End -->
 							</li>
-							 <li><a href="shop.html"><span><img src="<c:url value='/static/client/img/vertical-menu/5.png' />" alt="menu-icon"></span>Beauty</a>
+							 <li><a href="shop.html"><span><img src="<c:url value='/static/client/img/vertical-menu/5.png' />" alt="menu-icon"></span>Mỹ phẩm từ sâm</a>
 							</li>
-							<li><a href="shop.html"><span><img src="<c:url value='/static/client/img/vertical-menu/8.png' />" alt="menu-icon"></span>Fruits & Veggies</a></li>
-							<li><a href="shop.html"><span><img src="<c:url value='/static/client/img/vertical-menu/9.png' />" alt="menu-icon"></span>Computer & Laptop</a></li>
-							<li><a href="shop.html"><span><img src="<c:url value='/static/client/img/vertical-menu/10.png' />" alt="menu-icon"></span>Meat & Seafood</a></li>
+							<li><a href="shop.html"><span><img src="<c:url value='/static/client/img/vertical-menu/8.png' />" alt="menu-icon"></span>Cao hồng sâm</a></li>
+							<li><a href="shop.html"><span><img src="<c:url value='/static/client/img/vertical-menu/8.png' />" alt="menu-icon"></span>Yến Sào</a></li>
+							<li><a href="shop.html"><span><img src="<c:url value='/static/client/img/vertical-menu/8.png' />" alt="menu-icon"></span>Dầu nóng</a></li>
+
 							<!-- More Categoies Start -->
 							<li id="cate-toggle" class="category-menu v-cat-menu">
 								<ul>
-									<li class="has-sub"><a href="#">More Categories</a>
+									<li class="has-sub"><a href="#">Sản phẩm khác</a>
 										<ul class="category-sub">
 											<li><a href="shop.html"><span><img src="<c:url value='/static/client/img/vertical-menu/11.png' />" alt="menu-icon"></span>Accessories</a></li>
 										</ul>
@@ -228,8 +183,9 @@
 				<div class="slider-wrapper theme-default">
 					<!-- Slider Background  Image Start-->
 					<div id="slider" class="nivoSlider">
-						<a href="shop.html"><img src="<c:url value='/static/client/img/slider/1.jpg' />" data-thumb="<c:url value='/static/client/img/slider/1.jpg' />" alt="" title="#htmlcaption" /></a>
-						<a href="shop.html"><img src="<c:url value='/static/client/img/slider/2.jpg' />" data-thumb="<c:url value='/static/client/img/slider/2.jpg' />" alt="" title="#htmlcaption2" /></a>
+						<a href="/"><img src="https://imgur.com/QKifPwC.jpg" data-thumb="https://imgur.com/QKifPwC.jpg" alt="" title="#htmlcaption" /></a>
+						<a href="/"><img src="https://imgur.com/3C5Icqu.jpg" data-thumb="https://imgur.com/3C5Icqu.jpg" alt="" title="#htmlcaption2" /></a>
+						<a href="/"><img src="https://imgur.com/ryZb9aR.png" data-thumb="https://imgur.com/ryZb9aR.png" alt="" title="#htmlcaption2" /></a>
 					</div>
 					<!-- Slider Background  Image Start-->
 				</div>

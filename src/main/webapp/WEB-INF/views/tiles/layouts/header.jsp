@@ -4,6 +4,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <style>
+  
     .my-cart {
         text-transform: none;
     }
@@ -13,52 +14,105 @@
         font-family: 'Roboto', sans-serif;
     }
 
+    .register{
+    background: -webkit-linear-gradient(left, #ed6b7b, #ffffff);
+    margin-top: 3%;
+    padding: 3%;
+}
+.register-left{
+    text-align: center;
+    color: #fff;
+    margin-top: 4%;
+}
+.register-left input{
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    width: 60%;
+    background: #ffffff;
+    font-weight: bold;
+    color: #383d41;
+    margin-top: 30%;
+    margin-bottom: 3%;
+    cursor: pointer;
+}
+.register-right{
+    background: #f8f9fa;
+    border-top-left-radius: 10% 50%;
+    border-bottom-left-radius: 10% 50%;
+}
+.register-left img{
+    margin-top: 15%;
+    margin-bottom: 5%;
+    width: 25%;
+    -webkit-animation: mover 2s infinite  alternate;
+    animation: mover 1s infinite  alternate;
+}
+@-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+.register-left p{
+    font-weight: lighter;
+    padding: 12%;
+    margin-top: -9%;
+}
+.register .register-form{
+    padding: 10%;
+    margin-top: 10%;
+}
+.btnRegister{
+    float: right;
+    margin-top: 10%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #ee4444;
+    color: #fff;
+    font-weight: 600;
+    width: 50%;
+    cursor: pointer;
+}
+.register .nav-tabs{
+    margin-top: 3%;
+    border: none;
+    background: #ee4444;
+    border-radius: 1.5rem;
+    width: 40%;
+    float: right;
+}
+.register .nav-tabs .nav-link{
+    padding: 2%;
+    height: 34px;
+    font-weight: 600;
+    color: #fff;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+}
+.register .nav-tabs .nav-link:hover{
+    border: none;
+}
+.register .nav-tabs .nav-link.active{
+    width: 110px;
+    color: #ee4444;
+    border: 2px solid #ee4444;
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+}
+.register-heading{
+    text-align: center;
+    margin-top: 8%;
+    margin-bottom: -15%;
+    color: #495057;
+}
 
 </style>
 <!-- Main Header Area Start Here -->
         <header >
-            <!-- Header Top Start Here -->
-            <div class="header-top-area">
-                <div class="container">
-                    <!-- Header Top Start -->
-                    <div class="header-top">
-                        <ul>
-                            <li><a href="#">Free Shipping on order over $99</a></li>
-                            <li><a href="#">Shopping Cart</a></li>
-                            <li><a href="checkout.html">Checkout</a></li>
-                        </ul>
-                        <ul>                                          
-                            <li><span>Ngôn ngữ</span> <a href="#">Việt Name<i class="lnr lnr-chevron-down"></i></a>
-                                <!-- Dropdown Start -->
-                                <ul class="ht-dropdown">
-                                    <li><a href="#"><img src="<c:url value='/static/client/img/header/1.jpg' />" alt="language-selector">English</a></li>
-                                    <li><a href="#"><img src="<c:url value='/static/client/img/header/2.jpg' />" alt="language-selector">Việt Nam</a></li>
-                                </ul>
-                                <!-- Dropdown End -->
-                            </li>
-                            <li><span>Currency</span><a href="#"> VNĐ <i class="lnr lnr-chevron-down"></i></a>
-                                <!-- Dropdown Start -->
-                                <ul class="ht-dropdown">
-                                    <li><a href="#">&#36; USD</a></li>
-                                    <li><a href="#"> VNĐ</a></li>
-                                </ul>
-                                <!-- Dropdown End -->
-                            </li>
-                            <li><a href="#">Tài khoản<i class="lnr lnr-chevron-down"></i></a>
-                                <!-- Dropdown Start -->
-                                <ul class="ht-dropdown">
-                                    <li><a href="login.html">ĐĂNG NHẬP</a></li>
-                                    <li><a href="register.html">Đăng ký tài khoản</a></li>
-                                </ul>
-                                <!-- Dropdown End -->
-                            </li> 
-                        </ul>
-                    </div>
-                    <!-- Header Top End -->
-                </div>
-                <!-- Container End -->
-            </div>
-            <!-- Header Top End Here -->
             <!-- Header Middle Start Here -->
             <div class="header-middle ptb-15">
                 <div class="container">
@@ -141,7 +195,7 @@
                                     </li>
                                     <li><a href="#"><i class="lnr lnr-heart"></i><span class="my-cart"><span>Yêu thích</span><span>list (0)</span></span></a>
                                     </li>
-                                    <li><a href="#"><i class="lnr lnr-user"></i><span class="my-cart"><span> <strong>Đăng nhập </strong> hoặc </span><span> đăng ký</span></span></a>
+                                    <li><a onclick="$('#myModal').modal('show');"><i class="lnr lnr-user"></i><span class="my-cart"><span> <strong>Đăng nhập </strong> hoặc </span><span> đăng ký</span></span></a>
 
 
 
@@ -267,3 +321,80 @@
             <!-- Mobile Vertical Menu Start End -->
         </header>
         <!-- Main Header Area End Here -->
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" style="background-color: transparent">
+            <div class="container register">
+                <div class="row">
+                    <div class="col-md-3 register-left">
+                        <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                        <h3>Xin chào</h3>
+                        <p>Mời bạn đăng nhập để tiếp tục mua hàng.</p>
+                        
+                    </div>
+                    <div class="col-md-9 register-right">
+                        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Đăng nhập</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Đăng ký</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                
+                               
+                            </div>
+                            <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <h3  class="register-heading">Apply as a Hirer</h3>
+                                <div class="row register-form">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="First Name *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Last Name *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Email *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" />
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" placeholder="Password *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="form-control">
+                                                <option class="hidden"  selected disabled>Please select your Sequrity Question</option>
+                                                <option>What is your Birthdate?</option>
+                                                <option>What is Your old Phone Number</option>
+                                                <option>What is your Pet Name?</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="`Answer *" value="" />
+                                        </div>
+                                        <input type="submit" class="btnRegister"  value="Register"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

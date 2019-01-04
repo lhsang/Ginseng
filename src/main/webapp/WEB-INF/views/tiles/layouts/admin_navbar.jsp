@@ -38,7 +38,7 @@
               </ul>
             </li>
 
-            <li class=" navigation-header"><span>Others</span><i data-toggle="tooltip" data-placement="right" data-original-title="Apps" class=" ft-minus"></i>
+            <li class=" navigation-header"><span>Others</span><i data-toggle="tooltip" data-placement="right" data-original-title="Others" class=" ft-minus"></i>
             </li>
   
             <li class=" nav-item"><a href="#"><i class="ft-user"></i><span data-i18n="" class="menu-title">Account</span></a>
@@ -49,7 +49,36 @@
                 </li>
               </ul>
             </li>
-  
+            
+            <li class=" nav-item"><a href="#"><i class="ft-bell"></i><span data-i18n="" class="menu-title">Notification</span></a>
+              <ul class="menu-content">
+                <li><a href="<c:url value='/admin/notification-management'/>" class="menu-item">Management</a>
+                </li>
+                <li><a href="icons-font-awesome.html" class="menu-item">Statictis</a>
+                </li>
+              </ul>
+            </li>
+
+
+            <li class=" nav-item"><a href="#"><i class="ft-mail"></i><span data-i18n="" class="menu-title">Message</span></a>
+              <ul class="menu-content">
+                <li><a href="<c:url value='/admin/message-management'/>" class="menu-item">Management</a>
+                </li>
+                <li><a href="icons-font-awesome.html" class="menu-item">Statictis</a>
+                </li>
+              </ul>
+            </li>
+          
+          
+            <li class=" nav-item"><a href="#"><i class="ft-airplay"></i><span data-i18n="" class="menu-title">Inspect</span></a>
+              <ul class="menu-content">
+                <li><a href="<c:url value='/admin/message-management'/>" class="menu-item">User interface</a>
+                </li>
+                <li><a href="icons-font-awesome.html" class="menu-item">Statictis</a>
+                </li>
+              </ul>
+            </li>
+
           </ul>
         </div>
       </div>

@@ -3,44 +3,51 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-    <!DOCTYPE html>
-    <html lang="en">
-    
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+ <!-- ////////////////////////////////////////////////////////////////////////////-->
+ <div class="app-content content container-fluid">
+    <div class="content-wrapper">
+      <div class="content-header row">
+      </div>
+      <div class="content-body"><section class="flexbox-container">
+  <div class="col-md-4 offset-md-4 col-xs-10 offset-xs-1">
+  <div class="card-header bg-transparent no-border pb-0">
+      <h2 class="error-code text-xs-center mb-2">403</h2>
+      <h3 class="text-uppercase text-xs-center">Access Denied/Forbidden !</h3>
+  </div>
+  <div class="card-body collapse in">
+      <fieldset class="row py-2">
+          <div class="input-group col-xs-12">
+              <input type="text" class="form-control form-control-lg input-lg  border-grey border-lighten-1" placeholder="Search..." aria-describedby="button-addon2">
+              <span class="input-group-btn" id="button-addon2">
+                  <button class="btn btn-lg btn-secondary  border-grey border-lighten-1" type="button"><i class="ft-search"></i></button>
+              </span>
+          </div>
+      </fieldset>
+      <div class="row py-2">
+          <div class="col-xs-12 col-sm-6 col-md-6">
+              <a href="<c:url value='/' />" class="btn btn-primary btn-block font-small-3"><i class="ft-home"></i> Back to Home</a>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6">
+              <a href="<c:url value='/' />" class="btn btn-danger btn-block font-small-3"><i class="ft-search"></i>  Advanced search</a>
+          </div>
+          </div>
+      </div>
+      <div class="card-footer bg-transparent pb-0">
+          <div class="row">
+            <p class="text-muted text-xs-center col-xs-12 py-1">© 2018 <a href="#">Le Hoang Sang </a></p>
+              <div class="text-xs-center">
+                  <a href="#" class="btn btn-social-icon mr-1 mb-1 btn-outline-facebook"><span class="fa fa-facebook"></span></a>
+                  <a href="#" class="btn btn-social-icon mr-1 mb-1 btn-outline-twitter"><span class="fa fa-twitter"></span></a>
+                  <a href="#" class="btn btn-social-icon mr-1 mb-1 btn-outline-linkedin"><span class="fa fa-linkedin font-medium-4"></span></a>
+                  <a href="#" class="btn btn-social-icon mr-1 mb-1 btn-outline-github"><span class="fa fa-github font-medium-4"></span></a>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
 
-        <title>403 Forbidden Error</title>
-    
-        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-    
-        <link rel="stylesheet" type="text/css" href="static/css/404.css">
-    
-    
-    </head>
-    
-    <body>
-    
-        <div id="notfound">
-            <div class="notfound">
-                <div class="notfound-404">
-                    <h1>4<span>0</span>3</h1>
-                </div>
-                <h2>403 Forbidden Error</h2>
-                
-                <div class="buttons-con">
-                            <div class="action-link-wrap">
-                                <a href="javascript:history.back()" class="btn btn-custom btn-info waves-effect waves-light m-t-20">Go Back</a>
-
-                            </div>
-                        </div>
-
-            </div>
-        </div>
-    
-    </body>
-    
-    </html>
-    
-</html>
+      </div>
+    </div>
+  </div>
+  <!-- ////////////////////////////////////////////////////////////////////////////-->

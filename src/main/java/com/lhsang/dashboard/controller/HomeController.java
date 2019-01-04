@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.lhsang.dashboard.model.Product;
 import com.lhsang.dashboard.model.User;
+import com.lhsang.dashboard.service.ProductService;
 import com.lhsang.dashboard.service.UserService;
 
 
@@ -29,10 +31,16 @@ public class HomeController extends BaseController{
 	@Autowired
 	UserService userService;
 	
+	@Autowired
+	ProductService productService;
+	
+	
 	@SuppressWarnings("unused")
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
+		List<Product> products = productService.findAll();
 		
+		model.addAttribute("products", products);
 		return "home";
 	}
 }

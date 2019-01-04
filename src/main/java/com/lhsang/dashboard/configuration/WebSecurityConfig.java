@@ -39,7 +39,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
- 
     }
  
     @Override
@@ -60,7 +59,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .failureUrl("/login?error")
                 .usernameParameter("username")
                 .passwordParameter("password")
-                .and().logout().logoutUrl("/logout").logoutSuccessUrl("/login");
+                .and().logout().logoutUrl("/j_spring_security_logout ").logoutSuccessUrl("/login");
  
         // Cấu hình Remember Me.
         http.authorizeRequests().and() //

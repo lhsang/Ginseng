@@ -11,7 +11,7 @@
             border: solid 1px red;
         }
 </style>
-
+<title>Account management</title>
 <div id="main">
 	
 </div> 

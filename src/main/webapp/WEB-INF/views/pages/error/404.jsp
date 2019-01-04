@@ -34,7 +34,7 @@
         </div>
         <div class="card-footer bg-transparent pb-0">
             <div class="row">
-                <p class="text-muted text-xs-center col-xs-12 py-1">© 2016 <a href="#">Stack </a>Crafted with <i class="ft-heart pink"> </i> by <a href="http://themeforest.net/user/pixinvent/portfolio" target="_blank">PIXINVENT</a></p>
+                <p class="text-muted text-xs-center col-xs-12 py-1">© 2018 <a href="#">Le Hoang Sang </a></p>
                 <div class="text-xs-center">
                     <a href="#" class="btn btn-social-icon mr-1 mb-1 btn-outline-facebook"><span class="fa fa-facebook"></span></a>
                     <a href="#" class="btn btn-social-icon mr-1 mb-1 btn-outline-twitter"><span class="fa fa-twitter"></span></a>

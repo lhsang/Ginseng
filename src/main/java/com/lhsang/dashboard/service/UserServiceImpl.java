@@ -15,8 +15,8 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	UserDao userDao;
 	
-	public List<User> findAll(){
-		return  userDao.findAll();
+	public List<User> findAll(int offset,int maxResults){
+		return  userDao.findAll(offset, maxResults);
 	}
 	
 	public User findOneByUsername(String username) {

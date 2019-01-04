@@ -3,7 +3,7 @@
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-
+<title>Product management</title>
 <section id="html5">
         <div class="row">
             <div class="col-xs-12">

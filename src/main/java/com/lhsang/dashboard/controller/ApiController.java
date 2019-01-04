@@ -30,7 +30,6 @@ import com.lhsang.dashboard.service.UserService;
 
 @Controller
 @RequestMapping("/api")
-@Transactional
 public class ApiController {
 	@Autowired
 	RoleService roleService;

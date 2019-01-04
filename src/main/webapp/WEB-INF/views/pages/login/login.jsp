@@ -5,8 +5,13 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
 
-
-   <!-- ////////////////////////////////////////////////////////////////////////////-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Login Administrator</title>
+</head>
+  <body>
+      <!-- ////////////////////////////////////////////////////////////////////////////-->
    <div class="app-content content container-fluid" style="margin-top: 80px">
         <div class="content-wrapper">
           <div class="content-header row">
@@ -63,3 +68,6 @@
         </div>
       </div>
       <!-- ////////////////////////////////////////////////////////////////////////////-->
+  </body>
+</html>
+   
