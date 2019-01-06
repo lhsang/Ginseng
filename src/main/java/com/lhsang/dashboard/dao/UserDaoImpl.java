@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,6 +24,7 @@ public class UserDaoImpl  extends AbstractDao<Integer, User>  implements UserDao
 		@SuppressWarnings("deprecation")
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(User.class).setFirstResult(offset)
                 .setMaxResults(maxResults);
+		criteria.add(Restrictions.ne("status", -1));
 		return criteria.list();
 	}
 	

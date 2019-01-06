@@ -39,8 +39,18 @@ public class HomeController extends BaseController{
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		List<Product> products = productService.findAll();
-		
+		List<List<Product>> allItems=new ArrayList<List<Product>>();
+		for (int i=0;i<products.size();i+=2) {
+			List<Product> temp=new ArrayList<>();
+			temp.add(products.get(i));
+			if(i+1<products.size())
+				temp.add(products.get(i+1));
+			/*if(i+2<products.size())
+				temp.add(products.get(i+2));*/
+			allItems.add(temp);
+		}
 		model.addAttribute("products", products);
+		model.addAttribute("allItems", allItems);
 		return "home";
 	}
 }

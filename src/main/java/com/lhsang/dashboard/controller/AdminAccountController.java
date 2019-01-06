@@ -1,9 +1,10 @@
 package com.lhsang.dashboard.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
-
+import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -23,6 +24,7 @@ import com.lhsang.dashboard.service.RoleService;
 import com.lhsang.dashboard.service.UserService;
 import com.lhsang.dashboard.utils.EncrytedPasswordUtils;
 import com.lhsang.helper.ResponseStatusEnum;
+
 
 
 
@@ -120,6 +122,26 @@ public class AdminAccountController {
 		User user =userService.findOneByUsername(username);
 		model.addAttribute("user", user);
         return "profile";
+    }
+	
+	@RequestMapping(value = "/ban/{username}", method = RequestMethod.POST, produces = {
+			MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity<BaseResponse> banUser(Model model,@PathVariable("username") String username) {
+		BaseResponse response = new BaseResponse();
+		response.setStatus(ResponseStatusEnum.SUCCESS);
+		
+		try {
+			User user =userService.findOneByUsername(username);
+			user.setStatus(-1);
+			
+			userService.save(user);
+			
+			response.setStatus(ResponseStatusEnum.SUCCESS);
+		} catch (Exception ex) {
+			response.setStatus(ResponseStatusEnum.FAIL);
+			response.setMessageError(ex.getMessage());
+		}
+		return new ResponseEntity<BaseResponse>(response, HttpStatus.OK);
     }
 }
 

@@ -148,6 +148,8 @@ public class User {
 	}
 
 	public String getAvatar() {
+		if(avatar==null||avatar.equals("")||avatar.isEmpty())
+			return "https://imgur.com/vkHIu2h.png";					//default img
 		return avatar;
 	}
 

@@ -16,7 +16,7 @@
     function render(username) {
         $.ajax({
             type: "POST",
-            url: "/admin/render-header/"+username,
+            url: "<c:url value='/admin/render-header/'/>"+username,
             success: function (response) {
                 $("#header").html("");
                 $("#header").html(response);

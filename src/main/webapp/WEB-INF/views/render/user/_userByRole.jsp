@@ -56,13 +56,17 @@
                                             </c:choose>
                                         </td>
                                         <td>
-                                            
-                                            <div class="form-group">
-                                                <!-- Icon Button group -->
-                                                <div class="btn-group" role="group" aria-label="Basic example">
-                                                    <button type="button" class="btn btn-icon btn-warning"><i class="fa fa-edit"></i></button>
-                                                    <button type="button" class="btn btn-icon btn-info" onclick="window.location.href='profile/${user.getUserName()}'"><i class="fa fa-info" ></i></button>
-    
+                                            <div class="btn-group mr-1 mb-1">
+                                                <button type="button" class="btn btn-info" onclick="window.location.href='profile/${user.getUserName()}'"><i class="fa fa-info"></i></button>
+                                                <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="sr-only">Toggle Dropdown</span>
+                                                    <i class="fa fa-edit"></i>
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" onclick="banUser('${user.getUserName()}')">Delete</a>
+                                                    <a class="dropdown-item" href="#">Edit</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="mailto:${user.getEmail()}?Subject=Ginseng">Send mail</a>
                                                 </div>
                                             </div>
                                         </td>
@@ -77,3 +81,16 @@
             </div>
         </div>
     </section>
+
+    <script>
+    function banUser(username) {
+        $.ajax({
+            type: "POST",
+            url: "<c:url value='/admin/ban/' />"+username,
+            success: function (response) {
+                response.status==200? alert("Đã xóa user:"+username+" thành công !"):alert("Xóa thất bại :(");
+                location.reload();
+            }
+        });
+    }
+    </script>

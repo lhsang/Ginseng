@@ -15,6 +15,7 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,6 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.lhsang.dashboard.model.Role;
 import com.lhsang.dashboard.service.RoleService;
+import com.lhsang.dashboard.service.UserService;
 
 @Controller
 @RequestMapping("/")
@@ -31,6 +33,9 @@ import com.lhsang.dashboard.service.RoleService;
 public class LoginController {
 	@Autowired
 	RoleService roleService;
+	
+	@Autowired
+	UserService userService;
 	
 	//@RequestMapping(value = "", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE })
 	//@JsonIgnore
@@ -54,6 +59,17 @@ public class LoginController {
 	    if (auth != null){    
 	        new SecurityContextLogoutHandler().logout(request, response, auth);
 	    }
-	    return "redirect:/login?logout";//You can redirect wherever you want, but generally it's a good practice to show login screen again.
+	    return "redirect:/";//You can redirect wherever you want, but generally it's a good practice to show login screen again.
 	}
+	
+	
+	@RequestMapping(value = { "/render-header/{username}" }, method = RequestMethod.POST)
+    public ModelAndView renderHeader(Model model,@PathVariable("username") String username) {
+		
+		com.lhsang.dashboard.model.User user =userService.findOneByUsername(username);
+		model.addAttribute("user", user);
+       
+        return new ModelAndView("user/_headerClient");
+    }
+	
 }

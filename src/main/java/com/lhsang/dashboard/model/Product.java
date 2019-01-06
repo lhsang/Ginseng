@@ -1,6 +1,8 @@
 package com.lhsang.dashboard.model;
 
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -154,6 +156,33 @@ public class Product {
 		this.productManage = productManage;
 	}
 	
+	// only test
+	public int getReviewTotal() {
+		int random = (int)(Math.random() * 20 + 1);
+		return random;
+	}
 	
+	public String getRating() {
+		String rating="<span class=\"fa fa-star checked\"></span>";
+		String notRating="<span class=\"fa fa-star \"></span>";
+		int random = (int)(Math.random() * 5 + 2);
+		String ans="";
+		for(int i=1;i<=5;i++) {
+			if(i<=random)
+				ans+=rating;
+			else ans+=notRating;
+		}
+		return ans;
+	}
 	
+	public String formatMoney() {
+		Locale localeVN = new Locale("vi", "VN");
+		NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
+		return currencyVN.format(price);
+	}
+	
+	public String getNameLimitCharacter(int num) {
+		num=num<=name.length()? num:name.length();
+		return name.substring(0, num);
+	}
 }

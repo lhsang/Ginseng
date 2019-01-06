@@ -4,7 +4,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <style>
-  
+   
     .my-cart {
         text-transform: none;
     }
@@ -112,7 +112,7 @@
 
 </style>
 <!-- Main Header Area Start Here -->
-        <header >
+        <header id="header-client">
             <!-- Header Middle Start Here -->
             <div class="header-middle ptb-15">
                 <div class="container">
@@ -398,3 +398,25 @@
         </div>
     </div>
 </div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $( document ).ready(function() {
+        console.log("${username}");
+        if("${username}"!=''&&"${username}"!='anonymousUser')
+         render("${username}");
+    });
+
+    function render(username) {
+        $.ajax({
+            type: "POST",
+            url: "<c:url value='/render-header/'/>"+username,
+            success: function (response) {
+                $("#header-client").html("");
+                $("#header-client").html(response);
+            }
+        });
+    }
+
+</script>
