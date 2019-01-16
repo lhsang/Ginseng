@@ -79,7 +79,7 @@
                     <div class="single-product" title="${product.getName()}">
                         <!-- Product Image Start -->
                         <div class="pro-img">
-                            <a href="product.html">
+                            <a href="<c:url value='/product/${product.getId()}' />">
                                 <img class="primary-img" src="${product.getImg()}" alt="single-product" style="height: 200px">
                                 <img class="secondary-img" src="https://imgur.com/me5heug.jpg" alt="single-product">
                             </a>

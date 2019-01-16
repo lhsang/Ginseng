@@ -13,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -21,6 +22,7 @@ import com.lhsang.dashboard.model.Product;
 import com.lhsang.dashboard.model.User;
 import com.lhsang.dashboard.service.ProductService;
 import com.lhsang.dashboard.service.UserService;
+import com.lhsang.helper.ResponseStatusEnum;
 
 
 
@@ -51,6 +53,16 @@ public class HomeController extends BaseController{
 		}
 		model.addAttribute("products", products);
 		model.addAttribute("allItems", allItems);
+	
 		return "home";
+	}
+	
+	@RequestMapping(value = "/product/{id}", method = RequestMethod.GET)
+	public String productDetail(Model model, @PathVariable("id") int id) {
+		
+		Product product = productService.findOneById(id);
+		model.addAttribute("product", product);
+	
+		return "productDetail";
 	}
 }

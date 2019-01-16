@@ -70,11 +70,11 @@
             </li>
           
           
-            <li class=" nav-item"><a href="#"><i class="ft-airplay"></i><span data-i18n="" class="menu-title">Inspect</span></a>
+            <li class=" nav-item"><a href="#"><i class="ft-airplay"></i><span data-i18n="" class="menu-title">User interface</span></a>
               <ul class="menu-content">
-                <li><a href="<c:url value='/admin/message-management'/>" class="menu-item">User interface</a>
+                <li><a target="_blank"  href="<c:url value='/'/>" class="menu-item">Inspect</a>
                 </li>
-                <li><a href="icons-font-awesome.html" class="menu-item">Statictis</a>
+                <li><a target="_blank" href="<c:url value='/'/>" class="menu-item">Statictis</a>
                 </li>
               </ul>
             </li>

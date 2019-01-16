@@ -59,6 +59,10 @@ public class Product {
 	@JsonManagedReference
 	private List<OrderDetail> orderDetails;
 	
+	@OneToMany(mappedBy="product",cascade=CascadeType.ALL)
+	@JsonManagedReference
+	List<Images> listImg;
+	
 	public List<OrderDetail> getOrderDetails() {
 		return orderDetails;
 	}
@@ -185,4 +189,14 @@ public class Product {
 		num=num<=name.length()? num:name.length();
 		return name.substring(0, num);
 	}
+
+	public List<Images> getListImg() {
+		return listImg;
+	}
+
+	public void setListImg(List<Images> listImg) {
+		this.listImg = listImg;
+	}
+	
+	
 }

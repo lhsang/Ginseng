@@ -53,6 +53,10 @@
 		<put-attribute name="body" value="/WEB-INF/views/pages/customer/home.jsp" />
 	</definition>
 	
+	<definition name="productDetail" extends="mainLayout">
+		<put-attribute name="body" value="/WEB-INF/views/pages/customer/productDetail.jsp" />
+	</definition>
+	
 	<!-- end client -->
 	
 	<!-- Start admin -->
