@@ -22,6 +22,7 @@ import com.lhsang.dashboard.model.Role;
 import com.lhsang.dashboard.model.User;
 import com.lhsang.dashboard.service.RoleService;
 import com.lhsang.dashboard.service.UserService;
+import com.lhsang.dashboard.utils.ConstantUtils;
 import com.lhsang.dashboard.utils.EncrytedPasswordUtils;
 import com.lhsang.helper.ResponseStatusEnum;
 
@@ -48,7 +49,7 @@ public class AdminAccountController {
 		Integer offset=0,maxResults=100;
 		
 		List<User> users=new ArrayList<>();
-		if(role_id==1||role_id==2||role_id==3) {
+		if(role_id==ConstantUtils.ROLE_ADMIN||role_id==ConstantUtils.ROLE_USER||role_id==ConstantUtils.ROLE_SUPERADMIN) {
 			Role role=roleService.findOneById(role_id);
 	        users=role.getUser();
 		}
@@ -71,20 +72,7 @@ public class AdminAccountController {
         return new ModelAndView("user/_header");
     }
 	
-	@RequestMapping(value = { "/check-username" }, method = RequestMethod.POST, produces = { MediaType.APPLICATION_JSON_VALUE} )
-    public ResponseEntity<BaseResponse> checkUsername(String username) {
-		BaseResponse response = new BaseResponse();
-		response.setStatus(ResponseStatusEnum.SUCCESS);
-		response.setMessage(ResponseStatusEnum.SUCCESS);
-		response.setData(null);
-		
-		if(userService.findOneByUsername(username)!=null) {
-			response.setMessage(ResponseStatusEnum.FAIL);
-			response.setStatus(ResponseStatusEnum.FAIL);
-		}
-		
-		return new ResponseEntity<BaseResponse>(response, HttpStatus.OK);
-    }
+	
 	
 	
 	@RequestMapping(value = "/add-user")

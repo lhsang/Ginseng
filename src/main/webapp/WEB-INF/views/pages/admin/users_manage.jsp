@@ -122,7 +122,7 @@
         var username=$('#texttUsername').val();
        $.ajax({
            type: "POST",
-           url:  "<c:url value='/admin/check-username' />",
+           url:  "<c:url value='/check-username' />",
            data: {username:username},
            success: function (response) {
                if(response.status=='500'){

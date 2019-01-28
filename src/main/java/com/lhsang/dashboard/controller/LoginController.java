@@ -1,6 +1,7 @@
 package com.lhsang.dashboard.controller;
 
 import java.security.Principal;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,6 +27,10 @@ import org.springframework.web.servlet.ModelAndView;
 import com.lhsang.dashboard.model.Role;
 import com.lhsang.dashboard.service.RoleService;
 import com.lhsang.dashboard.service.UserService;
+import com.lhsang.dashboard.utils.ConstantUtils;
+import com.lhsang.dashboard.utils.EncrytedPasswordUtils;
+
+import antlr.Utils;
 
 @Controller
 @RequestMapping("/")
@@ -72,4 +77,19 @@ public class LoginController {
         return new ModelAndView("user/_headerClient");
     }
 	
+	@RequestMapping(value = { "/register" }, method = RequestMethod.POST)
+    public String register(Model model,com.lhsang.dashboard.model.User user ) {
+		com.lhsang.dashboard.model.User newUser = new com.lhsang.dashboard.model.User();
+		newUser.setUserName(user.getUserName());
+		newUser.setPhone(user.getUserName());
+		newUser.setCreatedAt(new Date());
+		newUser.setPassword(EncrytedPasswordUtils.encrytePassword(user.getPassword()));
+		newUser.setEmail(user.getEmail());
+		newUser.setStatus(ConstantUtils.ACC_STATUS_ACTIVE);
+		newUser.setAddress(user.getAddress());
+        newUser.setFullName(user.getFullName());
+        newUser.setRole(roleService.findOneById(ConstantUtils.ROLE_USER));
+        userService.save(newUser);
+        return "redirect:/";
+    }
 }

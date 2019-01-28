@@ -4,7 +4,27 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <style>
-   
+    .error-hightlight{
+        border: solid 1px red;
+    }
+
+   .inner-addon { 
+    position: relative; 
+}
+
+    /* style icon */
+    .inner-addon .fa {   
+        position: absolute;
+         padding: 10px;
+        pointer-events: none;
+    }
+
+    /* align icon */
+    .left-addon .fa  { left:  12px;}
+
+    /* add padding  */
+    .left-addon input  { padding-left:  30px; }
+
     .my-cart {
         text-transform: none;
     }
@@ -70,14 +90,14 @@
 }
 .btnRegister{
     float: right;
-    margin-top: 10%;
+    margin-top: 20%;
     border: none;
     border-radius: 1.5rem;
-    padding: 4%;
+    padding: 6%;
     background: #ee4444;
     color: #fff;
     font-weight: 600;
-    width: 70%;
+    width: 100%;
     cursor: pointer;
 }
 .register .nav-tabs{
@@ -349,40 +369,58 @@
                         </ul>
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                
-                               
+                                <form class="form-horizontal form-simple" action="<c:url value="/j_spring_security_check"></c:url>" method="post" novalidate>
+                                    <div class="row register-form">
+                                        <div class="inner-addon left-addon col-md-9 offset-md-2">
+                                            <i class="fa fa-user"></i>
+                                            <input type="text" class="form-control" placeholder="Số điện thoại hoặc tên đăng nhập" name="username"/>
+                                        </div>
+                                        <div class="inner-addon left-addon col-md-9 offset-md-2" style="margin-top:20px">
+                                            <i class="fa fa-lock"></i>
+                                            <input type="password" class="form-control" placeholder="Mật khẩu" name="password" />
+                                        </div>
+                                        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 offset-md-4">
+                                            <input type="submit" class="btnRegister" id="signin"  value="Đăng nhập"/>   
+                                        </div>   
+                                    </div>
+                                    <div class="col-md-4 offset-md-8">
+                                        <p style="color: red;font-size: 15px;" id="forgotPassword">Quên mật khẩu ?</p>
+                                    </div>
+                                </form>
                             </div>
                             <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                 <h3  class="register-heading">Đăng ký tài khoản</h3>
-                                <div class="row register-form">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text"  maxlength="10" minlength="10"  class="form-control" placeholder="Số điện thoại *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Email" value="" />
-                                        </div>
-                                        
-                                        <div class="form-group">
-                                            <input type="text"class="form-control" placeholder="Địa chỉ *" value="" />
+                                <form action="<c:url value='/register'/>" method="POST" role="form">
+                                    <div class="row register-form">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Số điện thoại *" required id="texttUsername" name="userName"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" placeholder="Email" name="email" />
+                                            </div>    
+                                            <div class="form-group">
+                                                <input type="text"class="form-control" placeholder="Địa chỉ *"  required name="address"/>
+                                            </div>
                                         </div>
 
-
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Họ tên *" required name="fullName"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control" placeholder="Mật khẩu *" id="password" required name="password"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control" placeholder="Nhập lại mật khẩu *" id="repassword" required/>
+                                            </div>           
+                                            <input type="submit" class="btnRegister" id="signup"  value="Đăng ký"/>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align: left">
+                                                <span style="color:red;font-size: 14px" id="errUsername"></span>
+                                        </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="Họ tên *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Mật khẩu *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Nhập lại mật khẩu *" value="" />
-                                        </div>
-                                        
-                                        <input type="submit" class="btnRegister"  value="Đăng ký"/>
-                                    </div>
-                                </div>
+                                </form>   
                             </div>
                         </div>
                     </div>
@@ -413,4 +451,42 @@
         });
     }
 
+    $("#forgotPassword").click(function (e) { 
+        e.preventDefault();
+        alert("Quên kệ mẹ bạn!");
+    });
+
+    $("#texttUsername").focusout(function() { 
+        var username=$('#texttUsername').val();
+       $.ajax({
+           type: "POST",
+           url:  "<c:url value='/check-username' />",
+           data: {username:username},
+           success: function (response) {
+               if(response.status=='500'){
+                    $("#signup:submit").attr("disabled", true);
+                    $("#texttUsername").addClass('error-hightlight');
+                    $("#errUsername").text("* Số điện thoại hoặc tên người dùng đã tồn tại.");
+               }else{
+                    $("#signup:submit").removeAttr("disabled");
+                    $("#texttUsername").removeClass('error-hightlight');
+                    $("#errUsername").text("");
+               }
+           }
+       });
+    });
+
+    $("#repassword").focusout(function() { 
+        var repass=$('#repassword').val();
+        var pass=$('#password').val();
+        if(repass!=pass){
+            $("#signup:submit").attr("disabled", true);
+            $("#repassword").addClass('error-hightlight');
+            $("#errUsername").text("* Mật khẩu không khớp.");
+        }else{
+            $("#signup:submit").removeAttr("disabled");
+            $("#repassword").removeClass('error-hightlight');
+            $("#errUsername").text("");
+        }
+    });
 </script>
