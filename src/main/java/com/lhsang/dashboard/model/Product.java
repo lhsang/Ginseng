@@ -45,6 +45,8 @@ public class Product {
 	
 	private String notes;
 	
+	private String description;
+	
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "product", cascade = CascadeType.ALL)
 	@JsonManagedReference
 	ProductManage productManage;
@@ -198,5 +200,12 @@ public class Product {
 		this.listImg = listImg;
 	}
 	
-	
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 }

@@ -64,7 +64,7 @@ public class LoginController {
 	    if (auth != null){    
 	        new SecurityContextLogoutHandler().logout(request, response, auth);
 	    }
-	    return "redirect:/";//You can redirect wherever you want, but generally it's a good practice to show login screen again.
+	    return "redirect:/";
 	}
 	
 	
@@ -80,6 +80,7 @@ public class LoginController {
 	@RequestMapping(value = { "/register" }, method = RequestMethod.POST)
     public String register(Model model,com.lhsang.dashboard.model.User user ) {
 		com.lhsang.dashboard.model.User newUser = new com.lhsang.dashboard.model.User();
+		
 		newUser.setUserName(user.getUserName());
 		newUser.setPhone(user.getUserName());
 		newUser.setCreatedAt(new Date());
@@ -89,6 +90,7 @@ public class LoginController {
 		newUser.setAddress(user.getAddress());
         newUser.setFullName(user.getFullName());
         newUser.setRole(roleService.findOneById(ConstantUtils.ROLE_USER));
+        
         userService.save(newUser);
         return "redirect:/";
     }

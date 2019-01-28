@@ -5,7 +5,11 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-
+<style>
+.thumnail-height{
+    height: 120px;
+}
+</style>
 <title>${product.getName()} - Nhân sâm Hàn Quốc chất lượng</title>
 
 <!-- Product Thumbnail Start -->
@@ -17,31 +21,28 @@
                         <div class="col-lg-5 mb-all-40">
                             <!-- Thumbnail Large Image start -->
                             <div class="tab-content">
-                                <div id="thumb1" class="tab-pane fade show active">
-                                    <a data-fancybox="images" href="img/products/35.jpg"><img src="img/products/35.jpg" alt="product-view"></a>
+                                    <div id="thumb1" class="tab-pane fade show active">
+                                        <a data-fancybox="images" href="<c:url value='${product.getImg()}' />"><img src="<c:url value='${product.getImg()}' />" alt="product-view"></a>
+                                    </div>
+                                    <c:if test="${product.getListImg().size() > 0}">
+                                        <c:forEach var = "i" begin = "0" end = "${product.getListImg().size()-1}">
+                                            <div id="thumb${i+2}" class="tab-pane fade">
+                                                <a data-fancybox="images" href="<c:url value='${product.getListImg().get(i).getSrc()}'/>"><img src="<c:url value='${product.getListImg().get(i).getSrc()}'/>" alt="product-view"></a>
+                                            </div>
+                                        </c:forEach>
+                                    </c:if>
                                 </div>
-                                <div id="thumb2" class="tab-pane fade">
-                                    <a data-fancybox="images" href="img/products/13.jpg"><img src="img/products/13.jpg" alt="product-view"></a>
-                                </div>
-                                <div id="thumb3" class="tab-pane fade">
-                                    <a data-fancybox="images" href="img/products/15.jpg"><img src="img/products/15.jpg" alt="product-view"></a>
-                                </div>
-                                <div id="thumb4" class="tab-pane fade">
-                                    <a data-fancybox="images" href="img/products/4.jpg"><img src="img/products/4.jpg" alt="product-view"></a>
-                                </div>
-                                <div id="thumb5" class="tab-pane fade">
-                                    <a data-fancybox="images" href="img/products/5.jpg"><img src="img/products/5.jpg" alt="product-view"></a>
-                                </div>
-                            </div>
                             <!-- Thumbnail Large Image End -->
                             <!-- Thumbnail Image End -->
                             <div class="product-thumbnail mt-15">
-                                <div class="thumb-menu owl-carousel nav tabs-area" role="tablist">
-                                    <a class="active" data-toggle="tab" href="#thumb1"><img src="img/products/35.jpg" alt="product-thumbnail"></a>
-                                    <a data-toggle="tab" href="#thumb2"><img src="img/products/13.jpg" alt="product-thumbnail"></a>
-                                    <a data-toggle="tab" href="#thumb3"><img src="img/products/15.jpg" alt="product-thumbnail"></a>
-                                    <a data-toggle="tab" href="#thumb4"><img src="img/products/4.jpg" alt="product-thumbnail"></a>
-                                    <a data-toggle="tab" href="#thumb5"><img src="img/products/5.jpg" alt="product-thumbnail"></a>
+                                <div class="thumb-menu owl-carousel nav tabs-area" role="tablist" style="max-height: ">
+                                    
+                                    <a class="active" data-toggle="tab" href="#thumb1"><img class="thumnail-height" src="<c:url value='${product.getImg()}' />" alt="product-thumbnail"></a>
+                                    <c:if test="${product.getListImg().size() > 0}">
+                                        <c:forEach var = "i" begin = "0" end = "${product.getListImg().size()-1}">
+                                            <a data-toggle="tab" href="#thumb${i+2}"><img class="thumnail-height" src="<c:url value='${product.getListImg().get(i).getSrc()}'/>" alt="product-thumbnail"></a>
+                                        </c:forEach>
+                                    </c:if>
                                 </div>
                             </div>
                             <!-- Thumbnail image end -->
@@ -50,7 +51,7 @@
                         <!-- Thumbnail Description Start -->
                         <div class="col-lg-7">
                             <div class="thubnail-desc fix">
-                                <h3 class="product-header">Faded Short Sleeves T-shirt</h3>
+                                <h3 class="product-header">${product.getName()}</h3>
                                 <div class="rating-summary fix mtb-10">
                                     <div class="rating">
                                         <i class="fa fa-star"></i>
@@ -65,27 +66,13 @@
                                     </div>
                                 </div>
                                 <div class="pro-price mtb-30">
-                                    <p class="d-flex align-items-center"><span class="prev-price">16.51</span><span class="price">$15.19</span><span class="saving-price">save 8%</span></p>
+                                    <p class="d-flex align-items-center"><span class="prev-price"></span><span class="price">${product.formatMoney()}</span><span class="saving-price">save 8%</span></p>
                                 </div>
-                                <p class="mb-20 pro-desc-details">Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!</p>
-                                <div class="product-size mb-20 clearfix">
-                                    <label>Size</label>
-                                    <select class="">
-                                      <option>S</option>
-                                      <option>M</option>
-                                      <option>L</option>
-                                    </select>
-                                </div>
+                                <p class="mb-20 pro-desc-details">${product.getDescription()}</p>
+                                
                                 <div class="color clearfix mb-20">
-                                    <label>color</label>
-                                    <ul class="color-list">
-                                        <li>
-                                            <a class="orange active" href="#"></a>
-                                        </li>
-                                        <li>
-                                            <a class="paste" href="#"></a>
-                                        </li>
-                                    </ul>
+                                    <label>Khối lượng tịnh:</label>
+                                    <p>${product.getQuantity()} ${product.getUnit()}</p>
                                 </div>
                                 <div class="box-quantity d-flex hot-product2">
                                     <form action="#">
@@ -96,13 +83,12 @@
                                             <a href="cart.html" title="" data-original-title="Add to Cart"> + Add To Cart</a>
                                         </div>
                                         <div class="actions-secondary">
-                                            <a href="compare.html" title="" data-original-title="Compare"><i class="lnr lnr-sync"></i> <span>Add To Compare</span></a>
                                             <a href="wishlist.html" title="" data-original-title="WishList"><i class="lnr lnr-heart"></i> <span>Add to WishList</span></a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="pro-ref mt-20">
-                                    <p><span class="in-stock"><i class="ion-checkmark-round"></i> IN STOCK</span></p>
+                                    <p><span class="in-stock"><i class="ion-checkmark-round"></i>Hàng chất lượng</span></p>
                                 </div>
                                 <div class="socila-sharing mt-25">
                                     <ul class="d-flex">
