@@ -3,6 +3,9 @@
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <style>
         .cen{
             text-align: center;
@@ -16,6 +19,9 @@
 	
 </div> 
 
+<sec:authorize access="hasRole('SUPER_ADMIN') and hasRole('ADMIN')">
+	<p>Must have ROLE_ADMIN and ROLE_USER</p>
+</sec:authorize>
 <div class="modal fade text-xs-left"  id="modal-add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel9" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">

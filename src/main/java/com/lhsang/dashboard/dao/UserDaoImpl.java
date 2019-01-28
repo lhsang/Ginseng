@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.expression.spel.ast.Projection;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,9 +24,15 @@ public class UserDaoImpl  extends AbstractDao<Integer, User>  implements UserDao
 	@SuppressWarnings("unchecked")
 	public List<User> findAll(int offset, int maxResults){
 		@SuppressWarnings("deprecation")
-		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(User.class).setFirstResult(offset)
-                .setMaxResults(maxResults);
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(User.class);
+		
+		
+		
+		criteria.setFirstResult(offset)
+        .setMaxResults(maxResults);
+		
 		criteria.add(Restrictions.ne("status", -1));
+		
 		return criteria.list();
 	}
 	

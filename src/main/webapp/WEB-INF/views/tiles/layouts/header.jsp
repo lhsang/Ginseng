@@ -15,7 +15,7 @@
     }
 
     .register{
-    background: -webkit-linear-gradient(left, #ed6b7b, #ffffff);
+    background: -webkit-linear-gradient(left, #ff1532, #ffffff);
     margin-top: 3%;
     padding: 3%;
 }
@@ -23,6 +23,9 @@
     text-align: center;
     color: #fff;
     margin-top: 4%;
+}
+.register-left p{
+    color: white;
 }
 .register-left input{
     border: none;
@@ -70,11 +73,11 @@
     margin-top: 10%;
     border: none;
     border-radius: 1.5rem;
-    padding: 2%;
+    padding: 4%;
     background: #ee4444;
     color: #fff;
     font-weight: 600;
-    width: 50%;
+    width: 70%;
     cursor: pointer;
 }
 .register .nav-tabs{
@@ -86,7 +89,7 @@
     float: right;
 }
 .register .nav-tabs .nav-link{
-    padding: 2%;
+    padding: 5%;
     height: 34px;
     font-weight: 600;
     color: #fff;
@@ -119,7 +122,7 @@
                     <div class="row align-items-center no-gutters">
                         <div class="col-lg-3 col-md-12">
                             <div class="logo mb-all-30">
-                                <a href="index.html"><img src="<c:url value='/static/custom/img/logo-1.png' />" alt="logo-image"></a>
+                                <a href="<c:url value='/'/>"><img src="<c:url value='/static/custom/img/logo-1.png' />" alt="logo-image"></a>
                             </div>
                         </div>
                         <!-- Categorie Search Box Start Here -->
@@ -333,7 +336,7 @@
                         <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
                         <h3>Xin chào</h3>
                         <p>Mời bạn đăng nhập để tiếp tục mua hàng.</p>
-                        
+    
                     </div>
                     <div class="col-md-9 register-right">
                         <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
@@ -350,43 +353,34 @@
                                
                             </div>
                             <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <h3  class="register-heading">Apply as a Hirer</h3>
+                                <h3  class="register-heading">Đăng ký tài khoản</h3>
                                 <div class="row register-form">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="First Name *" value="" />
+                                            <input type="text"  maxlength="10" minlength="10"  class="form-control" placeholder="Số điện thoại *" value="" />
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Last Name *" value="" />
+                                            <input type="email" class="form-control" placeholder="Email" value="" />
                                         </div>
+                                        
                                         <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Email *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" />
+                                            <input type="text"class="form-control" placeholder="Địa chỉ *" value="" />
                                         </div>
 
 
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Password *" value="" />
+                                                    <input type="text" class="form-control" placeholder="Họ tên *" value="" />
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
+                                            <input type="password" class="form-control" placeholder="Mật khẩu *" value="" />
                                         </div>
                                         <div class="form-group">
-                                            <select class="form-control">
-                                                <option class="hidden"  selected disabled>Please select your Sequrity Question</option>
-                                                <option>What is your Birthdate?</option>
-                                                <option>What is Your old Phone Number</option>
-                                                <option>What is your Pet Name?</option>
-                                            </select>
+                                            <input type="password" class="form-control" placeholder="Nhập lại mật khẩu *" value="" />
                                         </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="`Answer *" value="" />
-                                        </div>
-                                        <input type="submit" class="btnRegister"  value="Register"/>
+                                        
+                                        <input type="submit" class="btnRegister"  value="Đăng ký"/>
                                     </div>
                                 </div>
                             </div>

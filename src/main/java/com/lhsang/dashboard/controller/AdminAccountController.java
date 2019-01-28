@@ -38,15 +38,7 @@ public class AdminAccountController {
 	
 	@Autowired
 	UserService userService;
-/*	
-	@RequestMapping(value = "")
-    public String adminPage() {
-        return "dashboard";
-    }
-	*/
-	
-	
-	
+
 	@RequestMapping(value = "/user-management")
     public String userManagement(Model model) {
         return "userManagement";
@@ -114,7 +106,7 @@ public class AdminAccountController {
 		user.setRole(roleService.findOneById(role_id));
 		
 		userService.save(user);
-        return "redirect:/admin";
+        return "redirect:/admin/user-management";
     }
 	
 	@RequestMapping(value = "/profile/{username}")

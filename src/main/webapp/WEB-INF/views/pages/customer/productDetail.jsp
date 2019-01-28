@@ -1,11 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="UTF-8"%>
+<%@ page isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<title>${product.getName()} - Ginseng Nhân sâm Hàn Quốc</title>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
- <!-- Product Thumbnail Start -->
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
+<title>${product.getName()} - Nhân sâm Hàn Quốc chất lượng</title>
+
+<!-- Product Thumbnail Start -->
         <div class="main-product-thumbnail ptb-100 ptb-sm-60">
             <div class="container">
                 <div class="thumb-bg">
@@ -15,26 +18,30 @@
                             <!-- Thumbnail Large Image start -->
                             <div class="tab-content">
                                 <div id="thumb1" class="tab-pane fade show active">
-                                    <a data-fancybox="images" href="<c:url value='${product.getImg()}' />"><img src="<c:url value='${product.getImg()}' />" alt="product-view"></a>
+                                    <a data-fancybox="images" href="img/products/35.jpg"><img src="img/products/35.jpg" alt="product-view"></a>
                                 </div>
-                                
-                                <c:forEach var = "i" begin = "0" end = "${product.getListImg().size()}">
-							         <div id="thumb${i+2}" class="tab-pane fade">
-	                                    <a data-fancybox="images" href="<c:url value='${product.getListImg().get(i).getSrc()}'/>"><img src="<c:url value='${product.getListImg().get(i).getSrc()}'/>" alt="product-view"></a>
-	                                </div>
-							     </c:forEach>
-                           
+                                <div id="thumb2" class="tab-pane fade">
+                                    <a data-fancybox="images" href="img/products/13.jpg"><img src="img/products/13.jpg" alt="product-view"></a>
+                                </div>
+                                <div id="thumb3" class="tab-pane fade">
+                                    <a data-fancybox="images" href="img/products/15.jpg"><img src="img/products/15.jpg" alt="product-view"></a>
+                                </div>
+                                <div id="thumb4" class="tab-pane fade">
+                                    <a data-fancybox="images" href="img/products/4.jpg"><img src="img/products/4.jpg" alt="product-view"></a>
+                                </div>
+                                <div id="thumb5" class="tab-pane fade">
+                                    <a data-fancybox="images" href="img/products/5.jpg"><img src="img/products/5.jpg" alt="product-view"></a>
+                                </div>
                             </div>
                             <!-- Thumbnail Large Image End -->
                             <!-- Thumbnail Image End -->
                             <div class="product-thumbnail mt-15">
                                 <div class="thumb-menu owl-carousel nav tabs-area" role="tablist">
-                                    <a class="active" data-toggle="tab" href="#thumb1"><img src="<c:url value='${product.getImg()}' />" alt="product-thumbnail"></a>
-                                     <c:forEach var = "i" begin = "0" end = "${product.getListImg().size()}">
-							         <div id="thumb${i+2}" class="tab-pane fade">
-	                                    <a data-toggle="tab" href="#thumb${i+2}"><img src="<c:url value='${product.getListImg().get(i).getSrc()}'/>" alt="product-thumbnail"></a>
-	                                </div>
-							     </c:forEach>
+                                    <a class="active" data-toggle="tab" href="#thumb1"><img src="img/products/35.jpg" alt="product-thumbnail"></a>
+                                    <a data-toggle="tab" href="#thumb2"><img src="img/products/13.jpg" alt="product-thumbnail"></a>
+                                    <a data-toggle="tab" href="#thumb3"><img src="img/products/15.jpg" alt="product-thumbnail"></a>
+                                    <a data-toggle="tab" href="#thumb4"><img src="img/products/4.jpg" alt="product-thumbnail"></a>
+                                    <a data-toggle="tab" href="#thumb5"><img src="img/products/5.jpg" alt="product-thumbnail"></a>
                                 </div>
                             </div>
                             <!-- Thumbnail image end -->
@@ -43,10 +50,14 @@
                         <!-- Thumbnail Description Start -->
                         <div class="col-lg-7">
                             <div class="thubnail-desc fix">
-                                <h3 class="product-header">${product.getName()}</h3>
+                                <h3 class="product-header">Faded Short Sleeves T-shirt</h3>
                                 <div class="rating-summary fix mtb-10">
                                     <div class="rating">
-                                        ${product.getRating()}
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
                                     </div>
                                     <div class="rating-feedback">
                                         <a href="#">(1 review)</a>
