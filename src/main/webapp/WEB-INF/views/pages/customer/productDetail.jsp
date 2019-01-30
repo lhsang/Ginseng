@@ -9,6 +9,15 @@
 .thumnail-height{
     height: 120px;
 }
+.fa .fa-star{
+	margin-left:1px;
+}
+.rating{
+	color: #dedede;
+}
+.checked {
+  color: orange;
+}
 </style>
 <title>${product.getName()} - Nhân sâm Hàn Quốc chất lượng</title>
 
@@ -51,22 +60,15 @@
                         <!-- Thumbnail Description Start -->
                         <div class="col-lg-7">
                             <div class="thubnail-desc fix">
-                                <h3 class="product-header">${product.getName()}</h3>
+                                <h3 class="product-header" style="font-size: 30px; font-weight: bold;">${product.getName()}</h3>
                                 <div class="rating-summary fix mtb-10">
                                     <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
+                                        ${product.getRating()}
                                     </div>
-                                    <div class="rating-feedback">
-                                        <a href="#">(1 review)</a>
-                                        <a href="#">add to your review</a>
-                                    </div>
+                                    
                                 </div>
                                 <div class="pro-price mtb-30">
-                                    <p class="d-flex align-items-center"><span class="prev-price"></span><span class="price">${product.formatMoney()}</span><span class="saving-price">save 8%</span></p>
+                                    <p class="d-flex align-items-center"><span class="prev-price"></span><span class="price" style="color:#cc1d1d;">${product.formatMoney()}</span><span class="saving-price">save 8%</span></p>
                                 </div>
                                 <p class="mb-20 pro-desc-details">${product.getDescription()}</p>
                                 
