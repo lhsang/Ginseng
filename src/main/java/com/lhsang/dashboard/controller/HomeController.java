@@ -64,8 +64,11 @@ public class HomeController extends BaseController{
 	public String productDetail(Model model, @PathVariable("id") int id) {
 		
 		Product product = productService.findOneById(id);
-		model.addAttribute("product", product);
 	
+		List<Product> products = productService.findAll();
+		
+		model.addAttribute("product", product);
+		model.addAttribute("products", products);
 		return "productDetail";
 	}
 	
