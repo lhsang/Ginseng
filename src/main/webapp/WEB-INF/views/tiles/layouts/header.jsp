@@ -167,61 +167,15 @@
                         <div class="col-lg-4 col-md-12">
                             <div class="cart-box mt-all-30">
                                 <ul class="d-flex justify-content-lg-end justify-content-center align-items-center">
-                                    <li><a href="#"><i class="lnr lnr-cart"></i><span class="my-cart"><span class="total-pro">2</span><span>Giỏ hàng</span></span></a>
-                                        <ul class="ht-dropdown cart-box-width">
-                                            <li>
-                                                <!-- Cart Box Start -->
-                                                <div class="single-cart-box">
-                                                    <div class="cart-img">
-                                                        <a href="#"><img src="<c:url value='/static/client/img/products/1.jpg' />" alt="cart-image"></a>
-                                                        <span class="pro-quantity">1X</span>
-                                                    </div>
-                                                    <div class="cart-content">
-                                                        <h6><a href="product.html">Printed Summer Red </a></h6>
-                                                        <span class="cart-price">27.45</span>
-                                                        <span>Size: S</span>
-                                                        <span>Color: Yellow</span>
-                                                    </div>
-                                                    <a class="del-icone" href="#"><i class="ion-close"></i></a>
-                                                </div>
-                                                <!-- Cart Box End -->
-                                                <!-- Cart Box Start -->
-                                                <div class="single-cart-box">
-                                                    <div class="cart-img">
-                                                        <a href="#"><img src="<c:url value='/static/client/img/products/2.jpg' />" alt="cart-image"></a>
-                                                        <span class="pro-quantity">1X</span>
-                                                    </div>
-                                                    <div class="cart-content">
-                                                        <h6><a href="product.html">Printed Round Neck</a></h6>
-                                                        <span class="cart-price">45.00</span>
-                                                        <span>Size: XL</span>
-                                                        <span>Color: Green</span>
-                                                    </div>
-                                                    <a class="del-icone" href="#"><i class="ion-close"></i></a>
-                                                </div>
-                                                <!-- Cart Box End -->
-                                                <!-- Cart Footer Inner Start -->
-                                                <div class="cart-footer">
-                                                   <ul class="price-content">
-                                                       <li>Subtotal <span>$57.95</span></li>
-                                                       <li>Shipping <span>$7.00</span></li>
-                                                       <li>Taxes <span>$0.00</span></li>
-                                                       <li>Total <span>$64.95</span></li>
-                                                   </ul>
-                                                    <div class="cart-actions text-center">
-                                                        <a class="cart-checkout" href="checkout.html">Checkout</a>
-                                                    </div>
-                                                </div>
-                                                <!-- Cart Footer Inner End -->
-                                            </li>
-                                        </ul>
+                                    <li id="cartDiv">
+                                        <a href="#"><i class="lnr lnr-cart"></i><span class="my-cart"><span class="total-pro">0</span><span>Giỏ hàng</span></span></a>
                                     </li>
                                     <li><a href="#"><i class="lnr lnr-heart"></i><span class="my-cart"><span>Yêu thích</span><span>list (0)</span></span></a>
                                     </li>
-                                    <li><a onclick="$('#myModal').modal('show');"><i class="lnr lnr-user"></i><span class="my-cart"><span> <strong>Đăng nhập </strong> hoặc </span><span> đăng ký</span></span></a>
-
-
-
+                                    <li id="userDiv">
+                                        <a onclick="$('#myModal').modal('show');"><i class="lnr lnr-user"></i>
+                                            <span class="my-cart"><span> <strong>Đăng nhập </strong> hoặc </span><span> đăng ký</span></span>
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
@@ -435,6 +389,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
     $( document ).ready(function() {
+        reloadCart();
         console.log("${username}");
         if("${username}"!=''&&"${username}"!='anonymousUser')
          render("${username}");
@@ -445,8 +400,8 @@
             type: "POST",
             url: "<c:url value='/render-header/'/>"+username,
             success: function (response) {
-                $("#header-client").html("");
-                $("#header-client").html(response);
+                $("#userDiv").html("");
+                $("#userDiv").html(response);
             }
         });
     }

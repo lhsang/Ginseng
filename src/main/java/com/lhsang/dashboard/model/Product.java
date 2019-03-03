@@ -19,6 +19,7 @@ import javax.persistence.OneToOne;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.lhsang.dashboard.utils.FormatUnit;
 
 @Entity(name="products")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -182,9 +183,7 @@ public class Product {
 	}
 	
 	public String formatMoney() {
-		Locale localeVN = new Locale("vi", "VN");
-		NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
-		return currencyVN.format(price);
+		return FormatUnit.formatMoneyToVND(price);
 	}
 	
 	public String getNameLimitCharacter(int num) {

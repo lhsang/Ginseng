@@ -13,14 +13,39 @@
            url:  "<c:url value='/transaction/add-to-cart' />",
            data: {
 			   productId:id,
-		   	   price:price,
+		   		price:price,
 			   count:count
 			},
            success: function (response) {
-              alert("Success");
+              console.log("Đã thêm vào giỏ hàng.");
+			reloadCart();
            }
        });
 	}
 
+	function reloadCart(username) {
+        $.ajax({
+            type: "GET",
+            url: "<c:url value='/transaction/cart-header'/>",
+            success: function (response) {
+                $("#cartDiv").html("");
+                $("#cartDiv").html(response);
+            }
+        });
+	}
+	
+	function removeItemCart(id) {
+        $.ajax({
+            type: "POST",
+            url: "<c:url value='/transaction/remove-item-cart'/>",
+            data:{
+            	id:id
+            },
+            success: function(response){
+            	console.log("removed");
+            	reloadCart();
+            }
+        });
+	}
 	//payment
 </script>

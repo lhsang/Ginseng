@@ -15,10 +15,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.lhsang.dashboard.model.Cart;
 import com.lhsang.dashboard.model.Product;
 import com.lhsang.dashboard.service.ProductService;
+import com.lhsang.dashboard.utils.FormatUnit;
 
 @Controller
 @RequestMapping("/transaction")
@@ -63,6 +65,46 @@ public class TransactionController {
 		return -1;
 	}
 	
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value = { "/cart-header" }, method = RequestMethod.GET)
+    public ModelAndView renderCartHeader(HttpSession httpSession, Model model) {
+		List<Product> products = new ArrayList<>();
+		int total =0;
+		try {
+			if(null!=httpSession.getAttribute("carts")) {
+				List<Cart> list = (List<Cart>) httpSession.getAttribute("carts");
+				for(Cart item:list) {
+					Product temp=productService.findOneById(item.getProductId());
+					total+=temp.getPrice()*item.getCount();
+					temp.setNotes(Integer.toString(item.getCount()));
+					products.add(temp);
+				}
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		model.addAttribute("total", FormatUnit.formatMoneyToVND(total));
+		model.addAttribute("products", products);
+	    return new ModelAndView("others/_cart");
+    }
 	
-	
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value = "/remove-item-cart", method = RequestMethod.POST)
+	@ResponseBody
+	public String removeItemCart(HttpSession httpSession,int id) {
+		try {
+			Cart cart =new Cart();
+			cart.setProductId(id);
+			int pos=checkProductExistCart(httpSession, cart);
+			
+			List<Cart> carts =(List<Cart>) httpSession.getAttribute("carts");
+			if(pos!=-1)
+				carts.remove(pos);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return "hihi";
+	}
 }
