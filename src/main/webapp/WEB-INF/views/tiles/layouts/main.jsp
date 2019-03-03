@@ -54,7 +54,7 @@
 		<tiles:insertAttribute name="news" />
 		<tiles:insertAttribute name="footer" />
 	
-
+		<tiles:insertAttribute name="script" />
 
     
 		<!-- Main Wrapper End Here -->

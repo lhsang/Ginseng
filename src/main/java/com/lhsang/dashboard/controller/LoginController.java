@@ -45,10 +45,13 @@ public class LoginController {
 	//@RequestMapping(value = "", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE })
 	//@JsonIgnore
 	@RequestMapping(value = "/login",method = RequestMethod.GET)
-	public ModelAndView hello( ModelAndView model,@RequestParam(value = "error", required = false) String error) {
+	public ModelAndView hello( ModelAndView model,@RequestParam(value = "error", required = false) String error
+			, Principal principal) {
 		if (error != null) {
 			model.addObject("error", "Username or password is incorrect !");
 		}
+		
+		
 		model.setViewName("login");
 		return model;
 	}

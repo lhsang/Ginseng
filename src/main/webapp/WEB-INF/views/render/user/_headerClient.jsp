@@ -18,7 +18,7 @@
         <div class="row align-items-center no-gutters">
             <div class="col-lg-3 col-md-12">
                 <div class="logo mb-all-30">
-                    <a href="index.html"><img src="<c:url value='/static/custom/img/logo-1.png' />" alt="logo-image"></a>
+                    <a href="<c:url value='/' />"><img src="<c:url value='/static/custom/img/logo-1.png' />" alt="logo-image"></a>
                 </div>
             </div>
             <!-- Categorie Search Box Start Here -->
@@ -33,7 +33,7 @@
                                 <option value="4">Cords and Cables</option>
                             </select>
                         </div>
-                        <input type="text" name="search" placeholder="I’m shopping for...">
+                        <input type="text" name="search" placeholder="Nhân sâm hàn quốc">
                         <button><i class="lnr lnr-magnifier"></i></button>
                     </form>
                 </div>

@@ -75,22 +75,6 @@ public class HandlerInterceptor extends HandlerInterceptorAdapter{
 	
 	
 	public com.lhsang.dashboard.model.User currentUser() {
-		//if(SecurityContextHolder.getContext().getAuthentication().getPrincipal().equals("anonymousUser"))
-		//	return null;
-		//CustomUserDetail myUserDetails = (CustomUserDetail) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		/*Object user = auth.getPrincipal();
-		com.lhsang.dashboard.model.User btemp =new com.lhsang.dashboard.model.User();
-		if(!user.equals("anonymousUser")) {
-			User result=(User)user;
-			String u=result.getUsername();
-			System.out.println("\n\n\n\n\n\n\n\n\n\n"+u);
-			btemp = userService.findOneByUsername(u);
-			if(btemp==null)
-				System.out.println("\n\n\n\n\n\n\n\n\n\n  null");
-			else
-				System.out.println("\n\n\n\n\n\n\n\n\n\n"+btemp.getFullName());
-		}*/
-		//System.out.println("\n\n\n\n\n\n\n\n\n\n"+myUserDetails.getUser().getFullName());
 		return new com.lhsang.dashboard.model.User();
 	}
 	
