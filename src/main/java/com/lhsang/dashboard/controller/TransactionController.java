@@ -23,40 +23,46 @@ import com.lhsang.dashboard.service.ProductService;
 @Controller
 @RequestMapping("/transaction")
 @Transactional
-@SessionAttributes("cart")
+@SessionAttributes("carts")
 public class TransactionController {
 	@Autowired
 	ProductService productService;
-	
-	List<Cart> carts =new ArrayList<>();
-	
+
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/add-to-cart", method = RequestMethod.POST)
 	@ResponseBody
 	public String addToCart(Cart cart,HttpSession httpSession) {
-		try {
-			Boolean flag = false;
-			for (Cart cart2 : carts) 
-				if(cart2.getProductId()==cart.getProductId()) {
-					flag =true;
-					cart2.setCount(cart2.getCount()+cart.getCount());
-					break;
-				}
-			
-			if(flag==false) {
-				carts.add(cart);
-				httpSession.setAttribute("cart", carts);
-			}
-			
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		//List<Cart> list = new ArrayList<>();
-		//list= (List<Cart>) httpSession.getAttribute("cart");
 		
-		System.out.println(carts.size()+"----"+carts.get(0).getCount());
+		if(null==httpSession.getAttribute("carts")) {
+			List<Cart> carts = new ArrayList<>();
+			carts.add(cart);
+			httpSession.setAttribute("carts", carts);
+		}else {
+			List<Cart> carts = (List<Cart>) httpSession.getAttribute("carts");
+			if(checkProductExistCart(httpSession,cart) ==-1){
+				carts.add(cart);
+			}else {
+				int pos =checkProductExistCart(httpSession,cart);
+				carts.get(pos).setCount(carts.get(pos).getCount()+cart.getCount());
+			}
+		}
+		
+		//List<Cart> list =  (List<Cart>) httpSession.getAttribute("carts");
+		//System.out.println(list.size()+"---_"+list.get(0).getProductId()+"-----"+list.get(0).getCount());
 		return "hihi";
 	}
+
+	@SuppressWarnings("unchecked")
+	private int checkProductExistCart(HttpSession httpSession,Cart cart) {
+		List<Cart> carts =  (List<Cart>) httpSession.getAttribute("carts");
+		
+		for(int i=0;i<carts.size();i++) {
+			if(carts.get(i).getProductId()==cart.getProductId())
+				return i;
+		}
+		return -1;
+	}
+	
+	
 	
 }
