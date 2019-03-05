@@ -6,6 +6,9 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -18,10 +21,13 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.annotation.JsonCreator.Mode;
+import com.lhsang.dashboard.model.BaseResponse;
 import com.lhsang.dashboard.model.Cart;
 import com.lhsang.dashboard.model.Product;
+import com.lhsang.dashboard.model.User;
 import com.lhsang.dashboard.service.ProductService;
 import com.lhsang.dashboard.utils.FormatUnit;
+import com.lhsang.helper.ResponseStatusEnum;
 
 @Controller
 @RequestMapping("/transaction")
@@ -178,4 +184,16 @@ public class TransactionController {
 	
 		return "confirmOrder";
 	}
+	
+	@RequestMapping(value = "/order", method = RequestMethod.POST, produces = {
+			MediaType.APPLICATION_JSON_VALUE })
+	public ResponseEntity<BaseResponse> order(Model model,HttpSession httpSession,
+			String name,String phone,String email,String address,String message) {
+		BaseResponse response = new BaseResponse();
+		response.setStatus(ResponseStatusEnum.SUCCESS);
+		
+		System.out.println(name+"---"+phone+"---"+address);
+		return new ResponseEntity<BaseResponse>(response, HttpStatus.OK);
+	}
+	
 }
