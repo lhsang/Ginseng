@@ -47,5 +47,31 @@
             }
         });
 	}
-	//payment
+	
+	//checkout
+	function setCount(id,count) {
+        $.ajax({
+            type: "POST",
+            url: "<c:url value='/transaction/cart-set-count'/>",
+            data:{
+            	id:id,
+            	count:count
+            },
+            success: function(response){
+            	console.log("Changed");
+            	reloadCart();
+            }
+        });
+	}
+	
+	function renderBill() {  
+		$.ajax({
+            type: "POST",
+            url: "<c:url value='/transaction/render-bill'/>",
+            success: function (response) {
+                $(".items").html("");
+                $(".items").html(response);
+            }
+        });
+    }
 </script>

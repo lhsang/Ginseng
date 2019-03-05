@@ -148,4 +148,34 @@ public class TransactionController {
 		
 		return "hihi";
 	}
+	
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value = { "/render-bill" }, method = RequestMethod.POST)
+    public ModelAndView renderbill(HttpSession httpSession, Model model) {
+		List<Product> products = new ArrayList<>();
+		int total =0;
+		try {
+			if(null!=httpSession.getAttribute("carts")) {
+				List<Cart> list = (List<Cart>) httpSession.getAttribute("carts");
+				for(Cart item:list) {
+					Product temp=productService.findOneById(item.getProductId());
+					total+=temp.getPrice()*item.getCount();
+					temp.setNotes(Integer.toString(item.getCount()));
+					products.add(temp);
+				}
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		model.addAttribute("total", FormatUnit.formatMoneyToVND(total));
+		model.addAttribute("products", products);
+	    return new ModelAndView("others/_bill");
+    }
+	
+	@RequestMapping(value = "/confirm-order", method = RequestMethod.GET)
+	public String confirmOrder(Model model,HttpSession httpSession) {
+	
+		return "confirmOrder";
+	}
 }

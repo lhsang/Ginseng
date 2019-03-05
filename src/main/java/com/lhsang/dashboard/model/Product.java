@@ -188,7 +188,7 @@ public class Product {
 	
 	public String getNameLimitCharacter(int num) {
 		num=num<=name.length()? num:name.length();
-		return name.substring(0, num);
+		return FormatUnit.nearestWord(num, name);
 	}
 
 	public List<Images> getListImg() {

@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-    <title>Giỏ hàng của bạn</title>
+    <title>Giỏ hàng của bạn - Nhân sâm Hàn Quốc chất lượng</title>
     <style>
     .img-item{
         height: 80px;
@@ -94,13 +94,13 @@
                                                      <div class="col-xs-8 col-sm-8 col-md-8 col-lg-7">
                                                         <div class="input-group info-cart">
                                                             <label>Số lượng:</label>
-                                                            <button type="button" class="btn input-change btn-change-minus"><span class="fa fa-minus"></span></button>
+                                                            <button type="button" onclick="minus('${product.getId()}',this)" class="btn input-change btn-change-minus"><span class="fa fa-minus"></span></button>
                                                             <input type="text" class="input-count input-change" value=${product.getNotes()} min="1" max="100">
-                                                            <button type="button" class="btn input-change btn-change-plus"><span class="fa fa-plus icon-plus"></span></button>    
+                                                            <button type="button"  onclick="plus('${product.getId()}',this)" class="btn input-change btn-change-plus"><span class="fa fa-plus icon-plus"></span></button>    
                                                         </div>
                                                     </div>
                                                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-5 delete-icon">
-                                                        <span class="fa fa-trash" title="Xóa"></span>
+                                                        <span class="fa fa-trash" title="Xóa" onclick="callRemoveItemCart('${product.getId()}',this)"></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -116,32 +116,11 @@
                             <div class="widget bill-div">
                                 <div style="text-align: center;color:#5481f5;margin-bottom: 10px"><h4 class="widget-title">Tổng hóa đơn</h4></div>
                                 <div class="items" style="text-align: center">
-                                    <table class="table table-striped table-inverse table-responsive">
-                                        <tbody>
-                                            <tr>
-                                                <td>Nhân sâm</td>
-                                                <td>x2</td>
-                                                <td>1000000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Nấm linh chi</td>
-                                                <td>x1</td>
-                                                <td>100000</td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2" style="text-align: center">Phí vận chuyển</td>
-                                                <td>1000000</td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2" style="text-align: center">Tổng</td>
-                                                <td>2000000</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <!-- bill here -->
                                 </div>
                             </div>
                             <div style="text-align: center; width: 100%">
-                                <a href="#" class="btn btn-danger btn-lg mb30 btn-order">Đặt hàng</a>
+                                <a href="<c:url value='/transaction/confirm-order' />" class="btn btn-danger btn-lg mb30 btn-order">Đặt hàng</a>
                            </div>
                         </div>
                 </div>
@@ -149,23 +128,32 @@
         </div>
 
     <script>
-        $(document).ready(function(){
-        var quantitiy=0;
-        $('.btn-change-plus').click(function(e){
-                e.preventDefault();
-                var temp=$(this).parent().find('.input-count');
-                var quantity = parseInt(temp.val());
-                temp.val(quantity + 1);
-            });
+        function plus(id,el) {  
+            var temp=$(el).parent().find('.input-count');
+            var quantity = parseInt(temp.val());
+            temp.val(quantity + 1);
+            setCount(id,temp.val());
+            renderBill();
+        }
 
-            $('.btn-change-minus').click(function(e){
-                e.preventDefault();
-                var temp=$(this).parent().find('.input-count');
-                var quantity = parseInt(temp.val());
-                if(quantity>1){
-                    temp.val(quantity - 1);
-                }
-            });
-            
+        function minus(id,el) {  
+            var temp=$(el).parent().find('.input-count');
+            var quantity = parseInt(temp.val());
+            if(quantity>1){
+                quantity=temp.val(quantity - 1);
+                setCount(id,temp.val());
+                renderBill();
+            }
+
+        }
+
+        function callRemoveItemCart(id,el) {  
+            removeItemCart(id);
+            var temp=$(el).parent().parent().parent().parent().remove();
+            renderBill();
+        }
+
+        $(document).ready(function () {
+            renderBill();
         });
     </script>

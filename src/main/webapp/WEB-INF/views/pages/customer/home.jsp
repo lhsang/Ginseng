@@ -100,7 +100,7 @@
                             </div>
                             <div class="pro-actions">
                                 <div class="actions-primary">
-                                    <a onclick="addToCart( '${product.getId()}',' ${product.getPrice()}')" title="Add to Cart"> + Add To Cart</a>
+                                    <a onclick="addToCart( '${product.getId()}',' ${product.getPrice()}')" title="Thêm vào giỏ"> + Thêm vào giỏ</a>
                                 </div>
                                 <div class="actions-secondary">
                                     <a href="wishlist.html" title="WishList"><i class="lnr lnr-heart"></i> <span>Add to WishList</span></a>
@@ -154,7 +154,7 @@
                                 </div>
                                 <div class="pro-actions">
                                     <div class="actions-primary">
-                                        <a href="cart.html" title="Add to Cart"> + Add To Cart</a>
+                                        <a onclick="addToCart( '${product.getId()}',' ${product.getPrice()}')" title="Thêm vào giỏ"> + Thêm vào giỏ</a>
                                     </div>
                                     <div class="actions-secondary">
                                         <a href="compare.html" title="Compare"><i class="lnr lnr-sync"></i> <span>Add To Compare</span></a>
@@ -213,7 +213,7 @@
                                     </div>
                                     <div class="pro-actions">
                                         <div class="actions-primary">
-                                            <a href="cart.html" title="Add to Cart"> + Add To Cart</a>
+                                            <a onclick="addToCart( '${product.getId()}',' ${product.getPrice()}')" title="Thêm vào giỏ"> + Thêm vào giỏ</a>
                                         </div>
                                         <div class="actions-secondary">
                                             <a href="compare.html" title="Compare"><i class="lnr lnr-sync"></i> <span>Add To Compare</span></a>
@@ -269,7 +269,7 @@
                                     </div>
                                     <div class="pro-actions">
                                         <div class="actions-primary">
-                                            <a href="cart.html" title="Add to Cart"> + Add To Cart</a>
+                                            <a onclick="addToCart( '${product.getId()}',' ${product.getPrice()}')" title="Thêm vào giỏ"> + Thêm vào giỏ</a>
                                         </div>
                                         <div class="actions-secondary">
                                             <a href="compare.html" title="Compare"><i class="lnr lnr-sync"></i> <span>Add To Compare</span></a>
