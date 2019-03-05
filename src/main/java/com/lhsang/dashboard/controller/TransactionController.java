@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 import com.lhsang.dashboard.model.Cart;
 import com.lhsang.dashboard.model.Product;
 import com.lhsang.dashboard.service.ProductService;
@@ -101,6 +102,46 @@ public class TransactionController {
 			List<Cart> carts =(List<Cart>) httpSession.getAttribute("carts");
 			if(pos!=-1)
 				carts.remove(pos);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return "hihi";
+	}
+	
+	@RequestMapping(value = "/checkout", method = RequestMethod.GET)
+	public String checkout(Model model,HttpSession httpSession) {
+		try {
+			if(httpSession.getAttribute("carts")!=null) {
+				List<Cart> list =(List<Cart>) httpSession.getAttribute("carts");
+				List<Product> products = new ArrayList<>();
+				for(Cart item:list) {
+					Product temp=productService.findOneById(item.getProductId());
+					temp.setNotes(Integer.toString(item.getCount()));
+					products.add(temp);
+				}
+				model.addAttribute("products", products);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return "checkout";
+	}
+	
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value = "/cart-set-count", method = RequestMethod.POST)
+	@ResponseBody
+	public String setCount(HttpSession httpSession,int id,int count) {
+		Cart cart =new Cart();
+		cart.setProductId(id);
+		try {
+			if(httpSession.getAttribute("carts")!=null) {
+				int pos=checkProductExistCart(httpSession, cart);
+				List<Cart> carts =(List<Cart>) httpSession.getAttribute("carts");
+				if(pos!=-1)
+					carts.get(pos).setCount(count);
+			}
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

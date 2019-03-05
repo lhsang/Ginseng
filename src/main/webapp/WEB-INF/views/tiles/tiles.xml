@@ -59,6 +59,9 @@
 		<put-attribute name="body" value="/WEB-INF/views/pages/customer/productDetail.jsp" />
 	</definition>
 	
+	<definition name="checkout" extends="mainLayout">
+		<put-attribute name="body" value="/WEB-INF/views/pages/customer/checkout.jsp" />
+	</definition>
 	<!-- end client -->
 	
 	<!-- Start admin -->

@@ -4,7 +4,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-<a href="#"><i class="lnr lnr-cart"></i><span class="my-cart"><span class="total-pro">${products.size()}</span><span>Giỏ hàng</span></span></a>
+<a href="<c:url value='/transaction/checkout'/>"><i class="lnr lnr-cart"></i><span class="my-cart"><span class="total-pro">${products.size()}</span><span>Giỏ hàng</span></span></a>
 
 <ul class="ht-dropdown cart-box-width">
         <li>
@@ -30,7 +30,7 @@
                        <li>Tổng tiền: <span>${total}</span></li>
                    </ul>
                     <div class="cart-actions text-center">
-                        <a class="cart-checkout" href="checkout.html">Checkout</a>
+                        <a class="cart-checkout" href="<c:url value='/transaction/checkout' />">Checkout</a>
                     </div>
                 </div>
                 <!-- Cart Footer Inner End -->
