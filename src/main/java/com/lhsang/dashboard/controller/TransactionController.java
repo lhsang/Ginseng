@@ -1,8 +1,12 @@
 package com.lhsang.dashboard.controller;
 
 import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +31,7 @@ import com.lhsang.dashboard.model.Product;
 import com.lhsang.dashboard.model.User;
 import com.lhsang.dashboard.service.ProductService;
 import com.lhsang.dashboard.utils.FormatUnit;
+import com.lhsang.dashboard.utils.Utils;
 import com.lhsang.helper.ResponseStatusEnum;
 
 @Controller
@@ -188,11 +193,14 @@ public class TransactionController {
 	@RequestMapping(value = "/order", method = RequestMethod.POST, produces = {
 			MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<BaseResponse> order(Model model,HttpSession httpSession,
-			String name,String phone,String email,String address,String message) {
+			String name,String phone,String email,String address,String message,
+			HttpServletRequest request) {
+		
 		BaseResponse response = new BaseResponse();
 		response.setStatus(ResponseStatusEnum.SUCCESS);
 		
-		System.out.println(name+"---"+phone+"---"+address);
+		//System.out.println("\n\n\n\n"+Utils.getClientIP(request));
+
 		return new ResponseEntity<BaseResponse>(response, HttpStatus.OK);
 	}
 	

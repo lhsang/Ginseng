@@ -66,13 +66,15 @@
 		<!-- Contact Email Area End -->
 	</div>
 
-	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-		<div class="right-info">
-			<h4>Bạn có muốn đăng nhập?</h4>
-			<p style="margin:20px 0px;"><i>Đăng nhập/đăng ký tài khoản để lần sau mau hàng thuận tiện hơn.</i></p>
-			<input type="button" class="return-customer-btn"  value="Đăng nhập/đăng ký ngay" style="background:#3856fc">
+	<c:if test="${(username eq 'anonymousUser') || (username eq '') || empty username }">
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+			<div class="right-info">
+				<h4>Bạn có muốn đăng nhập?</h4>
+				<p style="margin:20px 0px;"><i>Đăng nhập/đăng ký tài khoản để lần sau mau hàng thuận tiện hơn.</i></p>
+				<input type="button" class="return-customer-btn"  value="Đăng nhập/đăng ký ngay" style="background:#3856fc">
+			</div>
 		</div>
-	</div>
+	</c:if>
 	</div>
 </div>
 
