@@ -1,8 +1,13 @@
 package com.lhsang.dashboard.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,10 +28,17 @@ import org.springframework.web.servlet.ModelAndView;
 import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 import com.lhsang.dashboard.model.BaseResponse;
 import com.lhsang.dashboard.model.Cart;
+import com.lhsang.dashboard.model.Order;
+import com.lhsang.dashboard.model.OrderDetail;
 import com.lhsang.dashboard.model.Product;
 import com.lhsang.dashboard.model.User;
+import com.lhsang.dashboard.service.OrderDetailService;
+import com.lhsang.dashboard.service.OrderService;
 import com.lhsang.dashboard.service.ProductService;
+import com.lhsang.dashboard.service.UserService;
+import com.lhsang.dashboard.utils.ConstantUtils;
 import com.lhsang.dashboard.utils.FormatUnit;
+import com.lhsang.dashboard.utils.Utils;
 import com.lhsang.helper.ResponseStatusEnum;
 
 @Controller
@@ -36,7 +48,16 @@ import com.lhsang.helper.ResponseStatusEnum;
 public class TransactionController {
 	@Autowired
 	ProductService productService;
-
+	
+	@Autowired
+	OrderService orderService;
+	
+	@Autowired
+	OrderDetailService orderDetailService;
+	
+	@Autowired
+	UserService userService;
+	
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/add-to-cart", method = RequestMethod.POST)
 	@ResponseBody
@@ -179,12 +200,17 @@ public class TransactionController {
 	    return new ModelAndView("others/_bill");
     }
 	
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/confirm-order", method = RequestMethod.GET)
 	public String confirmOrder(Model model,HttpSession httpSession) {
-	
+		if(null!=httpSession.getAttribute("carts")) {
+			List<Cart> list = (List<Cart>) httpSession.getAttribute("carts");
+			model.addAttribute("amount", list.size());
+		}
 		return "confirmOrder";
 	}
 	
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/order", method = RequestMethod.POST, produces = {
 			MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<BaseResponse> order(Model model,HttpSession httpSession,
@@ -192,8 +218,65 @@ public class TransactionController {
 		BaseResponse response = new BaseResponse();
 		response.setStatus(ResponseStatusEnum.SUCCESS);
 		
-		System.out.println(name+"---"+phone+"---"+address);
+		Order order =new Order();
+		int total=0;
+		try {
+			if(null!=httpSession.getAttribute("carts")) {
+				List<Cart> list = (List<Cart>) httpSession.getAttribute("carts");
+				if(list.size()>0) {
+					for(Cart item:list)
+						total+=item.getPrice()*item.getCount();
+
+					User guest = userService.findOneByUsername("guest");
+					order.setUser(guest);
+					
+					order.setMoney(total);
+					order.setStatus((byte)ConstantUtils.ORDER_SPENDING);
+					order.setCreatedAt(new Date());
+					order.setName(name);
+					order.setEmail(email);
+					order.setAddress(address);
+					order.setPhone(phone);
+					order.setNotes(message);
+					
+					orderService.save(order);
+					
+					saveOrderDetails(order,httpSession);
+					
+					response.setMessageError("Đơn hàng của bạn đã được ghi lại.");
+				}else {
+					response.setStatus(ResponseStatusEnum.MISSING_PARAMS);
+					response.setMessageError("Chưa có sản phẩm nào trong giỏ hàng.");
+				}
+			}
+			
+		} catch (Exception e) {
+			response.setStatus(ResponseStatusEnum.FAIL);
+			response.setMessageError(e.getMessage());
+		}
 		return new ResponseEntity<BaseResponse>(response, HttpStatus.OK);
 	}
 	
+	
+	@SuppressWarnings("unchecked")
+	@ResponseBody
+	public String saveOrderDetails(Order order,HttpSession httpSession) {
+		if(null!=httpSession.getAttribute("carts")) {
+			List<Cart> carts = (List<Cart>) httpSession.getAttribute("carts");
+			for(Cart item:carts) {
+				OrderDetail detail =new OrderDetail();
+				detail.setOrder(order);
+				detail.setPrice(item.getPrice());
+				detail.setAmount(item.getCount());
+				detail.setCreatedAt(new Date());
+				detail.setProduct(productService.findOneById(item.getProductId()));
+				detail.setStatus((byte) ConstantUtils.ORDER_SPENDING);
+				orderDetailService.save(detail);
+			}
+			
+			carts.clear();
+		}
+		
+		return "hihi";
+	}
 }

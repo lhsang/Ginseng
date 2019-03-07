@@ -24,7 +24,7 @@
 				<div>
 					<h3 class="mb-20">Thông tin khách hàng nhận hàng</h3>
 					<p class="text-capitalize mb-20">Mời quý khách nhập đầy đủ thông tin nhận hàng.</p>
-					<form id="contact-form" class="contact-form" onsubmit="order()">
+					<form id="order-form" class="contact-form">
 						<div class="address-wrapper row">
 							<div class="col-md-12">
 								<div class="address-fname">
@@ -66,37 +66,60 @@
 		<!-- Contact Email Area End -->
 	</div>
 
-	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-		<div class="right-info">
-			<h4>Bạn có muốn đăng nhập?</h4>
-			<p style="margin:20px 0px;"><i>Đăng nhập/đăng ký tài khoản để lần sau mau hàng thuận tiện hơn.</i></p>
-			<input type="button" class="return-customer-btn"  value="Đăng nhập/đăng ký ngay" style="background:#3856fc">
-		</div>
-	</div>
+
+	<c:choose>
+		<c:when test="${(username eq 'anonymousUser') || (username eq '') || empty username }">
+			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+					<div class="right-info">
+						<h4>Bạn có muốn đăng nhập?</h4>
+						<p style="margin:20px 0px;"><i>Đăng nhập/đăng ký tài khoản để lần sau mau hàng thuận tiện hơn.</i></p>
+						<input type="button" class="return-customer-btn"  value="Đăng nhập/đăng ký ngay" style="background:#3856fc">
+					</div>
+			</div>
+		</c:when>
+		<c:otherwise>
+			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+					<div class="right-info">
+						<h4>Xin chào ${username} :)</h4>
+						<p style="margin:30px 0px;"><i>Bạn có thể xem lại danh sách đơn hàng tại: <a href="">Đơn hàng của tôi</a></i></p>
+						<p>Chúc bạn mua sắm vui vẻ !</p>
+					</div>
+			</div>
+		</c:otherwise>
+	</c:choose>
 	</div>
 </div>
 
 <script>
-function order() {  
-	$.ajax({
-		type: "POST",
-		url: "<c:url value='/transaction/order' />",
-		data: {
-			name: $('#name').val(),
-			phone: $('#phone').val(),
-			email: $('#email').val(),
-			address: $('#address').val(),
-			message:$('#message').val()
-		},
-		success: function (response) {
-			alert("Đơn hàng của quý khách đã được ghi nhận");
-		},
-		error: function(response){
-			alert("Error");
-		}
+
+	$("#order-form").submit(function (e) { 
+		e.preventDefault();
+		$.ajax({
+				type: "POST",
+				url: "<c:url value='/transaction/order' />",
+				data: {
+					name: $('#name').val(),
+					phone: $('#phone').val(),
+					email: $('#email').val(),
+					address: $('#address').val(),
+					message:$('#message').val()
+				},
+				success: function (response) {
+					if(response.status==400){
+						alert(response.message);
+						window.location.href ="<c:url value='/transaction/checkout' />";
+					}else{
+						alert(response.message);
+					}
+				},
+				error: function(response){
+					alert(response.message);
+					
+				}
+			});
+			window.location.href ="<c:url value='/' />";
 	});
-	window.location.href = "https://www.facebook.com";
-}
+
 </script>
 
 
