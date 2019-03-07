@@ -38,6 +38,16 @@ public class Order {
 	
 	private byte status;
 	
+	private String phone;
+	
+	private String address;
+	
+	private String email;
+	
+	private String name;
+	
+	private String notes;
+	
 	@OneToMany(mappedBy="order")
 	@JsonManagedReference
 	private List<OrderDetail> orderDetails;
@@ -88,6 +98,46 @@ public class Order {
 
 	public void setStatus(byte status) {
 		this.status = status;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getNotes() {
+		return notes;
+	}
+
+	public void setNotes(String notes) {
+		this.notes = notes;
 	}
 	
 	
