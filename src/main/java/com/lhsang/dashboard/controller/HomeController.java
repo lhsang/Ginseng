@@ -48,8 +48,8 @@ public class HomeController extends BaseController{
 	
 	@SuppressWarnings({ "unused", "unchecked" })
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public String home(Locale locale, Model model,HttpSession httpSession) {
-		List<Product> products = productService.findAll();
+	public String home(Locale locale, Model model,HttpSession httpSession,Integer offset, Integer maxResults) {
+		List<Product> products = productService.findAll("",offset, maxResults);
 		List<List<Product>> allItems=new ArrayList<List<Product>>();
 		for (int i=0;i<products.size();i+=2) {
 			List<Product> temp=new ArrayList<>();
@@ -69,11 +69,11 @@ public class HomeController extends BaseController{
 	}
 	
 	@RequestMapping(value = "/product/{id}", method = RequestMethod.GET)
-	public String productDetail(Model model, @PathVariable("id") int id) {
+	public String productDetail(Model model, @PathVariable("id") int id,Integer offset, Integer maxResults) {
 		
 		Product product = productService.findOneById(id);
 	
-		List<Product> products = productService.findAll();
+		List<Product> products = productService.findAll("",offset, maxResults);
 		
 		model.addAttribute("product", product);
 		model.addAttribute("products", products);

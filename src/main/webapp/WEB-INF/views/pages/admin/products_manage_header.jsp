@@ -46,12 +46,14 @@
     </div>
     <div class="card-body collapse in search-collapse" style="padding-bottom: 30px">
         <div class="card-block pb-0">
-            <fieldset class="form-group position-relative mb-0">
-                <input type="text" class="form-control form-control-lg input-lg" id="iconLeft" placeholder="Nhan sam ...">
-                <div class="form-control-position">
-                    <a href="alert('aaa')"><i class="ft-search font-medium-4"></i></a>
-                </div>
-            </fieldset>
+        	<form action="<c:url value='${uri}' />" id ="search">
+	            <fieldset class="form-group position-relative mb-0">
+	                <input type="text" class="form-control form-control-lg input-lg" name="keyword" placeholder="Nhan sam ...">
+	                <div class="form-control-position">
+	                    <a onclick="document.getElementById('search').submit()"><i class="ft-search font-medium-4"></i></a>
+	                </div>
+	            </fieldset>
+            </form>
         </div>
      
     </div>

@@ -18,8 +18,12 @@ public class ProductManageDaoImpl extends AbstractDao<Integer, ProductManage> im
 	SessionFactory sessionFactory;
 	
 	@SuppressWarnings({ "unchecked", "deprecation" })
-	public List<ProductManage>  findAll() {
+	public List<ProductManage>  findAll(Integer offset, Integer maxResults) {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(ProductManage.class);
+		
+		criteria.setFirstResult(offset!=null?offset:0)
+        .setMaxResults(maxResults!=null?maxResults:10);
+		
 		return criteria.list();
 	}
 	

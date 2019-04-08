@@ -17,8 +17,8 @@ public class ProductManageSeviceImpl implements ProductManageSevice{
 	@Autowired
 	ProductManageDao productManageDao;
 	
-	public List<ProductManage> findAll() {
-		return productManageDao.findAll();
+	public List<ProductManage> findAll(Integer offset, Integer maxResults) {
+		return productManageDao.findAll(offset, maxResults);
 	}
 	
 	public ProductManage  findOneById(int id) {
