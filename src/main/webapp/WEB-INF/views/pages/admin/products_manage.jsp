@@ -29,10 +29,10 @@
                         <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper form-inline dt-bootstrap4"><div class="row"><div class="col-md-12"><table class="table table-striped table-bordered dom-jQuery-events dataTable" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                             <thead>
                                 <tr role="row">
-                                	<th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 171px;">ID</th>
-                                	<th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" >Name</th>
-                                	<th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" >Net weight</th>
-                                	<th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" >Unit</th>
+                                	<th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 10px;">ID</th>
+                                	<th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width:40px">Name</th>
+                                	<th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 20px;">Net weight</th>
+                                	<th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 20px;" >Unit</th>
                                 	<th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" >Price</th>
                                 	<th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending">Remain</th>
                                 	<th></th>
@@ -61,7 +61,10 @@
 				                        <td class="process">${product.getPrice()}</td>
 				                        <td>${product.getRemain()}</td>
 				                        <td>
-				                        	<button type="button" class="btn btn-secondary btn-min-width mr-1 mb-1"><i class="fa fa-edit"></i> Edit</button>
+				                        <div class="btn-group">
+				                        	<button type="button" class="btn btn-icon btn-info"><i class="fa fa-info"></i></button>
+				                        	<button type="button" class="btn btn-icon btn-warning"><i class="fa fa-edit"></i></button>
+				                        </div>
 				                        </td>
 	                             </tr>
 	                             </c:forEach>
