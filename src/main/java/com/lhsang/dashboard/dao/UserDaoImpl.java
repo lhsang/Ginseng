@@ -22,14 +22,12 @@ public class UserDaoImpl  extends AbstractDao<Integer, User>  implements UserDao
 	SessionFactory sessionFactory;
 	
 	@SuppressWarnings("unchecked")
-	public List<User> findAll(int offset, int maxResults){
+	public List<User> findAll(Integer offset, Integer maxResults){	
 		@SuppressWarnings("deprecation")
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(User.class);
-		
-		
-		
-		criteria.setFirstResult(offset)
-        .setMaxResults(maxResults);
+	
+		criteria.setFirstResult(offset!=null?offset:0)
+        .setMaxResults(maxResults!=null?maxResults:10);
 		
 		criteria.add(Restrictions.ne("status", -1));
 		
@@ -47,4 +45,12 @@ public class UserDaoImpl  extends AbstractDao<Integer, User>  implements UserDao
 	public void save(User user) {
 		sessionFactory.getCurrentSession().saveOrUpdate(user);
 	}
+	
+	@SuppressWarnings("deprecation")
+	public Long count() {
+        return (Long)sessionFactory.openSession()
+                .createCriteria(User.class)
+                .setProjection(Projections.rowCount())
+                .uniqueResult();
+    }
 }

@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.lhsang.dashboard.model.BaseResponse;
@@ -40,14 +41,17 @@ public class AdminAccountController {
 	@Autowired
 	UserService userService;
 
-	@RequestMapping(value = "/user-management")
-    public String userManagement(Model model) {
-        return "userManagement";
-    }
-	@RequestMapping(value = { "/user-management-filter/{id}" }, method = RequestMethod.POST, produces = { MediaType.APPLICATION_JSON_VALUE} )
-    public ModelAndView userManagementFilter(Model model,@PathVariable("id") int role_id) {
-		Integer offset=0,maxResults=100;
-		
+//	@RequestMapping(value = "/user-management")
+//    public String userManagement(Model model) {
+//        return "userManagement";
+//    }
+	
+	
+	@RequestMapping(value = { "/user-management" }, method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE} )
+    public String userManagementFilter(Model model,
+    		@RequestParam(value="role_id",required =false, defaultValue = "0") Integer role_id,
+    		@RequestParam(value="offset",required =false, defaultValue = "0") Integer offset,
+    		@RequestParam(value="limit",required =false, defaultValue = "10") Integer maxResults) {
 		List<User> users=new ArrayList<>();
 		if(role_id==ConstantUtils.ROLE_ADMIN||role_id==ConstantUtils.ROLE_USER||role_id==ConstantUtils.ROLE_SUPERADMIN) {
 			Role role=roleService.findOneById(role_id);
@@ -55,12 +59,17 @@ public class AdminAccountController {
 		}
 		else {
 			users=userService.findAll(offset,maxResults);
+			
 		}
-		model.addAttribute("count", 2);
+		model.addAttribute("count", userService.count());
         model.addAttribute("offset", offset);
+        model.addAttribute("limit", maxResults);
         model.addAttribute("users", users);
+        model.addAttribute("role", role_id);
+        model.addAttribute("uri", "user-management");
        
-        return new ModelAndView("user/_userByRole");
+        
+        return "userManagement";
     }
 	
 	@RequestMapping(value = { "/render-header/{username}" }, method = RequestMethod.POST)

@@ -15,7 +15,7 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	UserDao userDao;
 	
-	public List<User> findAll(int offset,int maxResults){
+	public List<User> findAll(Integer offset,Integer maxResults){
 		return  userDao.findAll(offset, maxResults);
 	}
 	
@@ -25,5 +25,9 @@ public class UserServiceImpl implements UserService {
 	
 	public void save(User user) {
 		userDao.save(user);
+	}
+	
+	public Long count() {
+		return userDao.count();
 	}
 }
