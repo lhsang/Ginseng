@@ -37,10 +37,11 @@
 		  <!-- Main css -->
 		  <link rel="stylesheet" href="<c:url value='/static/client/css/style.css' />">
 		  <!-- Responsive css -->
-		  <link rel="stylesheet" href="<c:url value='/static/client/css/responsive.css' />">
-	  		
-	  		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-	  		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+			<link rel="stylesheet" href="<c:url value='/static/client/css/responsive.css' />">
+			<link rel="stylesheet" href="<c:url value='/static/custom/css/snackbar.css' />">
+			
+	  	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	  	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		  <!-- Modernizer js -->
 		  <script src="<c:url value='/static/client/js/vendor/modernizr-3.5.0.min.js' />"></script>
 
@@ -56,7 +57,7 @@
 	
 		<tiles:insertAttribute name="script" />
 
-    
+    <div id="snackbar"></div>
 		<!-- Main Wrapper End Here -->
 
     <!-- jquery 3.2.1 -->
@@ -80,11 +81,12 @@
     <!-- Bootstrap popper js -->
     <script src="<c:url value='/static/client/js/popper.min.js' />"></script>
     <!-- Bootstrap js -->
-    <script src="<c:url value='/static/client/js/bootstrap.min.js' />"></script>
+	<script src="<c:url value='/static/client/js/bootstrap.min.js' />"></script>
     <!-- Plugin js -->
     <script src="<c:url value='/static/client/js/plugins.js' />"></script>
     <!-- Main activaion js -->
-    <script src="<c:url value='/static/client/js/main.js' />"></script>
+	<script src="<c:url value='/static/client/js/main.js' />"></script>
+
 </body>
 
 </html>

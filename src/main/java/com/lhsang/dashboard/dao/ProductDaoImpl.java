@@ -22,11 +22,19 @@ public class ProductDaoImpl extends AbstractDao<Integer, Product> implements Pro
 	SessionFactory sessionFactory;
 	
 	@SuppressWarnings({ "unchecked", "deprecation" })
-	public List<Product>  findAll(String keyword, Integer offset, Integer maxResults, String order) {
+	public List<Product>  findAll(String keyword, Integer categoryID, Integer groupID, Integer offset, Integer maxResults, String order) {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Product.class);
 		
 		if(keyword!=null && !keyword.isEmpty())
 			criteria.add(Restrictions.like("name","%"+keyword+"%"));
+		
+		if(categoryID!=null) {
+			criteria.createAlias("categories", "cate").add(Restrictions.eq("cate.id", categoryID));
+		}else {
+			if(groupID!=null) {
+				criteria.createAlias("categories.group", "gr").add(Restrictions.eq("gr.id", groupID));
+			}
+		}
 		
 		criteria.setFirstResult(offset!=null?offset:0)
         .setMaxResults(maxResults!=null?maxResults:10);
@@ -35,7 +43,7 @@ public class ProductDaoImpl extends AbstractDao<Integer, Product> implements Pro
 			switch (order) {
 				case "increase":	criteria.addOrder(Order.asc("price"));break;
 				case "decrease": 	criteria.addOrder(Order.desc("price")); break;
-				//default: 			criteria.createAlias("lecture", "l").addOrder(Order.desc("createdAt"));	break;
+				default: 			criteria.createAlias("productManage", "pro").addOrder(Order.desc("pro.createdAt"));	break;
 			}
 		}
 		return criteria.list();

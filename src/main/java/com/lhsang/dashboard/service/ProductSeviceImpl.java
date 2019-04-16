@@ -16,8 +16,8 @@ public class ProductSeviceImpl implements ProductService{
 	@Autowired
 	ProductDao productDao;
 	
-	public List<Product> findAll(String keyword, Integer offset, Integer maxResults, String order) {
-		return productDao.findAll(keyword, offset, maxResults, order);
+	public List<Product> findAll(String keyword, Integer categoryID, Integer groupID, Integer offset, Integer maxResults, String order) {
+		return productDao.findAll(keyword,categoryID, groupID, offset, maxResults, order);
 	}
 	
 	public Product findOneById(int id) {

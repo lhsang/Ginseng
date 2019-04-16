@@ -148,8 +148,8 @@
                         <!-- Categorie Search Box Start Here -->
                         <div class="col-lg-5 col-md-8 ml-auto mr-auto col-10">
                             <div class="categorie-search-box">
-                                <form action="#">
-                                    <input type="text" name="search" placeholder="Tên sản phẩm">
+                                <form action="<c:url value='/products' />" method="get">
+                                    <input type="text" name="keyword" placeholder="Tên sản phẩm">
                                     <button><i class="lnr lnr-magnifier"></i></button>
                                 </form>
                             </div>

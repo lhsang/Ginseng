@@ -74,6 +74,7 @@ public class Product {
 		this.orderDetails = orderDetails;
 	}
 
+
 	public Category getCategory() {
 		return category;
 	}

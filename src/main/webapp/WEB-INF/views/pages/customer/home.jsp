@@ -302,7 +302,6 @@
         </div>
         <!-- Lile Products Area End Here -->  
 </div>
-
 <script>
 $(document).ready(function () {
     $('#li-home').addClass("active");

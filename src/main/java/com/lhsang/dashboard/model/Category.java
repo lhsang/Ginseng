@@ -7,6 +7,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -19,13 +21,16 @@ public class Category {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	String name;
+	private String name;
 	
-	String group;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="group_id")
+	@JsonBackReference
+	private Group group;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
 	@JsonManagedReference
-	List<Product> products;
+	private List<Product> products;
 
 	public int getId() {
 		return id;
@@ -51,13 +56,13 @@ public class Category {
 		this.products = products;
 	}
 
-	public String getGroup() {
+	public Group getGroup() {
 		return group;
 	}
 
-	public void setGroup(String group) {
+	public void setGroup(Group group) {
 		this.group = group;
 	}
-	
+
 	
 }

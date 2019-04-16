@@ -50,7 +50,7 @@ public class HomeController extends BaseController{
 	@SuppressWarnings({ "unused"})
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String home(Locale locale, Model model,HttpSession httpSession,Integer offset, Integer maxResults) {
-		List<Product> products = productService.findAll("",offset, maxResults,null);
+		List<Product> products = productService.findAll("",null, null,offset, maxResults,null);
 		List<List<Product>> allItems=new ArrayList<List<Product>>();
 		for (int i=0;i<products.size();i+=2) {
 			List<Product> temp=new ArrayList<>();
@@ -74,7 +74,7 @@ public class HomeController extends BaseController{
 		
 		Product product = productService.findOneById(id);
 	
-		List<Product> products = productService.findAll("",offset, maxResults,null);
+		List<Product> products = productService.findAll("",null,null,offset, maxResults,null);
 		
 		model.addAttribute("product", product);
 		model.addAttribute("products", products);
@@ -100,13 +100,14 @@ public class HomeController extends BaseController{
 	public String products(Model model,
 			@RequestParam(value="keyword",required =false, defaultValue = "") String keyword,
 			@RequestParam(value="categoryID",required =false) Integer categoryID,
+			@RequestParam(value="groupID",required =false) Integer groupID,
 			@RequestParam(value="offset",required =false, defaultValue = "0") Integer offset, 
 			@RequestParam(value="limit",required =false, defaultValue = "12") Integer maxResults,
 			@RequestParam(value="fromPrice",required =false) Integer fromPrice,
 			@RequestParam(value="toPrice",required =false) Integer toPrice,
 			@RequestParam(value="order",required =false, defaultValue = "new") String order) {
 		
-		List<Product> products = productService.findAll(keyword,offset, maxResults,order);
+		List<Product> products = productService.findAll(keyword,categoryID,groupID,offset, maxResults,order);
         model.addAttribute("offset", offset);
         model.addAttribute("keyword", keyword);
         model.addAttribute("limit", maxResults);

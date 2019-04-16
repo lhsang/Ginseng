@@ -50,7 +50,30 @@
 .sidebar-title {
     text-transform: none;
 }
+.sorter .list{
+    width: fit-content;
+}
+.breadcrumb li.keyword a{
+    color: blue;
+    text-decoration: underline;
+}
 </style>
+<!-- Breadcrumb Start -->
+<div class="breadcrumb-area mt-30">
+    <div class="container">
+        <div class="breadcrumb">
+            <ul class="d-flex align-items-center">
+                <li><a href="<c:url value='/' />">Trang chủ</a></li>
+                <li class="active"><a href="<c:url value='/products' />">Trang sản phẩm</a></li>
+                <c:if test = "${keyword != ''}">
+                    <li class="keyword">Tìm kiếm từ khóa "${keyword}" - <a href="<c:url value='/products' />">Trở lại trang mua hàng</a></li>
+                </c:if> 
+            </ul>
+        </div>
+    </div>
+    <!-- Container End -->
+</div>
+<!-- Breadcrumb End -->
 <!-- Shop Page Start -->
 <div class="main-shop-page pt-100 pb-100 ptb-sm-60" style="padding-top: 50px">
     <div class="container">

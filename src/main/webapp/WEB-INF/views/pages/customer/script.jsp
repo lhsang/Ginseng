@@ -18,11 +18,21 @@
 			},
            success: function (response) {
               console.log("Đã thêm vào giỏ hàng.");
+              thongBaoThemGioHangThanhCong(); //static/custom/js/notifications.js
 			reloadCart();
            }
        });
 	}
 
+    function thongBaoThemGioHangThanhCong(){
+        var x = document.getElementById("snackbar");
+        x.innerHTML = "<i class='fa fa-check-circle'></i>   Đã thêm sản phẩm vào giỏ hàng";
+        x.className = "show";
+        var audio = new Audio("<c:url value='/static/custom/sound/notification.mp3'/>");
+        audio.play();
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);     //TOAST thông báo thêm thành công
+    }
+    
 	function reloadCart(username) {
         $.ajax({
             type: "GET",
