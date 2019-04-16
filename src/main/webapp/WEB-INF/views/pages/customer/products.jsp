@@ -155,25 +155,25 @@
                 <!-- Grid & List View Start -->
                 <div style="background: #f2f2f2;" class="grid-list-top border-default universal-padding d-md-flex justify-content-md-between align-items-center mb-30">
                     <!-- Toolbar Short Area Start -->
-                    <div class="main-toolbar-sorter clearfix">
+                    <div class="main-toolbar-sorter clearfix order-bar">
                         <div class="toolbar-sorter d-flex align-items-center">
                             <label>Sắp xếp:</label>
                             <select class="sorter wide" id="order">
-                                <option value="Position">Mới nhất</option>
-                                <option value="Price">Giá thấp đến cao</option>
-                                <option value="Price" selected>Giá thấp đến cao</option>
+                                <option value="new">Mới nhất</option>
+                                <option value="increase">Giá thấp đến cao</option>
+                                <option value="decrease">Giá cao đến thấp</option>
                             </select>
                         </div>
                     </div>
                     <!-- Toolbar Short Area End -->
                     <!-- Toolbar Short Area Start -->
-                    <div class="main-toolbar-sorter clearfix">
+                    <div class="main-toolbar-sorter clearfix limit-bar">
                         <div class="toolbar-sorter d-flex align-items-center">
                             <label>Số lượng:</label>
                             <select class="sorter wide" id="limit">
-                                <option value="12">12</option>
-                                <option value="24">24</option>
-                                <option value="48">48</option>
+                                <option value="12" >12</option>
+                                <option value="24" >24</option>
+                                <option value="48" >48</option>
                             </select>
                         </div>
                     </div>
@@ -249,14 +249,37 @@
 <script>
     $(document).ready(function () {
         $('#li-products').addClass("active");
+
+        changeLimit();
+        changeSort();
     });
 
-    $('#limit').change(function (e) { 
-        e.preventDefault();
-        alert(this.value);
-    });
+    function changeLimit() {
+        $('#limit').on('change', function () {
+            var selectVal = $("#limit option:selected").val();
+            window.location.href=requestCurrentURL(window.location+"","limit",selectVal);
+        });
 
-    function request(key, value) {
-        
+        $("#limit option").each(function(){
+            if($(this).val()=='${limit}'){
+                $(this).attr('selected',true);
+                $('.limit-bar .current').text('${limit}');
+            }
+        });
+    }
+
+    function changeSort() {
+        $('#order').on('change', function () {
+            var selectVal = $("#order option:selected").val();
+            window.location.href=requestCurrentURL(window.location+"","order",selectVal);
+        });
+
+        $("#order option").each(function(){
+            if($(this).val()=='${order}'){
+                $(this).attr('selected',true);
+                var text=$(this).text();
+                $('.order-bar .current').text(text);
+            }
+        });
     }
 </script>

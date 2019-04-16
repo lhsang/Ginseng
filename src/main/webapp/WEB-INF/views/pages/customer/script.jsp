@@ -74,4 +74,23 @@
             }
         });
     }
+
+    function requestCurrentURL(url, key, value) {
+        if(url.indexOf("?")==-1){
+            url+="?"+key+"="+value;
+        }else{
+            if(url.indexOf(key)==-1){
+                url+="&"+key+"="+value;
+            }else{
+                if(url.indexOf(key)<url.lastIndexOf("&")){
+                    var t = url.substring(0,url.indexOf(key))+"&"+key+"="+value;
+                    var t1 = url.substring(url.indexOf(key),url.length);
+                    url=t+t1.substring(t1.indexOf("&"),t1.length);
+                }else{
+                    url=url.substring(0,url.indexOf(key))+"&"+key+"="+value;
+                }
+            }
+        }
+        return url.replace("?&","?");
+    }
 </script>

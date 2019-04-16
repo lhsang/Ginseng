@@ -45,7 +45,7 @@ public class AdminProductController {
 			@RequestParam(value="order",required =false, defaultValue = "new") String order) {
 		ModelAndView model=new ModelAndView();
 		model.setViewName("productManagement");
-		List<Product> products=productService.findAll(keyword, offset, maxResults);
+		List<Product> products=productService.findAll(keyword, offset, maxResults, order);
 		model.addObject("products", products);
 		
 		model.addObject("count", productService.count(keyword, categoryID, fromPrice, toPrice));
