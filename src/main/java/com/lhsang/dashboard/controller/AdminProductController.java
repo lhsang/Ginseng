@@ -37,14 +37,18 @@ public class AdminProductController {
 	@RequestMapping(value = "/product-management", method = RequestMethod.GET)
     public ModelAndView allProduct(
     		@RequestParam(value="keyword",required =false, defaultValue = "") String keyword,
-    		@RequestParam(value="offset",required =false, defaultValue = "0") Integer offset,
-    		@RequestParam(value="limit",required =false, defaultValue = "10") Integer maxResults) {
+			@RequestParam(value="categoryID",required =false) Integer categoryID,
+			@RequestParam(value="offset",required =false, defaultValue = "0") Integer offset, 
+			@RequestParam(value="limit",required =false, defaultValue = "12") Integer maxResults,
+			@RequestParam(value="fromPrice",required =false) Integer fromPrice,
+			@RequestParam(value="toPrice",required =false) Integer toPrice,
+			@RequestParam(value="order",required =false, defaultValue = "new") String order) {
 		ModelAndView model=new ModelAndView();
 		model.setViewName("productManagement");
 		List<Product> products=productService.findAll(keyword, offset, maxResults);
 		model.addObject("products", products);
 		
-		model.addObject("count", userService.count());
+		model.addObject("count", productService.count(keyword, categoryID, fromPrice, toPrice));
         model.addObject("offset", offset);
         model.addObject("keyword", keyword);
         model.addObject("limit", maxResults);

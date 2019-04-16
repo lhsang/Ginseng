@@ -158,7 +158,7 @@
                     <div class="main-toolbar-sorter clearfix">
                         <div class="toolbar-sorter d-flex align-items-center">
                             <label>Sắp xếp:</label>
-                            <select class="sorter wide">
+                            <select class="sorter wide" id="order">
                                 <option value="Position">Mới nhất</option>
                                 <option value="Price">Giá thấp đến cao</option>
                                 <option value="Price" selected>Giá thấp đến cao</option>
@@ -170,10 +170,10 @@
                     <div class="main-toolbar-sorter clearfix">
                         <div class="toolbar-sorter d-flex align-items-center">
                             <label>Số lượng:</label>
-                            <select class="sorter wide">
+                            <select class="sorter wide" id="limit">
                                 <option value="12">12</option>
-                                <option value="25">24</option>
-                                <option value="50">48</option>
+                                <option value="24">24</option>
+                                <option value="48">48</option>
                             </select>
                         </div>
                     </div>
@@ -250,4 +250,13 @@
     $(document).ready(function () {
         $('#li-products').addClass("active");
     });
+
+    $('#limit').change(function (e) { 
+        e.preventDefault();
+        alert(this.value);
+    });
+
+    function request(key, value) {
+        
+    }
 </script>

@@ -106,14 +106,14 @@ public class HomeController extends BaseController{
 			@RequestParam(value="toPrice",required =false) Integer toPrice,
 			@RequestParam(value="order",required =false, defaultValue = "new") String order) {
 		
-		List<Product> products = productService.findAll("sâm",offset, 12);
-        model.addAttribute("offset", 0);
-        model.addAttribute("keyword", "");
-        model.addAttribute("limit", 12);
+		List<Product> products = productService.findAll(keyword,offset, maxResults);
+        model.addAttribute("offset", offset);
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("limit", maxResults);
         model.addAttribute("uri", "products");
-        model.addAttribute("count", 39);
+        model.addAttribute("count", productService.count(keyword, categoryID, fromPrice, toPrice));
 		model.addAttribute("products", products);
-		System.out.println(products.size()+" ++++   "+productService.count("sâm", categoryID, fromPrice, toPrice));
+		//System.out.println(products.size() + "++++"+ productService.count(keyword, categoryID, fromPrice, toPrice));
 		return "products";
 	}
 	
