@@ -9,4 +9,5 @@ public interface ProductService {
 	public List<Product> findAll(String keyword, Integer offset, Integer maxResults);
 	public Product findOneById(int id);
 	public void save(Product product);
+	public Long count(String keyword,Integer categoryID, Integer fromPrice, Integer toPrice);
 }

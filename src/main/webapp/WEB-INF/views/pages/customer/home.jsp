@@ -46,12 +46,15 @@
 .btn-view-more{
     background: white;
     border-radius: 4px;
-    color: #6e6e6e;
+    border: none;
+    color: #323232;
+    font-weight: bold;
+    font-size: 20px;
 }
 .btn-view-more:hover{
-    background: #fc346b;
-    border: white solid 0.5px;
+    background: #e31111;
     border-radius: 4px;
+    color:white;
 }
 .title-box h2{
     text-transform: none !important;
@@ -243,7 +246,7 @@
         <div class="like-product ptb-95 off-white-bg pt-sm-50 pb-sm-55 ">
             <div class="container">
                 <div class="like-product-area"> 
-                    <h2 class="section-ttitle2 mb-30" style="background: #cccccc; color: #4d4d4d; padding: 10px; border-radius: 7px;font-family: 'Times New Roman', Times, serif !important">Có thể bạn thích. </h2>
+                    <h2 class="section-ttitle2 mb-30" style="background: #bc0404; color: #fff1f1; padding: 10px; border-radius: 7px;font-family: 'Times New Roman', Times, serif !important">Có thể bạn thích. </h2>
                     <!-- Arrivals Product Activation Start Here -->
                     <div class="like-pro-active owl-carousel">
                         <!-- Double Product Start -->
@@ -297,9 +300,11 @@
             </div>
             <!-- Container End -->
         </div>
-        <!-- Lile Products Area End Here -->
-        
-        
-            
-        
+        <!-- Lile Products Area End Here -->  
 </div>
+
+<script>
+$(document).ready(function () {
+    $('#li-home').addClass("active");
+});
+</script>

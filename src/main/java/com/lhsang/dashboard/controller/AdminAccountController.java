@@ -41,12 +41,6 @@ public class AdminAccountController {
 	@Autowired
 	UserService userService;
 
-//	@RequestMapping(value = "/user-management")
-//    public String userManagement(Model model) {
-//        return "userManagement";
-//    }
-	
-	
 	@RequestMapping(value = { "/user-management" }, method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE} )
     public String userManagementFilter(Model model,
     		@RequestParam(value="role_id",required =false, defaultValue = "0") Integer role_id,

@@ -4,12 +4,14 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.lhsang.dashboard.model.Product;
+import com.lhsang.dashboard.model.User;
 
 @Transactional
 @Repository("productDao")
@@ -38,4 +40,24 @@ public class ProductDaoImpl extends AbstractDao<Integer, Product> implements Pro
 	public void save(Product product) {
 		sessionFactory.getCurrentSession().saveOrUpdate(product);
 	}
+	
+	@SuppressWarnings("deprecation")
+	public Long count(String keyword,Integer categoryID, Integer fromPrice, Integer toPrice) {
+		Criteria criteria = (Criteria) sessionFactory.openSession().createCriteria(Product.class);
+		
+		if(keyword!=null && !keyword.isEmpty()) {
+			criteria.add( Restrictions.like("name", "%"+keyword+"%"));
+		}
+		if(fromPrice!=null) {
+			criteria.add( Restrictions.gt("price", fromPrice-1));
+		}
+		if(toPrice!=null) {
+			criteria.add( Restrictions.lt("price", toPrice+1));
+		}
+		if(categoryID!=null) {
+			//criteria.add( Restrictions.eq("", categoryID));
+		} 
+		return (long) criteria.setProjection(Projections.rowCount())
+                .uniqueResult();
+    }
 }

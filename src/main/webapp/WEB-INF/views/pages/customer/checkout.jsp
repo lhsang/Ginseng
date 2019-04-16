@@ -155,5 +155,6 @@
 
         $(document).ready(function () {
             renderBill();
+            $('#li-checkout').addClass("active");
         });
     </script>

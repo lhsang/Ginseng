@@ -5,16 +5,16 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
 
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+ <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <div class="content-header-left col-md-6 col-xs-12 mb-2">
         <div class="row breadcrumbs-top">
           <div class="breadcrumb-wrapper col-xs-12">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="<c:url value='/admin'/>">Home</a>
               </li>
-              <li class="breadcrumb-item"><a href="#">Product</a>
+              <li class="breadcrumb-item"><a href="<c:url value='${uri}'/>">Product</a>
               </li>
-              <li class="breadcrumb-item active">Product management
+              <li class="breadcrumb-item active"><a href="<c:url value='${uri}'/>">Product management</a>
               </li>
             </ol>
           </div>
@@ -22,35 +22,42 @@
         <h3 class="content-header-title mb-0">Product management</h3>
       </div>
 
-        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-4"> </div>
-        
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-2">
-          <button type="button" class="btn btn-success"  id="btnAdd"><i class="fa fa-plus"></i> Add a product</button>
-        </div>
-        
 </div>
 
 
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6" id="searchProduct">
+	<section  class="card overflow-hidden">
+    	<form action="<c:url value='${uri}' />" id ="search">
+	       <fieldset class="form-group position-relative mb-0">
+	          <input type="text" class="form-control form-control-lg input-lg" name="keyword" placeholder="Name of product">
+	          <div class="form-control-position">
+	              <a onclick="document.getElementById('search').submit()"><i class="ft-search font-medium-4"></i></a>
+	           </div>
+	        </fieldset>
+     	</form>
+	</section>
+</div>
+  <!--/ Search form -->
+  
+<%--   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
      <!-- Search form-->
 <section id="search-website" class="card overflow-hidden">
-    <div class="card-header" onclick="collapseSearch()">
-        <h4 class="card-title">Search by name</h4>
+    <div class="card-header" onclick="collapseFilter()">
+        <h4 class="card-title">Filter</h4>
         <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
         <div class="heading-elements">
             <ul class="list-inline mb-0">
-                <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                <li><i class="ft-filter"></i></li>
             </ul>
         </div>
     </div>
-    <div class="card-body collapse in search-collapse" style="padding-bottom: 30px">
+    <div class="card-body collapse in filter-collapse" style="padding-bottom: 30px">
         <div class="card-block pb-0">
-        	<form action="<c:url value='${uri}' />" id ="search">
+        	<form action="<c:url value='${uri}' />" id ="filter">
 	            <fieldset class="form-group position-relative mb-0">
 	                <input type="text" class="form-control form-control-lg input-lg" name="keyword" placeholder="Nhan sam ...">
 	                <div class="form-control-position">
-	                    <a onclick="document.getElementById('search').submit()"><i class="ft-search font-medium-4"></i></a>
+	                    <a onclick="document.getElementById('filter').submit()"><i class="ft-search font-medium-4"></i></a>
 	                </div>
 	            </fieldset>
             </form>
@@ -58,17 +65,17 @@
      
     </div>
   </section>
-  <!--/ Search form -->
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!--/ filter form -->
+</div>  --%>
+
+
 <script>
-     $( document ).ready(function() {
-        $('.search-collapse').collapse('hide');
-    });
-
-    function collapseSearch() {
-        $('.search-collapse').toggle();
-    }
+	$(document).ready(function () {
+		$('#searchProduct').hide();
+	});
+	$("#icSearch").click(function () {
+	    $('#searchProduct:visible').hide();
+	    $('#searchProduct:hidden').show();
+	});
 </script>
-
  

@@ -27,5 +27,8 @@ public class ProductSeviceImpl implements ProductService{
 	public void save(Product product) {
 		productDao.save(product);
 	}
-
+	
+	public Long count(String keyword,Integer categoryID, Integer fromPrice, Integer toPrice) {
+		return productDao.count(keyword, categoryID, fromPrice, toPrice);
+	}
 }

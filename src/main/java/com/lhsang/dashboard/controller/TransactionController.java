@@ -78,8 +78,6 @@ public class TransactionController {
 			}
 		}
 		
-		//List<Cart> list =  (List<Cart>) httpSession.getAttribute("carts");
-		//System.out.println(list.size()+"---_"+list.get(0).getProductId()+"-----"+list.get(0).getCount());
 		return "hihi";
 	}
 

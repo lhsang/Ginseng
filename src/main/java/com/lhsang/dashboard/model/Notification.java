@@ -36,5 +36,4 @@ public class Notification {
 	int type;
 	
 	
-}
-*/
+}*/

@@ -40,12 +40,13 @@ public class AdminProductController {
     		@RequestParam(value="offset",required =false, defaultValue = "0") Integer offset,
     		@RequestParam(value="limit",required =false, defaultValue = "10") Integer maxResults) {
 		ModelAndView model=new ModelAndView();
-		model.setViewName("productManage");
+		model.setViewName("productManagement");
 		List<Product> products=productService.findAll(keyword, offset, maxResults);
 		model.addObject("products", products);
 		
 		model.addObject("count", userService.count());
         model.addObject("offset", offset);
+        model.addObject("keyword", keyword);
         model.addObject("limit", maxResults);
         model.addObject("uri", "product-management");
         return model;

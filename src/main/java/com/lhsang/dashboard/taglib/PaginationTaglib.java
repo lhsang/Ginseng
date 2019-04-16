@@ -12,6 +12,7 @@ public class PaginationTaglib extends SimpleTagSupport {
  private int count;
  private int max = 10;
  private int steps = 10;
+ private String keyword;
  private String previous = "Previous";
  private String next = "Next";
 
@@ -65,7 +66,8 @@ public class PaginationTaglib extends SimpleTagSupport {
 		  if(disabled)
 			  link.append(">").append("<a class=\"page-link\" href=\"#\">"+text+"</a></li>");
 		  else
-			  link.append(">").append("<a class=\"page-link\" href=\""+uri+"?offset="+page +"&limit="+steps+ "\">"+text+"</a></li>");
+			  link.append(">").append("<a class=\"page-link\" href=\""+uri+"?offset="+page +"&limit="+steps
+					  +(keyword.isEmpty()?"":("&keyword="+keyword))+"\">"+text+"</a></li>");
 		  return link.toString();
 	 }
 	
@@ -124,6 +126,14 @@ public class PaginationTaglib extends SimpleTagSupport {
 	 public void setSteps(int steps) {
 		 this.steps = steps;
 	 }
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
 
 
 }

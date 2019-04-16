@@ -18,10 +18,11 @@
                 <div class="card-header">
                     <h4 class="card-title">List of products</h4>
                     <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                    
                     <div class="heading-elements">
-                        <ul class="list-inline mb-0">
-                            <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
-                        </ul>
+                        <a data-action="expand"><i class="ft-maximize"></i></a>
+                        <a id="icSearch" class="btn btn-float btn-round btn-secondary"><i class="ft-search"></i></a>
+						<a id="icFilter" class="btn btn-float btn-round btn-secondary"><i class="ft-filter"></i></a>
                     </div>
                 </div>
                 <div class="card-body collapse in">
@@ -61,9 +62,9 @@
 				                        <td class="process">${product.getPrice()}</td>
 				                        <td>${product.getRemain()}</td>
 				                        <td>
-				                        <div class="btn-group">
-				                        	<button type="button" class="btn btn-icon btn-info"><i class="fa fa-info"></i></button>
-				                        	<button type="button" class="btn btn-icon btn-warning"><i class="fa fa-edit"></i></button>
+				                        <div class="btn-group function">
+				                        	<button type="button" class="btn btn-icon" style="color: #8d8888; background-color: white !important; border: 1px solid #ededed;"><i class="fa fa-info"></i></button>
+				                        	<button type="button" class="btn btn-icon btn-warning edit"><i class="fa fa-edit"></i></button>
 				                        </div>
 				                        </td>
 	                             </tr>
@@ -78,5 +79,6 @@
             </div>
         </div>
     </div> 
- <tag:paginate max="10" offset="${offset}" count="${count}" uri="${uri}" next="&raquo;" previous="&laquo;" steps="${limit}" />
+ <tag:paginate max="10" offset="${offset}" count="${count}" uri="${uri}" next="&raquo;" previous="&laquo;" steps="${limit}" keyword="${keyword}" />
+ 
          

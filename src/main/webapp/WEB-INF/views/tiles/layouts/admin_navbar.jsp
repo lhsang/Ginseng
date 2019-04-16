@@ -26,14 +26,7 @@
             
             <li class=" nav-item"><a href="#"><i class="ft-shopping-cart"></i><span data-i18n="" class="menu-title">Orders</span></a>
               <ul class="menu-content">
-                <li><a href="#" class="menu-item">Vertical</a>
-                  <ul class="menu-content">
-                    <li><a href="../vertical-modern-menu-template" class="menu-item">Modern Menu</a>
-                    </li>
-                    <li><a href="../vertical-menu-template" class="menu-item">Semi Light</a>
-                    </li>
-                  </ul>
-                </li>
+                <li><a href="<c:url value='/admin/order-management'/>" class="menu-item">Order management</a>                </li>
                
               </ul>
             </li>

@@ -59,6 +59,10 @@
 		<put-attribute name="body" value="/WEB-INF/views/pages/customer/productDetail.jsp" />
 	</definition>
 	
+	<definition name="products" extends="mainLayout">
+		<put-attribute name="body" value="/WEB-INF/views/pages/customer/products.jsp" />
+	</definition>
+	
 	<definition name="checkout" extends="mainLayout">
 		<put-attribute name="body" value="/WEB-INF/views/pages/customer/checkout.jsp" />
 	</definition>
@@ -87,11 +91,14 @@
 	<definition name="profile" extends="admin_dashboard">
 		<put-attribute name="body" value="/WEB-INF/views/pages/admin/profile.jsp" />
 	</definition>
-	<definition name="productManage" extends="admin_dashboard">
+	<definition name="productManagement" extends="admin_dashboard">
 		<put-attribute name="header-body" value="/WEB-INF/views/pages/admin/products_manage_header.jsp" /> 
 		<put-attribute name="body" value="/WEB-INF/views/pages/admin/products_manage.jsp" />
 	</definition>
 	
+	<definition name="orderManagement" extends="admin_dashboard">
+		<put-attribute name="body" value="/WEB-INF/views/pages/admin/orderManagement.jsp" />
+	</definition>
 	
 	<!-- End admin -->
 	

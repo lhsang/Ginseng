@@ -35,7 +35,7 @@
     }
 
     .register{
-    background: -webkit-linear-gradient(left, #ff1532, #ffffff);
+    background: -webkit-linear-gradient(left, #db0a0a, #ffffff);
     margin-top: 3%;
     padding: 3%;
 }
@@ -149,15 +149,7 @@
                         <div class="col-lg-5 col-md-8 ml-auto mr-auto col-10">
                             <div class="categorie-search-box">
                                 <form action="#">
-                                    <div class="form-group">
-                                        <select class="bootstrap-select" name="poscats">
-                                            <option value="0">Tất cả</option>
-                                            <option value="2">Arrivals</option>
-                                            <option value="3">Cameras</option>
-                                            <option value="4">Cords and Cables</option>
-                                        </select>
-                                    </div>
-                                    <input type="text" name="search" placeholder="I’m shopping for...">
+                                    <input type="text" name="search" placeholder="Tên sản phẩm">
                                     <button><i class="lnr lnr-magnifier"></i></button>
                                 </form>
                             </div>
@@ -197,60 +189,22 @@
                         <div class="col-xl-9 col-lg-8 col-md-12 ">
                             <nav class="d-none d-lg-block">
                                 <ul class="header-bottom-list d-flex" >
-                                    <li class="active "><a href="index.html">Trang chủ<i class="fa fa-angle-down"></i></a>
-                                        <!-- Home Version Dropdown Start -->
-                                        <ul class="ht-dropdown">
-                                            <li><a href="index.html">Home Version 1</a></li>
-                                            <li><a href="index-2.html">Home Version 2</a></li>
-                                            <li><a href="index-3.html">Home Version 3</a></li>
-                                            <li><a href="index-4.html">Home Version 4</a></li>
-                                        </ul>
-                                        <!-- Home Version Dropdown End -->
+                                    <li id="li-home"><a href="<c:url value='/'/>">Trang chủ</a>
                                     </li>
-                                    <li><a href="shop.html">Mua hàng<i class="fa fa-angle-down"></i></a>
-                                        <!-- Home Version Dropdown Start -->
-                                        <ul class="ht-dropdown dropdown-style-two">
-                                            <li><a href="/product.html">product details</a></li>
-                                            <li><a href="compare.html">compare</a></li>
-                                            <li><a href="cart.html">cart</a></li>
-                                            <li><a href="checkout.html">checkout</a></li>
-                                            <li><a href="wishlist.html">wishlist</a></li>
-                                        </ul>
-                                        <!-- Home Version Dropdown End -->
+                                    <li id="li-products"><a href="<c:url value='/products'/>">Trang sản phẩm</a>
                                     </li>
-                                    <li><a href="blog.html">Hàng mới<i class="fa fa-angle-down"></i></a>
-                                        <!-- Home Version Dropdown Start -->
-                                        <ul class="ht-dropdown dropdown-style-two">
-                                            <li><a href="single-blog.html">blog details</a></li>
-                                        </ul>
-                                        <!-- Home Version Dropdown End -->
+                                    <li id="li-promotions"><a href="<c:url value='/promotions'/>">Khuyến mãi</a>
                                     </li>
-                                    <li><a href="#">Khuyến mãi<i class="fa fa-angle-down"></i></a>
-                                        <!-- Home Version Dropdown Start -->
-                                        <ul class="ht-dropdown dropdown-style-two">
-                                            <li><a href="contact.html">contact us</a></li>
-                                            <li><a href="register.html">register</a></li>
-                                            <li><a href="login.html">sign in</a></li>
-                                            <li><a href="forgot-password.html">forgot password</a></li>
-                                            <li><a href="404.html">404</a></li>
-                                        </ul>
-                                        <!-- Home Version Dropdown End -->
+                                    <li id="li-checkout"><a href="<c:url value='/transaction/checkout'/>">Giỏ hàng</a>
                                     </li>
-                                    <li><a href="about.html">Thông tin</a></li>
-                                    <li><a href="contact.html">Liên hệ</a></li>
+                                    <li id="li-about"><a href="<c:url value='/about'/>">Thông tin</a></li>
+                                    <li id="li-contact"><a href="<c:url value='/contact'/>">Liên hệ</a></li>
                                 </ul>
                             </nav>
                             <div class="mobile-menu d-block d-lg-none">
                                 <nav>
                                     <ul>
                                         <li><a href="index.html">Trang chủ</a>
-                                            <!-- Home Version Dropdown Start -->
-                                            <ul>
-                                                <li><a href="index.html">Home Version 1</a></li>
-                                                <li><a href="index-2.html">Home Version 2</a></li>
-                                                <li><a href="index-3.html">Home Version 3</a></li>
-                                                <li><a href="index-4.html">Home Version 4</a></li>
-                                            </ul>
                                             <!-- Home Version Dropdown End -->
                                         </li>
                                         <li><a href="shop.html">Mua hàng</a>

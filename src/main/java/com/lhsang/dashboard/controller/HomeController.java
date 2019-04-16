@@ -21,6 +21,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -46,7 +47,7 @@ public class HomeController extends BaseController{
 	ProductService productService;
 	
 	
-	@SuppressWarnings({ "unused", "unchecked" })
+	@SuppressWarnings({ "unused"})
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String home(Locale locale, Model model,HttpSession httpSession,Integer offset, Integer maxResults) {
 		List<Product> products = productService.findAll("",offset, maxResults);
@@ -94,4 +95,26 @@ public class HomeController extends BaseController{
 		
 		return new ResponseEntity<BaseResponse>(response, HttpStatus.OK);
     }
+	
+	@RequestMapping(value = "/products", method = RequestMethod.GET)
+	public String products(Model model,
+			@RequestParam(value="keyword",required =false, defaultValue = "") String keyword,
+			@RequestParam(value="categoryID",required =false) Integer categoryID,
+			@RequestParam(value="offset",required =false, defaultValue = "0") Integer offset, 
+			@RequestParam(value="limit",required =false, defaultValue = "12") Integer maxResults,
+			@RequestParam(value="fromPrice",required =false) Integer fromPrice,
+			@RequestParam(value="toPrice",required =false) Integer toPrice,
+			@RequestParam(value="order",required =false, defaultValue = "new") String order) {
+		
+		List<Product> products = productService.findAll("sâm",offset, 12);
+        model.addAttribute("offset", 0);
+        model.addAttribute("keyword", "");
+        model.addAttribute("limit", 12);
+        model.addAttribute("uri", "products");
+        model.addAttribute("count", 39);
+		model.addAttribute("products", products);
+		System.out.println(products.size()+" ++++   "+productService.count("sâm", categoryID, fromPrice, toPrice));
+		return "products";
+	}
+	
 }

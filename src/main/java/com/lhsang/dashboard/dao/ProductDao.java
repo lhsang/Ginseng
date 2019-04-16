@@ -9,4 +9,5 @@ public interface ProductDao {
 	Product findOneById(int id);
 	
 	void save(Product product);
+	Long count(String keyword,Integer categoryID, Integer fromPrice, Integer toPrice);
 }
