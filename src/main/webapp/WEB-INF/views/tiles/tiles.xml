@@ -71,6 +71,17 @@
 		<put-attribute name="body" value="/WEB-INF/views/pages/customer/confirmOrder.jsp" />
 	</definition>
 	
+	<definition name="about" extends="mainLayout">
+		<put-attribute name="body" value="/WEB-INF/views/pages/customer/about.jsp" />
+	</definition>
+	
+	<definition name="contact" extends="mainLayout">
+		<put-attribute name="body" value="/WEB-INF/views/pages/customer/contact.jsp" />
+	</definition>
+	
+	<definition name="promotions" extends="mainLayout">
+		<put-attribute name="body" value="/WEB-INF/views/pages/customer/promotions.jsp" />
+	</definition>
 	<!-- end client -->
 	
 	<!-- Start admin -->
@@ -91,6 +102,7 @@
 	<definition name="profile" extends="admin_dashboard">
 		<put-attribute name="body" value="/WEB-INF/views/pages/admin/profile.jsp" />
 	</definition>
+	
 	<definition name="productManagement" extends="admin_dashboard">
 		<put-attribute name="header-body" value="/WEB-INF/views/pages/admin/products_manage_header.jsp" /> 
 		<put-attribute name="body" value="/WEB-INF/views/pages/admin/products_manage.jsp" />

@@ -81,6 +81,25 @@ public class HomeController extends BaseController{
 		return "productDetail";
 	}
 	
+	@RequestMapping(value = "/about", method = RequestMethod.GET)
+	public String about() {
+		return "about";
+	}
+	@RequestMapping(value = "/contact", method = RequestMethod.GET)
+	public String contact() {
+		return "contact";
+	}
+	
+	@RequestMapping(value = "/promotions", method = RequestMethod.GET)
+	public String promotions() {
+		return "promotions";
+	}
+	
+	@RequestMapping(value = "/contact/submit", method = RequestMethod.POST)
+	public String contactSubmit() {
+		return "redirect:/";
+	}
+	
 	@RequestMapping(value = { "/check-username" }, method = RequestMethod.POST, produces = { MediaType.APPLICATION_JSON_VALUE} )
     public ResponseEntity<BaseResponse> checkUsername(String username) {
 		BaseResponse response = new BaseResponse();
