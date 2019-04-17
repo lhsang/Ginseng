@@ -1,5 +1,6 @@
 package com.lhsang.dashboard.controller;
 
+import java.security.Principal;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -15,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -100,6 +102,16 @@ public class HomeController extends BaseController{
 		return "redirect:/";
 	}
 	
+	@RequestMapping(value = "/profile-customer", method = RequestMethod.GET)
+	public String profile(Principal principal, Model model) {
+		String username = SecurityContextHolder.getContext().getAuthentication().getName();
+		if(username.equals("anonymousUser"))
+			return "redirect:/";
+		User user = userService.findOneByUsername(username);
+		model.addAttribute("user", user);
+		return "profile-customer";
+	}
+	
 	@RequestMapping(value = { "/check-username" }, method = RequestMethod.POST, produces = { MediaType.APPLICATION_JSON_VALUE} )
     public ResponseEntity<BaseResponse> checkUsername(String username) {
 		BaseResponse response = new BaseResponse();
@@ -135,6 +147,7 @@ public class HomeController extends BaseController{
         model.addAttribute("count", productService.count(keyword, categoryID, fromPrice, toPrice));
 		model.addAttribute("products", products);
 		//System.out.println(products.size() + "++++"+ productService.count(keyword, categoryID, fromPrice, toPrice));
+		
 		return "products";
 	}
 	

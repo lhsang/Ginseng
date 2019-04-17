@@ -37,6 +37,8 @@ public class User {
 	
 	int status;
 	
+	String facebook;
+	
 	@ManyToOne
 	@JoinColumn(name="role_id")
 	@JsonBackReference
@@ -164,6 +166,20 @@ public class User {
 	public void setStatus(int status) {
 		this.status = status;
 	}
+
+	public String getFacebook() {
+		return facebook;
+	}
+
+	public void setFacebook(String facebook) {
+		this.facebook = facebook;
+	}
 	
-	
+	public String getStatusButton() {
+		if(status==1)
+			return "<span style=\" padding: 5px 10px;border-radius: 10px;border: none;font-size: 13px;color: white;background: rgb(15, 163, 15);\">Hoạt động</span>";
+		else if(status==0)
+			return "<span style=\" padding: 5px 10px;border-radius: 10px;border: none;font-size: 13px;color: white;background: rgb(223, 13, 13);\">Đã bị khóa</span>";
+		return "";
+	}
 }

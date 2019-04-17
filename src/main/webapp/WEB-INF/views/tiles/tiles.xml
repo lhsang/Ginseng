@@ -82,6 +82,11 @@
 	<definition name="promotions" extends="mainLayout">
 		<put-attribute name="body" value="/WEB-INF/views/pages/customer/promotions.jsp" />
 	</definition>
+	
+	<definition name="profile-customer" extends="mainLayout">
+		<put-attribute name="body" value="/WEB-INF/views/pages/customer/profile.jsp" />
+	</definition>
+	
 	<!-- end client -->
 	
 	<!-- Start admin -->
