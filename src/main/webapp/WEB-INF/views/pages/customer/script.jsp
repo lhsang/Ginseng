@@ -101,6 +101,15 @@
                 }
             }
         }
+        url = url.replace("&&","&");
         return url.replace("?&","?");
+    }
+
+    function requestCate(cateID) {
+        
+    }
+
+    function requestDanhMuc(key,value) {
+        
     }
 </script>

@@ -131,10 +131,10 @@
                     <!-- Price Filter Options Start -->
                     <div class="search-filter mb-40">
                         <h3 class="sidebar-title">Khoảng giá</h3>
-                        <form action="#" class="sidbar-style">
+                        <form  class="sidbar-style" >
                             <div id="slider-range"></div>
-                            <input type="text" id="amount" class="amount-range" readonly min="10000" max="10000000">
-                            <input type="submit" value="Lọc" class="loc">
+                            <input type="text" id="amount" class="amount-range" readonly>
+                            <input type="button" value="Lọc" class="loc" onclick="filterPrice()">
                         </form>
                     </div>
                     <!-- Price Filter Options End -->
@@ -276,6 +276,14 @@
         changeLimit();
         changeSort();
     });
+
+    function filterPrice() {
+        var range =$('#amount').val().toString();
+        var fromPrice = parseInt(range);
+        range = range.substring(range.indexOf("-") + 2,range.length);
+        toPrice = parseInt(range);
+        window.location.href="<c:url value='/products' />"+"?fromPrice="+fromPrice+"&toPrice="+toPrice;
+    }
 
     function changeLimit() {
         $('#limit').on('change', function () {

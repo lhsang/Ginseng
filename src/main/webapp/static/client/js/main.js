@@ -557,13 +557,13 @@ NOTE: main.js, All custom script and plugin activation script in this file.
         range: true,
         min: 0,
         max: 100,
-        values: [0, 85],
+        values: [1, 85],
     slide: function( event, ui ) {
-        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+        $( "#amount" ).val( ui.values[ 0 ]*50 + "k  -  " + ui.values[ 1 ]*50+"k" );
       }
     });
-    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+    $( "#amount" ).val( $( "#slider-range" ).slider( "values", 0 )*50+"k  -  " +
+      $( "#slider-range" ).slider( "values", 1 )*50+"k" );
 
 
 

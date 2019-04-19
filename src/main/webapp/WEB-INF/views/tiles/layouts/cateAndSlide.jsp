@@ -15,7 +15,7 @@
 							<li class=""><a href="shop.html"><span><img src="<c:url value='/static/client/img/vertical-menu/1.png' />" alt="menu-icon"></span>Nhân sâm<i class="fa fa-angle-right" aria-hidden="true"></i></a>
 
 								<ul class="ht-dropdown mega-child">
-									<li><a href="shop.html">Sâm tươi</a></li>
+									<li><a onclick="requestCate(1)">Sâm tươi</a></li>
 									<li><a href="shop.html">Rượu sâm</a><li>                                            
 									<li><a href="shop.html">Hòng sâm khô</a></li>
 									<li><a href="shop.html">Cao hồng sâm</a></li>

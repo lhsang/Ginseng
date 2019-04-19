@@ -16,8 +16,8 @@ public class ProductSeviceImpl implements ProductService{
 	@Autowired
 	ProductDao productDao;
 	
-	public List<Product> findAll(String keyword, Integer categoryID, Integer groupID, Integer offset, Integer maxResults, String order) {
-		return productDao.findAll(keyword,categoryID, groupID, offset, maxResults, order);
+	public List<Product> findAll(String keyword, Integer categoryID, Integer groupID,Integer fromPrice, Integer toPrice, Integer offset, Integer maxResults, String order) {
+		return productDao.findAll(keyword,categoryID, groupID,fromPrice, toPrice, offset, maxResults, order);
 	}
 	
 	public Product findOneById(int id) {
@@ -28,7 +28,7 @@ public class ProductSeviceImpl implements ProductService{
 		productDao.save(product);
 	}
 	
-	public Long count(String keyword,Integer categoryID, Integer fromPrice, Integer toPrice) {
-		return productDao.count(keyword, categoryID, fromPrice, toPrice);
+	public Long count(String keyword,Integer categoryID, Integer groupID, Integer fromPrice, Integer toPrice) {
+		return productDao.count(keyword, categoryID, groupID, fromPrice, toPrice);
 	}
 }

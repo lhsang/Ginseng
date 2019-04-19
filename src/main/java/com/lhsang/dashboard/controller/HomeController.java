@@ -52,7 +52,7 @@ public class HomeController extends BaseController{
 	@SuppressWarnings({ "unused"})
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String home(Locale locale, Model model,HttpSession httpSession,Integer offset, Integer maxResults) {
-		List<Product> products = productService.findAll("",null, null,offset, maxResults,null);
+		List<Product> products = productService.findAll("",null, null, null, null,offset, maxResults,null);
 		List<List<Product>> allItems=new ArrayList<List<Product>>();
 		for (int i=0;i<products.size();i+=2) {
 			List<Product> temp=new ArrayList<>();
@@ -76,7 +76,7 @@ public class HomeController extends BaseController{
 		
 		Product product = productService.findOneById(id);
 	
-		List<Product> products = productService.findAll("",null,null,offset, maxResults,null);
+		List<Product> products = productService.findAll("",null,null,null, null,offset, maxResults,null);
 		
 		model.addAttribute("product", product);
 		model.addAttribute("products", products);
@@ -138,16 +138,17 @@ public class HomeController extends BaseController{
 			@RequestParam(value="toPrice",required =false) Integer toPrice,
 			@RequestParam(value="order",required =false, defaultValue = "new") String order) {
 		
-		List<Product> products = productService.findAll(keyword,categoryID,groupID,offset, maxResults,order);
+		List<Product> products = productService.findAll(keyword,categoryID,groupID, fromPrice, toPrice, offset, maxResults,order);
         model.addAttribute("offset", offset);
         model.addAttribute("keyword", keyword);
         model.addAttribute("limit", maxResults);
         model.addAttribute("uri", "products");
         model.addAttribute("order", order);
-        model.addAttribute("count", productService.count(keyword, categoryID, fromPrice, toPrice));
+        model.addAttribute("count", productService.count(keyword, categoryID, groupID, fromPrice, toPrice));
 		model.addAttribute("products", products);
 		//System.out.println(products.size() + "++++"+ productService.count(keyword, categoryID, fromPrice, toPrice));
 		
+		//System.out.println("\n\n\n++++"+products.get(0).getCategory().getGroup().getName());
 		return "products";
 	}
 	

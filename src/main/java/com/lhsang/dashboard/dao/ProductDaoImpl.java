@@ -22,18 +22,22 @@ public class ProductDaoImpl extends AbstractDao<Integer, Product> implements Pro
 	SessionFactory sessionFactory;
 	
 	@SuppressWarnings({ "unchecked", "deprecation" })
-	public List<Product>  findAll(String keyword, Integer categoryID, Integer groupID, Integer offset, Integer maxResults, String order) {
+	public List<Product>  findAll(String keyword, Integer categoryID, Integer groupID, Integer fromPrice, Integer toPrice, Integer offset, Integer maxResults, String order) {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Product.class);
 		
 		if(keyword!=null && !keyword.isEmpty())
 			criteria.add(Restrictions.like("name","%"+keyword+"%"));
 		
 		if(categoryID!=null) {
-			criteria.createAlias("categories", "cate").add(Restrictions.eq("cate.id", categoryID));
+			criteria.createAlias("category", "cate").add(Restrictions.eq("cate.id", categoryID));
 		}else {
 			if(groupID!=null) {
-				criteria.createAlias("categories.group", "gr").add(Restrictions.eq("gr.id", groupID));
+				criteria.createAlias("category", "cate").createAlias("cate.group", "gr").add(Restrictions.eq("gr.id", groupID));
 			}
+		}
+		
+		if(fromPrice != null && toPrice != null) {
+			criteria.add(Restrictions.between("price", fromPrice*1000, toPrice*1000));
 		}
 		
 		criteria.setFirstResult(offset!=null?offset:0)
@@ -59,21 +63,24 @@ public class ProductDaoImpl extends AbstractDao<Integer, Product> implements Pro
 	}
 	
 	@SuppressWarnings("deprecation")
-	public Long count(String keyword,Integer categoryID, Integer fromPrice, Integer toPrice) {
+	public Long count(String keyword,Integer categoryID, Integer groupID, Integer fromPrice, Integer toPrice) {
 		Criteria criteria = (Criteria) sessionFactory.openSession().createCriteria(Product.class);
 		
 		if(keyword!=null && !keyword.isEmpty()) {
 			criteria.add( Restrictions.like("name", "%"+keyword+"%"));
 		}
-		if(fromPrice!=null) {
-			criteria.add( Restrictions.gt("price", fromPrice-1));
+		if(fromPrice!=null && toPrice!=null) {
+			criteria.add( Restrictions.between("price", fromPrice*1000, toPrice*1000));
 		}
-		if(toPrice!=null) {
-			criteria.add( Restrictions.lt("price", toPrice+1));
-		}
+	
 		if(categoryID!=null) {
-			//criteria.add( Restrictions.eq("", categoryID));
+			criteria.createAlias("category", "cate").add(Restrictions.eq("cate.id", categoryID));
+		}else {
+			if(groupID!=null) {
+				criteria.createAlias("category", "cate").createAlias("cate.group", "gr").add(Restrictions.eq("gr.id", groupID));
+			}
 		}
+		
 		return (long) criteria.setProjection(Projections.rowCount())
                 .uniqueResult();
     }
