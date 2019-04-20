@@ -21,6 +21,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
               <a class="dropdown-item" href="<c:url value='/profile-customer' />">Tài khoản</a>
+              <a class="dropdown-item" href="<c:url value='/history' />">Đơn hàng của tôi</a>
               <a class="dropdown-item" href="<c:url value='/logout' />">Đăng xuất</a>
             </div>
           </div>

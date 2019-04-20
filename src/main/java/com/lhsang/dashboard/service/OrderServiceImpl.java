@@ -25,6 +25,10 @@ public class OrderServiceImpl implements OrderService{
 		return orderDao.findOneById(id);
 	}
 	
+	public List<Order> findByUserId(int id) {
+		return orderDao.findByUserId(id);
+	}
+	
 	public void save(Order order) {
 		orderDao.save(order);
 	}

@@ -9,5 +9,7 @@ public interface OrderDao {
 	List<Order> findAll(); 
 	Order findOneById(int id);
 	
+	List<Order> findByUserId(int id);
+	
 	void save(Order order);
 }

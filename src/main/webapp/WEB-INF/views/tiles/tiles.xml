@@ -87,6 +87,10 @@
 		<put-attribute name="body" value="/WEB-INF/views/pages/customer/profile.jsp" />
 	</definition>
 	
+	<definition name="history" extends="mainLayout">
+		<put-attribute name="body" value="/WEB-INF/views/pages/customer/history.jsp" />
+	</definition>
+	
 	<!-- end client -->
 	
 	<!-- Start admin -->

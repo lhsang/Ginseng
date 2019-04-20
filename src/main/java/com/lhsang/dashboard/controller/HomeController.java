@@ -31,9 +31,11 @@ import org.springframework.web.servlet.ModelAndView;
 import com.lhsang.dashboard.model.BaseResponse;
 import com.lhsang.dashboard.model.Cart;
 import com.lhsang.dashboard.model.Group;
+import com.lhsang.dashboard.model.Order;
 import com.lhsang.dashboard.model.Product;
 import com.lhsang.dashboard.model.User;
 import com.lhsang.dashboard.service.GroupService;
+import com.lhsang.dashboard.service.OrderService;
 import com.lhsang.dashboard.service.ProductService;
 import com.lhsang.dashboard.service.UserService;
 import com.lhsang.helper.ResponseStatusEnum;
@@ -54,6 +56,8 @@ public class HomeController extends BaseController{
 	@Autowired
 	GroupService groupService;
 	
+	@Autowired
+	OrderService orderService;
 	
 	@SuppressWarnings({ "unused"})
 	@RequestMapping(value = "", method = RequestMethod.GET)
@@ -168,4 +172,16 @@ public class HomeController extends BaseController{
 		model.addAttribute("groups", groups);
         return new ModelAndView("others/_category");
     }
+	
+	@RequestMapping(value = "/history", method = RequestMethod.GET)
+	public String history(Model model) {
+		String username = SecurityContextHolder.getContext().getAuthentication().getName();
+		if(username.equals("anonymousUser"))
+			return "redirect:/";
+		User user = userService.findOneByUsername(username);
+		List<Order> orders = orderService.findByUserId(user.getId());
+		
+		model.addAttribute("orders", orders);
+		return "history";
+	}
 }
