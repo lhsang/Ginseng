@@ -26,11 +26,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.lhsang.dashboard.model.BaseResponse;
 import com.lhsang.dashboard.model.Cart;
+import com.lhsang.dashboard.model.Group;
 import com.lhsang.dashboard.model.Product;
 import com.lhsang.dashboard.model.User;
+import com.lhsang.dashboard.service.GroupService;
 import com.lhsang.dashboard.service.ProductService;
 import com.lhsang.dashboard.service.UserService;
 import com.lhsang.helper.ResponseStatusEnum;
@@ -48,26 +51,34 @@ public class HomeController extends BaseController{
 	@Autowired
 	ProductService productService;
 	
+	@Autowired
+	GroupService groupService;
+	
 	
 	@SuppressWarnings({ "unused"})
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String home(Locale locale, Model model,HttpSession httpSession,Integer offset, Integer maxResults) {
-		List<Product> products = productService.findAll("",null, null, null, null,offset, maxResults,null);
+		List<Product> products = productService.findAll("",null, null, null, null,offset, maxResults,"new");
 		List<List<Product>> allItems=new ArrayList<List<Product>>();
 		for (int i=0;i<products.size();i+=2) {
 			List<Product> temp=new ArrayList<>();
 			temp.add(products.get(i));
 			if(i+1<products.size())
 				temp.add(products.get(i+1));
-			/*if(i+2<products.size())
-				temp.add(products.get(i+2));*/
 			allItems.add(temp);
 		}
+		
+		Integer groupIDSam=1; //ID group nhan sam
+		List<Product> productSam = productService.findAll("", null, groupIDSam, null, null, null, 10, "new");
+		
+		Integer groupIDLinhChi=2; //ID group linh chi
+		List<Product> productLinhChi= productService.findAll("", null, groupIDLinhChi, null, null, null, 10, "new");
+		
 		model.addAttribute("products", products);
 		model.addAttribute("allItems", allItems);
 		
-		
-			
+		model.addAttribute("productSam", productSam);
+		model.addAttribute("productLinhChi", productLinhChi);
 		return "home";
 	}
 	
@@ -146,10 +157,15 @@ public class HomeController extends BaseController{
         model.addAttribute("order", order);
         model.addAttribute("count", productService.count(keyword, categoryID, groupID, fromPrice, toPrice));
 		model.addAttribute("products", products);
-		//System.out.println(products.size() + "++++"+ productService.count(keyword, categoryID, fromPrice, toPrice));
-		
-		//System.out.println("\n\n\n++++"+products.get(0).getCategory().getGroup().getName());
 		return "products";
 	}
 	
+	
+	@RequestMapping(value = { "/products/render-group" }, method = RequestMethod.POST)
+    public ModelAndView renderGroup(Model model) {
+		
+		List<Group> groups = groupService.findAll();
+		model.addAttribute("groups", groups);
+        return new ModelAndView("others/_category");
+    }
 }

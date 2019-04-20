@@ -38,6 +38,7 @@ public class AdminProductController {
     public ModelAndView allProduct(
     		@RequestParam(value="keyword",required =false, defaultValue = "") String keyword,
 			@RequestParam(value="categoryID",required =false) Integer categoryID,
+			@RequestParam(value="groupID",required =false) Integer groupID,
 			@RequestParam(value="offset",required =false, defaultValue = "0") Integer offset, 
 			@RequestParam(value="limit",required =false, defaultValue = "12") Integer maxResults,
 			@RequestParam(value="fromPrice",required =false) Integer fromPrice,
@@ -48,7 +49,7 @@ public class AdminProductController {
 		List<Product> products=productService.findAll(keyword, null, null,null,null,offset, maxResults, order);
 		model.addObject("products", products);
 		
-		model.addObject("count", productService.count(keyword, categoryID, fromPrice, toPrice));
+		model.addObject("count", productService.count(keyword, categoryID, groupID, fromPrice, toPrice));
         model.addObject("offset", offset);
         model.addObject("keyword", keyword);
         model.addObject("limit", maxResults);

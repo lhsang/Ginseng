@@ -83,48 +83,8 @@
             <div class="col-lg-3 order-2 order-lg-1">
                 <div class="sidebar">
                     <!-- Sidebar Electronics Categorie Start -->
-                    <div class="electronics mb-40">
-                        <h3 class="sidebar-title">Danh mục</h3>
-                        <div id="shop-cate-toggle" class="category-menu sidebar-menu sidbar-style">
-                            <ul>
-                                <li class="has-sub"><a href="#">Sâm</a>
-                                    <ul class="category-sub">
-                                        <li><a href="shop.html">Cords and Cables</a></li>
-                                        <li><a href="shop.html">gps accessories</a></li>
-                                        <li><a href="shop.html">Microphones</a></li>
-                                        <li><a href="shop.html">Wireless Transmitters</a></li>
-                                    </ul>
-                                    <!-- category submenu end-->
-                                </li>
-                                <li class="has-sub"><a href="#">Nấm linh chi</a>
-                                    <ul class="category-sub">
-                                        <li><a href="shop.html">cube lifestyle hd</a></li>
-                                        <li><a href="shop.html">gopro hero4</a></li>
-                                        <li><a href="shop.html">bhandycam cx405ags</a></li>
-                                        <li><a href="shop.html">vixia hf r600</a></li>
-                                    </ul>
-                                    <!-- category submenu end-->
-                                </li>
-                                <li class="has-sub"><a href="#">Đông trùng hạ thảo</a>
-                                    <ul class="category-sub">
-                                        <li><a href="shop.html">Gold eye</a></li>
-                                        <li><a href="shop.html">Questek</a></li>
-                                        <li><a href="shop.html">Snm</a></li>
-                                        <li><a href="shop.html">vantech</a></li>
-                                    </ul>
-                                    <!-- category submenu end-->
-                                </li>
-                                <li class="has-sub"><a href="#">Nước hồng sâm</a>
-                                    <ul class="category-sub">
-                                        <li><a href="shop.html">Samsung</a></li>
-                                        <li><a href="shop.html">Toshiba</a></li>
-                                        <li><a href="shop.html">Transcend</a></li>
-                                        <li><a href="shop.html">Sandisk</a></li>
-                                    </ul>
-                                    <!-- category submenu end-->
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="electronics mb-40" id="cate">
+                        
                         <!-- category-menu-end -->
                     </div>
                     <!-- Sidebar Electronics Categorie End -->
@@ -272,10 +232,21 @@
 <script>
     $(document).ready(function () {
         $('#li-products').addClass("active");
-
+        renderGroup();
         changeLimit();
         changeSort();
     });
+
+    function renderGroup() {  
+		$.ajax({
+            type: "POST",
+            url: "<c:url value='/products/render-group'/>",
+            success: function (response) {
+                $("#cate").html("");
+                $("#cate").html(response);
+            }
+        });
+    }
 
     function filterPrice() {
         var range =$('#amount').val().toString();

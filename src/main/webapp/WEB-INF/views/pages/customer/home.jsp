@@ -136,12 +136,12 @@
                 <div class="product-list-box">
                     <!-- Arrivals Product Activation Start Here -->
                     <div class="trending-pro-active owl-carousel">
-                        <c:forEach items="${products}" var="product">
+                        <c:forEach items="${productSam}" var="product">
                         <!-- Single Product Start -->
                         <div class="single-product">
                             <!-- Product Image Start -->
                             <div class="pro-img">
-                                <a href="product.html">
+                                <a href="<c:url value='/product/${product.getId()}'/>">
                                     <img class="primary-img" src="${product.getImg()}" alt="single-product" style="height: 220px">
                                     <img class="secondary-img" src="${product.getImg()}" alt="single-product" style="height: 220px">
                                 </a>
@@ -151,7 +151,7 @@
                             <!-- Product Content Start -->
                             <div class="pro-content">
                                 <div class="pro-info">
-                                    <h4><a href="product.html">${product.getNameLimitCharacter(20)}</a></h4>
+                                    <h4><a href="<c:url value='/product/${product.getId()}'/>">${product.getNameLimitCharacter(20)}</a></h4>
                                     <p><span class="price">${product.formatMoney()}</p>
                                     
                                 </div>
@@ -174,7 +174,7 @@
                     <!-- Arrivals Product Activation End Here -->                    
                 </div>
                 <div class="post-title pb-30" style="text-align: right">
-                        <button type="button" class="btn btn-primary btn-view-more">Xem thêm</button>
+                        <button type="button" class="btn btn-primary btn-view-more" onclick="more('groupID','1')">Xem thêm</button>
                     </div>
                 <!-- main-product-tab-area-->
                 </div>
@@ -195,12 +195,12 @@
                     <div class="product-list-box">
                         <!-- Arrivals Product Activation Start Here -->
                         <div class="trending-pro-active owl-carousel">
-                            <c:forEach items="${products}" var="product">
+                            <c:forEach items="${productLinhChi}" var="product">
                             <!-- Single Product Start -->
                             <div class="single-product">
                                 <!-- Product Image Start -->
                                 <div class="pro-img">
-                                    <a href="product.html">
+                                    <a href="<c:url value='/product/${product.getId()}'/>">
                                         <img class="primary-img" src="${product.getImg()}" alt="single-product" style="height: 220px">
                                         <img class="secondary-img" src="${product.getImg()}" alt="single-product" style="height: 220px">
                                     </a>
@@ -210,7 +210,7 @@
                                 <!-- Product Content Start -->
                                 <div class="pro-content">
                                     <div class="pro-info">
-                                        <h4><a href="product.html">${product.getNameLimitCharacter(20)}</a></h4>
+                                        <h4><a href="<c:url value='/product/${product.getId()}'/>">${product.getNameLimitCharacter(20)}</a></h4>
                                         <p><span class="price">${product.formatMoney()}</p>
                                         
                                     </div>
@@ -233,7 +233,7 @@
                         <!-- Arrivals Product Activation End Here -->                    
                     </div>
                     <div class="post-title pb-30" style="text-align: right">
-                            <button type="button" class="btn btn-primary btn-view-more">Xem thêm</button>
+                            <button type="button" class="btn btn-primary btn-view-more" onclick="more('groupID','2')">Xem thêm</button>
                     </div>
                     <!-- main-product-tab-area-->
                     </div>
@@ -257,7 +257,7 @@
                             <div class="single-product">
                                 <!-- Product Image Start -->
                                 <div class="pro-img">
-                                    <a href="product.html">
+                                    <a href="<c:url value='/product/${product.getId()}'/>">
                                         <img class="primary-img" src="${product.getImg()}" alt="single-product" style="height: 170px">
                                         <img class="secondary-img" src="${product.getImg()}" alt="single-product" style="height: 170px">
                                     </a>
@@ -267,7 +267,7 @@
                                 <!-- Product Content Start -->
                                 <div class="pro-content">
                                     <div class="pro-info">
-                                        <h4><a href="product.html">${product.getNameLimitCharacter(20)}</a></h4>
+                                        <h4><a href="<c:url value='/product/${product.getId()}'/>">${product.getNameLimitCharacter(20)}</a></h4>
                                         <p>${product.formatMoney()}</p>
                                     </div>
                                     <div class="pro-actions">
@@ -293,7 +293,7 @@
                 <!-- main-product-tab-area-->
                 
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align: center; margin-top: 20px">
-                    <button type="button" class="btn btn-primary btn-view-more" style="width: 350px;border-radius: 8px;">Xem thêm</button>
+                    <button type="button" class="btn btn-primary btn-view-more" style="width: 350px;border-radius: 8px;" onclick="more('','')">Xem thêm</button>
                 </div>
                 
                 
@@ -306,4 +306,11 @@
 $(document).ready(function () {
     $('#li-home').addClass("active");
 });
+
+function more(key, value) {
+    if(key=="")
+        window.location.href = "<c:url value='/products'/>";
+    else
+        window.location.href = "<c:url value='/products'/>"+"?"+key+"="+value;
+}
 </script>
